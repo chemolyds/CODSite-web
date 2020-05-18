@@ -9,7 +9,7 @@ const Home = () => {
 			<NavBar page="Home"/>
 
 			<div>
-				<p>USNCO-web</p>
+			<h1 className="display-1 font-weight-bold">USNCO-web</h1>
 				<p>Welcome to the website for the USNCO discord server!</p>
 			</div>
 		</div>
