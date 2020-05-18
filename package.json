@@ -1,0 +1,68 @@
+{
+  "name": "USNCO-web",
+  "version": "1.0.0",
+  "description": "A website for the USNCO discord server",
+  "type": "module",
+  "proxy": "http://localhost:3001",
+  "engines": {
+    "node": "13.6.0",
+    "npm": "6.13.4",
+    "yarn": "1.5.1"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && rm -rf node_modules && npm install && npm run build",
+    "start-dev": "concurrently \"nodemon server\" \"cd client && npm start\"",
+    "prepDB": "cd prepDB && node emptyGlossary.js && node emptyRemedies.js && node populateGlossary.js && node populateRemedies.js",
+    "install-all": "npm i && cd client && npm i",
+    "audit-all": "npm audit fix && cd client && npm audit fix",
+    "install-audit": "npm run install-all && npm run audit-all"
+  },
+  "authors": [
+    "Short On Time"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@sentry/node": "^5.15.4",
+    "@std/esm": "^0.26.0",
+    "async": "^3.1.1",
+    "axios": "^0.19.2",
+    "babel-jest": "^24.9.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "client": "file:client",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "fast-csv": "^4.1.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.6",
+    "mongoose": "^5.9.2",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "react-image-mapper": "0.0.15",
+    "react-instagram-embed": "^1.5.0",
+    "react-three-fiber": "^4.0.28",
+    "request": "^2.88.2",
+    "root": "^3.2.0",
+    "semver": "^7.1.3"
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.5",
+    "concurrently": "^5.1.0",
+    "jest": "^25.1.0",
+    "jest-esm-transformer": "^1.0.0",
+    "nodemon": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ISODN/USNCO-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ISODN/USNCO-web/issues"
+  },
+  "homepage": "https://github.com/ISODN/USNCO-web#readme"
+}
