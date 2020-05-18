@@ -23,6 +23,7 @@ const NavBar = (props) => {
 			<nav role="navigation">
 				<ul class="navbar-nav">
 					<li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li>
+					<li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li>
 					<li class={setActivePageHighlight("About")}><a class="nav-link" href="about">About</a></li>
 				</ul>
 			</nav>
