@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
+import '../App.css';
 
 import NavBar from '../components/NavBar';
+
 
 const Home = () => {
 	return (
 		<div className="App">
+			<NavBar page="About"/>
 
-			<NavBar page="Home"/>
-
-			<div>
-				<p>USNCO-web</p>
-				<p>Welcome to the website for the USNCO discord server!</p>
-			</div>
+			<h>About Page</h>
+			<p>The website was made by Jerdan1980</p>
 		</div>
 	)
 }
