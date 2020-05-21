@@ -13,11 +13,11 @@ const Home = () => {
 			<div class="container text-left">
 			<h2>Staff</h2>
 				<ul class="text-left">
+					<li>Jerdan: Owner, Admin, Tech Team</li>
 					<li>Fizz: Admin</li>
-					<li>Jerdan: Admin, tech team</li>
 					<li>Apc: Senior Moderator</li>
-					<li>Ayame: Moderator</li>
-					<li>Tsm: Helper</li>
+					<li>Ayame: Senior Moderator</li>
+					<li>Tsm: Staff</li>
 				</ul>
 			</div>
 		</div>
