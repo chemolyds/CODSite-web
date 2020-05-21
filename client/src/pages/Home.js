@@ -9,8 +9,8 @@ const Home = () => {
 			<NavBar page="Home"/>
 
 			<div>
-			<h1 className="display-1 font-weight-bold">USNCO-web</h1>
-				<p>Welcome to the website for the USNCO discord server!</p>
+			<h1 className="display-1 font-weight-bold">Chemistry Olympiad-web</h1>
+				<p>Welcome to the website for the Chemistry Olympiad Discord Server!</p>
 			</div>
 		</div>
 	)
