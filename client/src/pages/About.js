@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../App.css';
 
 import NavBar from '../components/NavBar';
-
+import AboutContents from '../components/AboutContents';
 
 const Home = () => {
 	return (
@@ -11,7 +11,9 @@ const Home = () => {
 
 			<h1 class="display-1 font-weight-bold">About Page</h1>
 			<div class="container text-left">
-			<h2>Staff</h2>
+				<AboutContents/>
+				{/*
+				<h2>Staff</h2>
 				<ul class="text-left">
 					<li>Jerdan: Owner, Admin, Tech Team</li>
 					<li>Fizz: Admin</li>
@@ -19,6 +21,7 @@ const Home = () => {
 					<li>Ayame: Senior Moderator</li>
 					<li>Tsm: Staff</li>
 				</ul>
+				*/}
 			</div>
 		</div>
 	)

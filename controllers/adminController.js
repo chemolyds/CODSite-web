@@ -26,7 +26,7 @@ export const createAbout = async (req, res) => {
 
 export const editAbout = async (req, res) => {
 	initMongoose()
-	About.findOneAndUpdate({name: 'about'}, req.body, {new: true}, (err, data) => {
+	About.findOneAndUpdate({name: 'about'}, {contents: req.body.contents}, {new: true}, (err, data) => {
 		if (err) {
 			res.status(400).json({err})
 			throw err;
