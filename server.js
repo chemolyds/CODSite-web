@@ -9,6 +9,8 @@ import cors from 'cors';
 
 //routes
 import problemRouter from './routes/problemRouter.js';
+import userRouter from './routes/userRouter.js';
+import adminRouter from './routes/adminRouter.js';
 
 const app = express();
 
@@ -37,6 +39,8 @@ app.use(cors());
 
 //ROUTES
 app.use('/api/problems/', problemRouter);
+app.use('/api/user/', userRouter);
+app.use('/api/admin/', adminRouter);
 
 app.all('/*', (req, res) => {
 	// res.status(201).json({message: "nothing here!"});
