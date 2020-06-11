@@ -6,12 +6,12 @@ const Home = () => {
 	return (
 		<div className="App">
 			<div class="overlayer">
-					<div class="sr-only" role="status">
-						<div class="spinner-border text-primary">
-							<span>Loading...</span>
-						</div>
+				<div class="sr-only" role="status">
+					<div class="spinner-border text-primary">
+						<span>Loading...</span>
 					</div>
 				</div>
+			</div>
 
 			<NavBar page="Problems"/>
 

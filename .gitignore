@@ -128,5 +128,3 @@ yarn-debug.log*
 yarn-error.log*
 
 config/config.js
-
-server/config/config.js
