@@ -7,7 +7,7 @@ const AboutContents = (props) => {
 	const [about, setAbout] = useState("");
 
 	useEffect(() => {
-		axios.get(`http://localhost:3001/api/user/about`)
+		axios.get(`http://localhost:${process.env.PORT || 3001}/api/user/about`) 
 			.then(res => {setAbout(res.data.contents)});
 	}, []);
 

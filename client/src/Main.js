@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 
 //Pages
 import Home from './pages/Home';
@@ -10,14 +10,14 @@ import FAQ from './pages/FAQ';
 
 const Main = () => {
 	return (
-		<BrowserRouter><Switch>
+		<Switch>
 			<Route exact path='/' component={Home}/>
 			<Route exact path='/problems' component={Problems}/>
 			<Route exact path='/about' component={About}/>
 			<Route exact path='/faq' component={FAQ}/>
 
 			<Route component={PageNotFound}/>
-		</Switch></BrowserRouter>
+		</Switch>
 	);
 }
 
