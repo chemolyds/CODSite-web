@@ -15,4 +15,4 @@ const ProblemSchema = mongoose.Schema({
   createdAt: { type: Date, default: Date.now()},
 });
 
-export default mongoose.model('Problem', ProblemSchema);
+export default mongoose.model('problem', ProblemSchema);

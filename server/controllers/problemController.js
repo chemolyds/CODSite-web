@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import path from 'path';
-import Problem from '../models/ProblemModel.js';
+import Problem from '../models/problemModel.js';
 import config from '../config/config.js';
 
 import {dirname} from 'path';
