@@ -14,13 +14,12 @@
     "start": "node server.js",
     "heroku-postbuild": "cd client && rm -rf node_modules && npm install && npm run build",
     "start-dev": "concurrently \"nodemon server\" \"cd client && npm start\"",
-    "prepDB": "cd prepDB && node emptyGlossary.js && node emptyRemedies.js && node populateGlossary.js && node populateRemedies.js",
     "install-all": "npm i && cd client && npm i",
     "audit-all": "npm audit fix && cd client && npm audit fix",
     "install-audit": "npm run install-all && npm run audit-all"
   },
   "authors": [
-    "Short On Time"
+    "Jerdan1980"
   ],
   "license": "MIT",
   "dependencies": {

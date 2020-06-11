@@ -8,9 +8,9 @@ import cors from 'cors';
 //import config from '../config/config.js';
 
 //routes
-import problemRouter from './routes/problemRouter.js';
-import userRouter from './routes/userRouter.js';
-import adminRouter from './routes/adminRouter.js';
+import problemRouter from './server/routes/problemRouter.js';
+import userRouter from './server/routes/userRouter.js';
+import adminRouter from './server/routes/adminRouter.js';
 
 const app = express();
 
