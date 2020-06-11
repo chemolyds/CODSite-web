@@ -7,8 +7,8 @@ const adminRouter = express.Router();
 adminRouter.put('/edit_about', admin.editAbout);
 
 //FAQs
-adminRouter.post('/create_faq', about.createFAQ);
-adminRouter.put('/edit_faq/:id', about.editFAQ);
-adminRouter.delete('/delete_faq/:id', about.deleteFAQ);
+adminRouter.post('/create_faq', admin.createFAQ);
+adminRouter.put('/edit_faq/:id', admin.editFAQ);
+adminRouter.delete('/delete_faq/:id', admin.deleteFAQ);
 
 export default adminRouter;

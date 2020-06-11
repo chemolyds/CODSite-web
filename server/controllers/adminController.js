@@ -3,7 +3,7 @@ import config from '../config/config.js';
 
 //Models
 import About from '../models/aboutModel.js';
-import faqModel from '../models/faqModel.js';
+import FAQ from '../models/faqModel.js';
 
 function initMongoose() {
   mongoose.connect(config.db.uri, {useNewUrlParser: true});
@@ -42,9 +42,9 @@ export const editAbout = async (req, res) => {
 export const createFAQ = async (req, res) => {
 	initMongoose()
 	let save_FAQ
-	save_FAQ = new faqModel({
+	save_FAQ = new FAQ({
 		answer: req.body.answer,
-		question: req.body.qeustion
+		question: req.body.question
 	});
 	save_FAQ.save(function (err, save_FAQ) {
 		if (err) {
@@ -57,8 +57,9 @@ export const createFAQ = async (req, res) => {
 }
 
 export const editFAQ = async (req, res) => {
+	const id = req.params.id;
 	initMongoose()
-	FAQ.findOneAndUpdate({_id, id}, req.body, {new: true}, (err, data) => {
+	FAQ.findOneAndUpdate({_id: id}, req.body, {new: true}, (err, data) => {
 		if (err) {
 			res.status(400).json({err});
 			throw err;
@@ -71,6 +72,7 @@ export const editFAQ = async (req, res) => {
 }
 
 export const deleteFAQ = async (req, res) => {
+	const id = req.params.id;
 	initMongoose()
 	FAQ.findOneAndDelete({_id: id}, (err, data) => {
 		if (err) {
