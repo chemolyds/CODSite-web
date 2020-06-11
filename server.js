@@ -44,7 +44,7 @@ app.use('/api/admin/', adminRouter);
 
 app.all('/*', (req, res) => {
 	// res.status(201).json({message: "nothing here!"});
-	res.sendFile(path.resolve("./client/build/index.html"));
+	res.status(400).json({message: "something went wrong"});
 });
 
 const PORT = process.env.PORT || 3001;

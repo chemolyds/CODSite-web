@@ -26,8 +26,9 @@ export const getFAQList = async (req, res) => {
 }
 
 export const getFAQ = async (req, res) => {
+	const id = req.params.id;
 	initMongoose()
-	FAQ.find({_id: res.id}, (err, data) => {
+	FAQ.find({_id: id}, (err, data) => {
 		if (err) {
 			res.status(400).json({err});
 			throw err;
