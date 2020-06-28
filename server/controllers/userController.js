@@ -4,6 +4,7 @@ import config from '../config/config.js';
 //Models
 import About from '../models/aboutModel.js';
 import FAQ from '../models/faqModel.js';
+import Page from '../models/pageModel.js';
 
 function initMongoose() {
   mongoose.connect(config.db.uri, {useNewUrlParser: true});
@@ -14,6 +15,14 @@ function initMongoose() {
 export const about = async (req, res) => {
 	initMongoose()
 	About.findOne({name: 'about'}, (err, data) => {
+		res.status(200).json(data);
+	});
+}
+
+export const getPage = async (req, res) => {
+	const page = req.params.page;
+	initMongoose()
+	Page.findOne({page: page}, (err, data) => {
 		res.status(200).json(data);
 	});
 }

@@ -4,6 +4,7 @@ const userRouter = express.Router();
 
 //about
 userRouter.get('/about', user.about);
+userRouter.get('/get_page/:page', user.getPage);
 
 //FAQs
 userRouter.get('/get_faq', user.getFAQList);
