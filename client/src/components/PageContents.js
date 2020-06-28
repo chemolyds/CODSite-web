@@ -7,7 +7,7 @@ const PageContents = (props) => {
 	const [page, setPage] = useState("Please hold on...");
 
 	useEffect(() => {
-		axios.get(`http://localhost:3001/api/user/get_page/${props.page}`) 
+		axios.get(`/api/user/get_page/${props.page}`) 
 			.then(res => {setPage(res.data.contents)});
 	}, []);
 

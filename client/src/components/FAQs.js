@@ -8,7 +8,7 @@ const FAQs = (props) => {
 	const [FAQs, setFAQs] = useState([]);
 
 	useEffect(() => {
-		axios.get(`http://localhost:3001/api/user/get_faq`) 
+		axios.get(`/api/user/get_faq`) 
 			.then(res => {setFAQs(res.data)});
 	}, []);
 
