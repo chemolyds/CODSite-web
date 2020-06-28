@@ -7,7 +7,7 @@ const adminRouter = express.Router();
 //adminRouter.put('/edit_about', admin.editAbout);
 
 //pages
-adminRouter.post('/create_page', admin.createPage);
+//adminRouter.post('/create_page', admin.createPage);
 adminRouter.put('/edit_page/:page', admin.editPage);
 
 //FAQs
