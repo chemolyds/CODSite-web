@@ -1,9 +1,12 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import config from '../config/config.js';
 
 //Models
 import About from '../models/aboutModel.js';
 import FAQ from '../models/faqModel.js';
+import Page from '../models/pageModel.js';
 
 function initMongoose() {
   mongoose.connect(config.db.uri, {useNewUrlParser: true});
@@ -11,9 +14,39 @@ function initMongoose() {
   db.on('error', console.error.bind(console, 'connection error:'));
 }
 
+function signJWT(payload, res) {
+	jwt.sign(payload, "chem", {expiresIn: 360000}, (err, token) => {
+		if(err) {
+			console.log("JWT error signing", err);
+			throw err;
+		}
+		res.status(200).json({
+			token
+		});
+	});
+}
+
+function buildPayload(user) {
+  return {
+    user_info: {
+			username: user.username,
+      id: user.id,
+      is_admin: user.is_admin
+    }
+  }
+}
+
 export const about = async (req, res) => {
 	initMongoose()
 	About.findOne({name: 'about'}, (err, data) => {
+		res.status(200).json(data);
+	});
+}
+
+export const getPage = async (req, res) => {
+	const page = req.params.page;
+	initMongoose()
+	Page.findOne({page: page}, (err, data) => {
 		res.status(200).json(data);
 	});
 }

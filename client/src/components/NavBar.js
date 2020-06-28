@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import logo from '../logo.svg';
+import logo from '../usnco-server-icon.png';
 
 const NavBar = (props) => {
 	//menuItem should be the string of a navbar item
