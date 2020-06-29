@@ -2,8 +2,11 @@ import * as user from '../controllers/userController.js';
 import express from 'express';
 const userRouter = express.Router();
 
-//about
-userRouter.get('/about', user.about);
+//logging in
+userRouter.post('/signin', user.signin);
+
+//pages
+//userRouter.get('/about', user.about);
 userRouter.get('/get_page/:page', user.getPage);
 
 //FAQs

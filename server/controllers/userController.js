@@ -7,6 +7,7 @@ import config from '../config/config.js';
 import About from '../models/aboutModel.js';
 import FAQ from '../models/faqModel.js';
 import Page from '../models/pageModel.js';
+import User from '../models/userModel.js';
 
 function initMongoose() {
   mongoose.connect(config.db.uri, {useNewUrlParser: true});
@@ -20,9 +21,7 @@ function signJWT(payload, res) {
 			console.log("JWT error signing", err);
 			throw err;
 		}
-		res.status(200).json({
-			token
-		});
+		res.status(200).json({token});
 	});
 }
 
@@ -34,6 +33,28 @@ function buildPayload(user) {
       is_admin: user.is_admin
     }
   }
+}
+
+export const signin = async (req, res) => {
+	const username = req.body.username;
+	const pasword = req.body.password;
+	let user = await User.findOne({username});
+	if(!user) {
+		return res.status(400).json({
+			message: "User does not exist!"
+		});
+	}
+
+	const isMatch = await bcrypt.compare(password, user.password);
+	if(!isMatch) {
+		return res.status(400).json({
+			message: "Incorrect password!"
+		});
+	}
+
+	const payload = buildPayload(user);
+	console.log(payload);
+	signJWT(payload, res);
 }
 
 export const about = async (req, res) => {
@@ -63,7 +84,7 @@ export const getFAQ = async (req, res) => {
 	initMongoose()
 	FAQ.find({_id: id}, (err, data) => {
 		if (err) {
-			res.status(400).json({err});
+			res.status(400).json(err);
 			throw err;
 		} else if (!data) {
 			res.status(400).json({message: "FAQ does not exist!"});
