@@ -13,8 +13,8 @@ const Footer = (props) => {
 						</a>
 					</h2>
 				</div>
-				<div class="align-middle">
-					<button>Login</button>
+				<div class="pt-2">
+					<button class="btn btn-primary">Login</button>
 				</div>
 			</div>
 		</div>
