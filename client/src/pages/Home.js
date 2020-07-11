@@ -20,13 +20,13 @@ const Home = () => {
 
 			<NavBar page="Home"/>
 
+			{/*
 			<h1 className="display-1 font-weight-bold">Chemistry Olympiad-web</h1>
 			<div class="container text-left">
-			{/*
 				<p>Welcome to the website for the Chemistry Olympiad Discord Server!</p>
+			</div>
 			*/}
 			<PageContents page="home"/>
-			</div>
 
 			<Footer/>
 

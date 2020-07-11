@@ -20,10 +20,7 @@ const FAQ = () => {
 
 			<NavBar page="FAQ"/>
 
-			<div>
-				<h1 className="display-1 font-weight-bold">Frequently Asked Questions</h1>
-				<PageContents page='faq'/>
-			</div>
+			<PageContents page='faq'/>
 
 			<div class="container">
 				<FAQs/>

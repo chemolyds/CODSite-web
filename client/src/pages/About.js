@@ -10,10 +10,7 @@ const Home = () => {
 		<div className="App">
 			<NavBar page="About"/>
 
-			<h1 class="display-1 font-weight-bold">About Page</h1>
-			<div class="container text-left">
-				<PageContents page="about"/>
-			</div>
+			<PageContents page="about"/>
 
 			<Footer/>
 
