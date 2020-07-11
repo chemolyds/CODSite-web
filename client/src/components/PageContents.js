@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
-
-//images
-import pencil from "../../node_modules/bootstrap-icons/icons/pencil.svg";
-
+import EditPageContents from "./EditPageContents";
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt();
 
@@ -21,10 +18,8 @@ const PageContents = (props) => {
 
 	return (
 		<div>
-			<div class="container stick-top mt-1 btn-link">
-				<img src={pencil} alt="edit button" width="32" height="32"/>
-				<a>Edit Page</a>
-			</div>
+			<EditPageContents page={props.page}/>
+
 			<h1 class="display-1 font-weight-bold">{header}</h1>
 			<p class="py-1"/>
 			<div class="container text-left" dangerouslySetInnerHTML={{__html: md.render(contents)}}/>
