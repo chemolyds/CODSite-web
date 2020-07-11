@@ -32,7 +32,7 @@ const CreateFAQ = (props) => {
 		<>
 			<button class="row btn px-1 py-1 mx-1 my-1" onClick={handleShow}>
 				<img src={plus} alt="edit button" width="20" height="20"/>
-				<a class="mx-1">Add</a>
+				<a class="mx-1 align-middle">Add</a>
 			</button>
 
 			<Modal show={show} onHide={handleClose}>

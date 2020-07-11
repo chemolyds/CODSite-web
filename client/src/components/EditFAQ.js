@@ -41,7 +41,7 @@ const EditFAQ = (props) => {
 		<>
 			<button class="row btn px-1 py-1" onClick={handleShow}>
 				<img src={pencil} alt="edit button" width="20" height="20"/>
-				<a class="mx-1">Edit</a>
+				<a class="mx-1 align-middle">Edit</a>
 			</button>
 
 			<Modal show={show} onHide={handleClose}>

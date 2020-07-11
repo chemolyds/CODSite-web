@@ -19,8 +19,9 @@ const FAQ = () => {
 				</div>
 			</div>
 
-			<PageContents page='faq'/>
+			<NavBar page='FAQ'/>
 
+			<PageContents page='faq'/>
 			<div class="container">
 				<CreateFAQ/>
 				<FAQs/>
