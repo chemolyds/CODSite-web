@@ -64,6 +64,13 @@ export const about = async (req, res) => {
 	});
 }
 
+export const getPageList = async (req, res) => {
+	initMongoose()
+	Page.find({}, (err, data) => {
+		res.status(200).json(data);
+	});
+}
+
 export const getPage = async (req, res) => {
 	const page = req.params.page;
 	initMongoose()

@@ -153,6 +153,7 @@ export const createPage = async (req, res) => {
 	initMongoose()
 	let save_page = new Page({
 		page: req.body.page,
+		header: req.body.header,
 		contents: req.body.contents
 	});
 	save_page.save(function (err, save_page) {
@@ -168,7 +169,17 @@ export const createPage = async (req, res) => {
 export const editPage = async (req, res) => {
 	const page = req.params.page;
 	initMongoose();
-	Page.findOneAndUpdate({page: page}, {contents: req.body.contents}, {new: true}, (err, data) => {
+
+	//clean data
+	let payload = {};
+	if (req.body.header) {
+		payload.header = req.body.header;
+	}
+	if (req.body.contents) {
+		payload.contents = req.body.contents;
+	}
+
+	Page.findOneAndUpdate({page: page}, payload, {new: true}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);
 			throw err;
