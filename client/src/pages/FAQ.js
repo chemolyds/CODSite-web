@@ -22,6 +22,7 @@ const FAQ = () => {
 			<NavBar page='FAQ'/>
 
 			<PageContents page='faq'/>
+
 			<div class="container">
 				<CreateFAQ/>
 				<FAQs/>
