@@ -7,6 +7,10 @@ const md = new MarkdownIt();
 const PageContents = (props) => {
 	const [header, setHeader] = useState(props.page);
 	const [contents, setContents] = useState("Please hold on...");
+	const editable = () => {
+		if(localStorage.getItem("user_logged")) 
+			return <EditPageContents page={props.page}/>
+	}
 
 	useEffect(() => {
 		axios.get(`http://localhost:3001/api/user/get_page/${props.page}`) 
@@ -18,7 +22,7 @@ const PageContents = (props) => {
 
 	return (
 		<div>
-			<EditPageContents page={props.page}/>
+			{editable()}
 
 			<h1 class="display-1 font-weight-bold">{header}</h1>
 			<p class="py-1"/>

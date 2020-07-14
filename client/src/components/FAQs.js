@@ -13,6 +13,11 @@ const FAQs = (props) => {
 		setQuery(event.target.value);
 	}
 
+	const editable = (id) => {
+		if(localStorage.getItem("user_logged"))
+			return <EditFAQ ID={id}/>
+	}
+
 	useEffect(() => {
 		axios.get(`http://localhost:3001/api/user/get_faq`) 
 			.then(res => {setFAQs(res.data)});
@@ -28,7 +33,7 @@ const FAQs = (props) => {
 				</Accordion.Toggle>
 				<Accordion.Collapse eventKey={item._id}>
 					<Card.Body>
-						<EditFAQ ID={item._id}/>
+						{editable(item._id)}
 						<div dangerouslySetInnerHTML={{__html: md.render(item.answer)}}/>
 					</Card.Body>
 				</Accordion.Collapse>

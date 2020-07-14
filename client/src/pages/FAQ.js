@@ -7,6 +7,11 @@ import FAQs from '../components/FAQs';
 import CreateFAQ from "../components/CreateFAQ";
 
 const FAQ = () => {
+	const editable = () => {
+		if(localStorage.getItem("user_logged"))
+			return <CreateFAQ/>
+	}
+
 	return (
 		<div className="App">
 			<div id="overlayer">
@@ -24,7 +29,7 @@ const FAQ = () => {
 			<PageContents page='faq'/>
 
 			<div class="container">
-				<CreateFAQ/>
+				{editable()}
 				<FAQs/>
 			</div>
 
