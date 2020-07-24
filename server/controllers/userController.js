@@ -16,9 +16,10 @@ function initMongoose() {
 }
 
 function signJWT(payload, res) {
-	jwt.sign(payload, "chem", {expiresIn: 360000}, (err, token) => {
+	jwt.sign(payload, "jerdan1980", {expiresIn: 360000}, (err, token) => {
 		if(err) {
 			console.log("JWT error signing", err);
+			res.status(400).json(err);
 			throw err;
 		}
 		res.status(200).json({token});
@@ -29,16 +30,18 @@ function buildPayload(user) {
   return {
     user_info: {
 			username: user.username,
-      id: user.id,
-      is_admin: user.is_admin
+      id: user._id,
+      isAdmin: user.isAdmin
     }
   }
 }
 
 export const signin = async (req, res) => {
 	const username = req.body.username;
-	const pasword = req.body.password;
-	let user = await User.findOne({username});
+	const password = req.body.password;
+	initMongoose()
+	let user = await User.findOne({username: username});
+	console.log("THERE");
 	if(!user) {
 		return res.status(400).json({
 			message: "User does not exist!"

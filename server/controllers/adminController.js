@@ -16,7 +16,7 @@ function initMongoose() {
 }
 
 function signJWT(payload, res) {
-	jwt.sign(payload, "chem", {expiresIn: 360000}, (err, token) => {
+	jwt.sign(payload, "jerdan1980", {expiresIn: 360000}, (err, token) => {
 		if(err) {
 			console.log("JWT error signing", err);
 			throw err;
@@ -45,7 +45,7 @@ export const getUserList = async (req, res) => {
 export const getUser = async (req, res) => {
 	const id = req.params.id;
 	initMongoose()
-	User.find({_id: id}, (err, data) => {
+	User.findOne({_id: id}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
 			throw err;

@@ -1,6 +1,9 @@
 import * as admin from '../controllers/adminController.js';
+import * as tokenChecker from "../controllers/tokenChecker.js";
 import express from 'express';
 const adminRouter = express.Router();
+
+adminRouter.use(tokenChecker.loginCheck, tokenChecker.adminCheck);
 
 //users
 adminRouter.get('/get_user', admin.getUserList);
