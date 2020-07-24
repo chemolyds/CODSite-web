@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
+import jwt from "jsonwebtoken";
 import { Card, Accordion, Button } from 'react-bootstrap';
 import EditFAQ from "./EditFAQ";
+import DeleteFAQ from "./DeleteFAQ";
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt();
 
@@ -14,8 +16,21 @@ const FAQs = (props) => {
 	}
 
 	const editable = (id) => {
-		if(localStorage.getItem("user_logged"))
-			return <EditFAQ ID={id}/>
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			});
+			if (isAdmin) {
+				return (
+					<div>
+						<EditFAQ ID={id}/>
+						<DeleteFAQ ID={id}/>
+					</div>
+				)
+			}
+		}
 	}
 
 	useEffect(() => {

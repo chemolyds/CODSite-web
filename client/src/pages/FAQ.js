@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import jwt from "jsonwebtoken";
 
 import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
@@ -7,8 +8,16 @@ import CreateFAQ from "../components/CreateFAQ";
 
 const FAQ = () => {
 	const editable = () => {
-		if(localStorage.getItem("user_logged"))
-			return <CreateFAQ/>
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			});
+			if (isAdmin) {
+				return <CreateFAQ/>
+			}
+		}
 	}
 
 	return (
