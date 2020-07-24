@@ -36,7 +36,7 @@ function buildPayload(user) {
   }
 }
 
-export const signin = async (req, res) => {
+export const login = async (req, res) => {
 	const username = req.body.username;
 	const password = req.body.password;
 	initMongoose()

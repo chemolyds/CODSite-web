@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import logo from '../usnco-server-icon.png';
+import LoginHandler from './LoginHandler';
 
 const NavBar = (props) => {
 	//menuItem should be the string of a navbar item
@@ -9,6 +10,20 @@ const NavBar = (props) => {
 		} else {
 			return
 		}
+	}
+
+	//handles how to present the login/logout buttons
+	const logged = () => {
+		if(localStorage.getItem("user_logged")) {
+			return <a onClick={handleLogout}>Logout</a>
+		} else {
+			return <LoginHandler/>
+		}
+	}
+
+	const handleLogout = () => {
+		localStorage.removeItem("user_logged");
+		window.location.reload(true);
 	}
 
 	return (
@@ -26,6 +41,7 @@ const NavBar = (props) => {
 					<li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li>
 					<li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li>
 					<li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li>
+					<li class="nav-link">{logged()}</li>
 				</ul>
 			</nav>
 		</div>
