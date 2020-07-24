@@ -17,7 +17,7 @@ export const loginCheck = async (req, res, next) => {
 	let result;
 	if (authHeader) {
 		const token = req.headers.authorization.split(' ')[0]; // Bearer <token>
-		const options = {expiresIn: '3600'};
+		const options = {expiresIn: '360000'};
 		try {
 			// verify makes sure that the token hasn't expired and has been issued by us
 			result = jwt.verify(token, 'jerdan1980', options);
