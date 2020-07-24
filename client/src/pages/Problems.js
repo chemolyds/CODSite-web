@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 
 const Home = () => {
 	return (
@@ -20,8 +19,6 @@ const Home = () => {
 				<h1 class="display-1 font-weight-bold">Problem collections</h1>
 				<p class="text-monospace">Problems would go here if IF I HAD ANY</p>
 			</div>
-
-			<Footer/>
 
 		</div>
 	)

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 import PageContents from '../components/PageContents'
 
 const Home = () => {
@@ -27,8 +26,6 @@ const Home = () => {
 			</div>
 			*/}
 			<PageContents page="home"/>
-
-			<Footer/>
 
 		</div>
 	)

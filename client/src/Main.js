@@ -16,6 +16,7 @@ const Main = () => {
 			<Route exact path='/about' component={About}/>
 			<Route exact path='/faq' component={FAQ}/>
 
+			<Route exact path='/404' component={PageNotFound}/>
 			<Route component={PageNotFound}/>
 		</Switch>
 	);

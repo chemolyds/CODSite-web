@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 import PageContents from '../components/PageContents';
 import FAQs from '../components/FAQs';
 import CreateFAQ from "../components/CreateFAQ";
@@ -32,8 +31,6 @@ const FAQ = () => {
 				{editable()}
 				<FAQs/>
 			</div>
-
-			<Footer/>
 
 		</div>
 	)
