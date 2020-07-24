@@ -41,17 +41,16 @@ export const signin = async (req, res) => {
 	const password = req.body.password;
 	initMongoose()
 	let user = await User.findOne({username: username});
-	console.log("THERE");
 	if(!user) {
 		return res.status(400).json({
-			message: "User does not exist!"
+			message: "Bad Login!"
 		});
 	}
 
 	const isMatch = await bcrypt.compare(password, user.password);
 	if(!isMatch) {
 		return res.status(400).json({
-			message: "Incorrect password!"
+			message: "Bad Login"
 		});
 	}
 
