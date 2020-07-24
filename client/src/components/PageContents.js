@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
+import jwt from 'jsonwebtoken';
 import EditPageContents from "./EditPageContents";
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt();
@@ -7,9 +8,18 @@ const md = new MarkdownIt();
 const PageContents = (props) => {
 	const [header, setHeader] = useState(props.page);
 	const [contents, setContents] = useState("Please hold on...");
+	
 	const editable = () => {
-		if(localStorage.getItem("user_logged")) 
-			return <EditPageContents page={props.page}/>
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			});
+			if (isAdmin) {
+				return <EditPageContents page={props.page}/>
+			}
+		}
 	}
 
 	useEffect(() => {
