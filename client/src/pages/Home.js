@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import PageContents from '../components/PageContents'
+import PageContents from '../components/PageContents';
 
 const Home = () => {
 	return (
@@ -20,15 +19,13 @@ const Home = () => {
 
 			<NavBar page="Home"/>
 
+			{/*
 			<h1 className="display-1 font-weight-bold">Chemistry Olympiad-web</h1>
 			<div class="container text-left">
-			{/*
 				<p>Welcome to the website for the Chemistry Olympiad Discord Server!</p>
+			</div>
 			*/}
 			<PageContents page="home"/>
-			</div>
-
-			<Footer/>
 
 		</div>
 	)

@@ -1,11 +1,25 @@
 import React, {useState} from 'react';
+import jwt from "jsonwebtoken";
 
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
 import PageContents from '../components/PageContents';
 import FAQs from '../components/FAQs';
+import CreateFAQ from "../components/CreateFAQ";
 
 const FAQ = () => {
+	const editable = () => {
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			});
+			if (isAdmin) {
+				return <CreateFAQ/>
+			}
+		}
+	}
+
 	return (
 		<div className="App">
 			<div id="overlayer">
@@ -18,18 +32,14 @@ const FAQ = () => {
 				</div>
 			</div>
 
-			<NavBar page="FAQ"/>
+			<NavBar page='FAQ'/>
 
-			<div>
-				<h1 className="display-1 font-weight-bold">Frequently Asked Questions</h1>
-				<PageContents page='faq'/>
-			</div>
+			<PageContents page='faq'/>
 
 			<div class="container">
+				{editable()}
 				<FAQs/>
 			</div>
-
-			<Footer/>
 
 		</div>
 	)

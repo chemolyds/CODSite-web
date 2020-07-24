@@ -2,14 +2,16 @@ import React from 'react';
 import '../App.css';
 
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
+import PageContents from '../components/PageContents';
 
 const PageNotFound = () => {
 	return (
 		<div className="App">
+
 			<NavBar page="PageNotFound"/>
-			<p>404 Page Not Found</p>
-			<Footer/>
+
+			<PageContents page="PageNotFound"/>
+
 		</div>
 	);
 }
