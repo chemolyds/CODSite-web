@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import NavBar from '../components/NavBar';
-import PageContents from '../components/PageContents'
+import PageContents from '../components/PageContents';
 
 const Home = () => {
 	return (
