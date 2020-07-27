@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import jwt from "jsonwebtoken";
-import { Card, Accordion, Button } from 'react-bootstrap';
 import EditFAQ from "./EditFAQ";
 import DeleteFAQ from "./DeleteFAQ";
 import CreateFAQ from "./CreateFAQ";
@@ -61,21 +60,6 @@ const FAQs = (props) => {
 					<div dangerouslySetInnerHTML={{__html: md.render(item.answer)}}/>
 				</div>
 			</div>
-			/*
-			<Card ans={item.answer}>
-				<Accordion.Toggle as={Card.Header} variant="link" eventKey={item._id}>
-					<p class='btn-link mb-0'>
-						{item.question}
-					</p>
-				</Accordion.Toggle>
-				<Accordion.Collapse eventKey={item._id}>
-					<Card.Body>
-						{editable(item._id)}
-						<div class="text-left" dangerouslySetInnerHTML={{__html: md.render(item.answer)}}/>
-					</Card.Body>
-				</Accordion.Collapse>
-			</Card>
-			*/
 		)
 	});
 	
