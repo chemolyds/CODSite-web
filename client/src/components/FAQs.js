@@ -12,7 +12,7 @@ const FAQs = (props) => {
 	const [query, setQuery] = useState("");
 
 	const updateQuery = (event) => {
-		setQuery(event.target.value);
+		setQuery(event.target.value.toLowerCase());
 	}
 
 	const editable = (id) => {
@@ -40,6 +40,14 @@ const FAQs = (props) => {
 
 	const FAQList = FAQs.map(item => {
 		return(
+			<div question={item.question} class="text-left">
+				<h1>{item.question}</h1>
+				{editable(item._id)}
+				<div>
+					<div dangerouslySetInnerHTML={{__html: md.render(item.answer)}}/>
+				</div>
+			</div>
+			/*
 			<Card ans={item.answer}>
 				<Accordion.Toggle as={Card.Header} variant="link" eventKey={item._id}>
 					<p class='btn-link mb-0'>
@@ -53,6 +61,7 @@ const FAQs = (props) => {
 					</Card.Body>
 				</Accordion.Collapse>
 			</Card>
+			*/
 		)
 	});
 
@@ -62,11 +71,11 @@ const FAQs = (props) => {
 				<input class="input-group input-group-text mb-3" type="text" placeholder="Search FAQs" onChange={updateQuery}/>
 			</form>
 
-			<Accordion>
+			<div>
 				{
-					FAQList.filter(item => item.props.ans.includes(query))
+					FAQList.filter(item => item.props.question.toLowerCase().includes(query))
 				}
-			</Accordion>
+			</div>
 		</>
 	)
 }
