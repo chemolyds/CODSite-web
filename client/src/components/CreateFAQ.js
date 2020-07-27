@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import {Button, Modal, Form} from 'react-bootstrap';
-//import Modal from 'react-bootstrap/Modal';
-
-//images
-import plus from "../../node_modules/bootstrap-icons/icons/plus.svg";
+import {PlusIcon} from "@primer/octicons-react";
 
 const CreateFAQ = (props) => {
 	const [show, setShow] = useState(false);
@@ -31,7 +28,7 @@ const CreateFAQ = (props) => {
 	return (
 		<>
 			<button class="row btn px-1 py-1 mx-1 my-1" onClick={handleShow}>
-				<img src={plus} alt="edit button" width="20" height="20"/>
+				<PlusIcon/>
 				<a class="mx-1 align-middle">Add</a>
 			</button>
 
