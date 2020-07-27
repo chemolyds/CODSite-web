@@ -40,7 +40,7 @@ const FAQs = (props) => {
 
 	const FAQList = FAQs.map(item => {
 		return(
-			<div question={item.question} class="text-left">
+			<div question={item.question} id={item.question.substring(0,32)} class="text-left">
 				<h1>{item.question}</h1>
 				{editable(item._id)}
 				<div>
@@ -64,6 +64,14 @@ const FAQs = (props) => {
 			*/
 		)
 	});
+	
+	const QList = FAQs.map(item => {
+		return(
+			<div class="text-left mb-2">
+			<a href={`#${item.question.substring(0,32)}`}>{item.question}</a>
+			</div>
+		)
+	});
 
 	return (
 		<>
@@ -71,10 +79,15 @@ const FAQs = (props) => {
 				<input class="input-group input-group-text mb-3" type="text" placeholder="Search FAQs" onChange={updateQuery}/>
 			</form>
 
-			<div>
-				{
-					FAQList.filter(item => item.props.question.toLowerCase().includes(query))
-				}
+			<div class="container">
+				<div class="row">
+					<div class="col-2">
+						{QList}
+					</div>
+					<div class="col">
+						{FAQList.filter(item => item.props.question.toLowerCase().includes(query))}
+					</div>
+				</div>
 			</div>
 		</>
 	)
