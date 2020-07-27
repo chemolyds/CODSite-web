@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 import NavBar from '../components/NavBar';
+import PageContents from '../components/PageContents';
 
 const Home = () => {
 	return (
@@ -15,10 +16,7 @@ const Home = () => {
 
 			<NavBar page="Problems"/>
 
-			<div>
-				<h1 class="display-1 font-weight-bold">Problem collections</h1>
-				<p class="text-monospace">Problems would go here if IF I HAD ANY</p>
-			</div>
+			<PageContents page="Problems"/>
 
 		</div>
 	)
