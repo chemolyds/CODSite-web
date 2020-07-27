@@ -66,7 +66,7 @@ const FAQs = (props) => {
 	const QList = FAQs.map(item => {
 		return(
 			<div class="text-left mb-2">
-			<a href={`#${item.question.substring(0,32).replaceAll(/ /g, "_")}`}>{item.question}</a>
+			<a href={`#${item.question.substring(0,32).replace(/ /g, "_")}`}>{item.question}</a>
 			</div>
 		)
 	});
