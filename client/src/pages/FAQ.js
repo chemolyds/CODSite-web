@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
-import FAQs from '../components/FAQs';
+import ListFAQs from '../components/ListFAQs';
 import CreateFAQ from "../components/CreateFAQ";
 
 const FAQ = () => {
@@ -26,7 +26,7 @@ const FAQ = () => {
 			<PageContents page='faq'/>
 
 			<div class="container">
-				<FAQs/>
+				<ListFAQs/>
 			</div>
 
 		</div>

@@ -7,7 +7,7 @@ import CreateFAQ from "./CreateFAQ";
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt();
 
-const FAQs = (props) => {
+const ListFAQs = (props) => {
 	const [FAQs, setFAQs] = useState([]);
 	const [query, setQuery] = useState("");
 
@@ -99,4 +99,4 @@ const FAQs = (props) => {
 	)
 }
 
-export default FAQs;
+export default ListFAQs;
