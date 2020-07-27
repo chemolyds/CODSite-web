@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import {Button, Modal, Form} from 'react-bootstrap';
 import {PencilIcon} from "@primer/octicons-react";
-//images
-import pencil from "../../node_modules/bootstrap-icons/icons/pencil.svg";
 
 const EditPageContents = (props) => {
 	const [show, setShow] = useState(false);
