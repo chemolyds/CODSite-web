@@ -49,7 +49,7 @@ const FAQs = (props) => {
 				<Accordion.Collapse eventKey={item._id}>
 					<Card.Body>
 						{editable(item._id)}
-						<div dangerouslySetInnerHTML={{__html: md.render(item.answer)}}/>
+						<div class="text-left" dangerouslySetInnerHTML={{__html: md.render(item.answer)}}/>
 					</Card.Body>
 				</Accordion.Collapse>
 			</Card>
