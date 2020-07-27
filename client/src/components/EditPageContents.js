@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import {Button, Modal, Form} from 'react-bootstrap';
-
-//images
-import pencil from "../../node_modules/bootstrap-icons/icons/pencil.svg";
+import {PencilIcon} from "@primer/octicons-react";
 
 const EditPageContents = (props) => {
 	const [show, setShow] = useState(false);
@@ -39,7 +37,7 @@ const EditPageContents = (props) => {
 	return (
 		<>
 			<button class="row btn px-1 py-1" onClick={handleShow}>
-				<img src={pencil} alt="edit button" width="32" height="32"/>
+				<PencilIcon/>
 				<a class="mx-1 align-middle">Edit</a>
 			</button>
 

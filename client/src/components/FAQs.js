@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import jwt from "jsonwebtoken";
-import { Card, Accordion, Button } from 'react-bootstrap';
 import EditFAQ from "./EditFAQ";
 import DeleteFAQ from "./DeleteFAQ";
+import CreateFAQ from "./CreateFAQ";
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt();
 
@@ -12,7 +12,20 @@ const FAQs = (props) => {
 	const [query, setQuery] = useState("");
 
 	const updateQuery = (event) => {
-		setQuery(event.target.value);
+		setQuery(event.target.value.toLowerCase());
+	}
+
+	const addable = () => {
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			});
+			if (isAdmin) {
+				return <CreateFAQ/>
+			}
+		}
 	}
 
 	const editable = (id) => {
@@ -34,39 +47,54 @@ const FAQs = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get(`/api/user/get_faq`) 
+		axios.get(`http://localhost:3001/api/user/get_faq`) 
 			.then(res => {setFAQs(res.data)});
 	}, []);
 
 	const FAQList = FAQs.map(item => {
 		return(
-			<Card ans={item.answer}>
-				<Accordion.Toggle as={Card.Header} variant="link" eventKey={item._id}>
-					<p class='btn-link mb-0'>
-						{item.question}
-					</p>
-				</Accordion.Toggle>
-				<Accordion.Collapse eventKey={item._id}>
-					<Card.Body>
-						{editable(item._id)}
-						<div dangerouslySetInnerHTML={{__html: md.render(item.answer)}}/>
-					</Card.Body>
-				</Accordion.Collapse>
-			</Card>
+			<div question={item.question} id={item.question.substring(0,32).replaceAll(" ", "_")} class="text-left">
+				<h1>{item.question}</h1>
+				{editable(item._id)}
+				<div>
+					<div dangerouslySetInnerHTML={{__html: md.render(item.answer)}}/>
+				</div>
+			</div>
+		)
+	});
+	
+	const QList = FAQs.map(item => {
+		return(
+			<div class="text-left mb-2">
+			<a href={`#${item.question.substring(0,32).replaceAll(" ", "_")}`}>{item.question}</a>
+			</div>
 		)
 	});
 
 	return (
 		<>
-			<form >
-				<input class="input-group input-group-text mb-3" type="text" placeholder="Search FAQs" onChange={updateQuery}/>
-			</form>
+			
 
-			<Accordion>
-				{
-					FAQList.filter(item => item.props.ans.includes(query))
-				}
-			</Accordion>
+			<div class="container">
+				<div class="row">
+					<div class="col-2">
+						{addable()}
+					</div>
+					<div class="col">
+						<form >
+							<input class="input-group input-group-text mb-3" type="text" placeholder="Search FAQs" onChange={updateQuery}/>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2">
+						{QList}
+					</div>
+					<div class="col">
+						{FAQList.filter(item => item.props.question.toLowerCase().includes(query))}
+					</div>
+				</div>
+			</div>
 		</>
 	)
 }

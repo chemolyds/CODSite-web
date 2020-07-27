@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import {Button, Modal} from 'react-bootstrap';
-
-//images
-import trash from "../../node_modules/bootstrap-icons/icons/trash.svg";
+import {TrashIcon} from "@primer/octicons-react";
 
 const DeleteFAQ = (props) => {
 	const [show, setShow] = useState(false);
@@ -22,7 +20,7 @@ const DeleteFAQ = (props) => {
 	return (
 		<>
 			<button class="row btn px-1 py-1 mx-2" onClick={handleShow}>
-				<img src={trash} alt="delete button" width="20" height="20"/>
+				<TrashIcon/>
 				<a class="mx-1 align-middle">Delete</a>
 			</button>
 
