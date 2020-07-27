@@ -25,9 +25,7 @@ const FAQ = () => {
 
 			<PageContents page='faq'/>
 
-			<div class="container">
-				<ListFAQs/>
-			</div>
+			<ListFAQs/>
 
 		</div>
 	)

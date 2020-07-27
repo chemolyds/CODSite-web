@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import ReactMarkdown from "react-markdown/with-html";
 import axios from "axios";
 import jwt from 'jsonwebtoken';
 import EditPageContents from "./EditPageContents";
-import MarkdownIt from "markdown-it";
-const md = new MarkdownIt();
 
 const PageContents = (props) => {
 	const [header, setHeader] = useState(props.page);
@@ -36,7 +35,7 @@ const PageContents = (props) => {
 
 			<h1 class="display-1 font-weight-bold">{header}</h1>
 			<p class="py-1"/>
-			<div class="container text-left" dangerouslySetInnerHTML={{__html: md.render(contents)}}/>
+			<ReactMarkdown source={contents} escapeHtml={false}/>
 		</div>
 	)
 }
