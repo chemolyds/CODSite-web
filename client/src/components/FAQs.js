@@ -53,7 +53,7 @@ const FAQs = (props) => {
 
 	const FAQList = FAQs.map(item => {
 		return(
-			<div question={item.question} id={item.question.substring(0,32).replaceAll(" ", "_")} class="text-left">
+			<div question={item.question} id={item.question.substring(0,32).replace(/ /g, "_")} class="text-left">
 				<h1>{item.question}</h1>
 				{editable(item._id)}
 				<div>
@@ -66,15 +66,13 @@ const FAQs = (props) => {
 	const QList = FAQs.map(item => {
 		return(
 			<div class="text-left mb-2">
-			<a href={`#${item.question.substring(0,32).replaceAll(" ", "_")}`}>{item.question}</a>
+			<a href={`#${item.question.substring(0,32).replaceAll(/ /g, "_")}`}>{item.question}</a>
 			</div>
 		)
 	});
 
 	return (
 		<>
-			
-
 			<div class="container">
 				<div class="row">
 					<div class="col-2">
