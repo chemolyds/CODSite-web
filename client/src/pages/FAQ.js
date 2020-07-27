@@ -7,18 +7,7 @@ import FAQs from '../components/FAQs';
 import CreateFAQ from "../components/CreateFAQ";
 
 const FAQ = () => {
-	const editable = () => {
-		const token = localStorage.getItem("user_logged");
-		let isAdmin;
-		if (token) {
-			jwt.verify(token, "jerdan1980", function (err, decoded) {
-				isAdmin = decoded.user_info.isAdmin;
-			});
-			if (isAdmin) {
-				return <CreateFAQ/>
-			}
-		}
-	}
+	
 
 	return (
 		<div className="App">
@@ -37,7 +26,6 @@ const FAQ = () => {
 			<PageContents page='faq'/>
 
 			<div class="container">
-				{editable()}
 				<FAQs/>
 			</div>
 

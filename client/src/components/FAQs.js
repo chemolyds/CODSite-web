@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import { Card, Accordion, Button } from 'react-bootstrap';
 import EditFAQ from "./EditFAQ";
 import DeleteFAQ from "./DeleteFAQ";
+import CreateFAQ from "./CreateFAQ";
 import MarkdownIt from "markdown-it";
 const md = new MarkdownIt();
 
@@ -13,6 +14,19 @@ const FAQs = (props) => {
 
 	const updateQuery = (event) => {
 		setQuery(event.target.value.toLowerCase());
+	}
+
+	const addable = () => {
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			});
+			if (isAdmin) {
+				return <CreateFAQ/>
+			}
+		}
 	}
 
 	const editable = (id) => {
@@ -75,11 +89,19 @@ const FAQs = (props) => {
 
 	return (
 		<>
-			<form >
-				<input class="input-group input-group-text mb-3" type="text" placeholder="Search FAQs" onChange={updateQuery}/>
-			</form>
+			
 
 			<div class="container">
+				<div class="row">
+					<div class="col-2">
+						{addable()}
+					</div>
+					<div class="col">
+						<form >
+							<input class="input-group input-group-text mb-3" type="text" placeholder="Search FAQs" onChange={updateQuery}/>
+						</form>
+					</div>
+				</div>
 				<div class="row">
 					<div class="col-2">
 						{QList}
