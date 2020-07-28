@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import jwt from "jsonwebtoken";
-import {StarIcon, StarFillIcon} from "@primer/octicons-react";
+import {StarIcon, StarFillIcon, TriangleDownIcon} from "@primer/octicons-react";
 import ReactMarkdown from "react-markdown/with-html";
 
 //Components
 import CreateProblem from "./CreateProblem";
+import EditProblem from "./EditProblem";
+import DeleteProblem from "./DeleteProblem";
 
 function stars (num) {
 	return (
@@ -28,6 +30,42 @@ const addable = () => {
 		});
 		if (isAdmin) {
 			return <CreateProblem/>
+		}
+	}
+}
+
+const editable = (id) => {
+	const token = localStorage.getItem("user_logged");
+	let isAdmin;
+	if (token) {
+		jwt.verify(token, "jerdan1980", function (err, decoded) {
+			isAdmin = decoded.user_info.isAdmin;
+		});
+		if (isAdmin) {
+			return (
+				<div>
+					<EditProblem ID={id}/>
+					<DeleteProblem ID={id}/>
+				</div>
+			)
+		}
+	}
+}
+
+const balancer = () => {
+	const token = localStorage.getItem("user_logged");
+	let isAdmin;
+	if (token) {
+		jwt.verify(token, "jerdan1980", function (err, decoded) {
+			isAdmin = decoded.user_info.isAdmin;
+		});
+		if (isAdmin) {
+			return (
+				<div>
+					<button class="row btn px-0 py-0 mx-0 my-0" ><TriangleDownIcon/></button>
+					<button class="row btn px-0 py-0 mx-0 my-0" ><TriangleDownIcon/></button>
+				</div>
+			)
 		}
 	}
 }
@@ -62,16 +100,17 @@ const ListProblems = (props) => {
 				<hr/>
 				<div class="flex mx-4" key={category}>
 					<div class="row" key="header">
-						<div class="col-3" key="Problem">Problem</div>
+						<div class="col-2" key="Problem">Problem</div>
 						<div class="col" key="Rating">Rating</div>
 						<div class="col" key="Difficulty">Difficulty</div>
 						<div class="col" key="Length">Length</div>
 						<div class="col-6" key="Description">Description</div>
+						{balancer()}
 					</div>
 					{Problems.filter(item => item.category === category).map(item => {
 						return(
 							<div class="row" key={item.name}>
-								<div class="col-3" key="Problem">
+								<div class="col-2" key="Problem">
 									<a href={item.problemPDFName}>{item.name}</a>
 									{item.hasSolution ? (<a> <a href={item.solutionPDFName}>[S]</a></a>) : <a/>}
 								</div>
@@ -79,6 +118,7 @@ const ListProblems = (props) => {
 								<div class="col" key="Difficulty">{stars(item.difficulty)}</div>
 								<div class="col" key="Length">{stars(item.length)}</div>
 								<div class="col-6 text-left" key="Description">{item.description}</div>
+								{editable(item._id)}
 							</div>
 						)
 					})}

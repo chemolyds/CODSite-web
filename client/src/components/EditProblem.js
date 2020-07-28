@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import {Button, Modal, Form} from 'react-bootstrap';
-import {PlusIcon} from "@primer/octicons-react";
+import {PencilIcon} from "@primer/octicons-react";
 
-const CreateProblem = (props) => {
+
+const EditProblem = (props) => {
 	const [show, setShow] = useState(false);
 	const [name, setName] = useState("");
 	const [category, setCategory] = useState("");
@@ -20,26 +21,21 @@ const CreateProblem = (props) => {
 	const handleSubmit = (event) => {
 		let payload = {
 			name: name,
+			category: category,
 			rating: rating,
 			difficulty: difficulty,
 			length: length,
+			description: description,
 			problemPDFName: problemPDFName
 		};
-		if (category) {
-			payload["category"] = category;
-		}
-		if (description) {
-			payload["description"] = description;
-		}
 		if (solutionPDFName) {
 			payload["hasSolution"] = true;
 			payload["solutionPDFName"] = solutionPDFName;
 		} else {
 			payload["hasSolution"] = false;
 		}
-		console.log(payload);
-		if (payload.name && payload.problemPDFName) {
-			axios.post(`http://localhost:3001/api/problems/get_problem`, payload)
+		if (payload.name && payload.category && payload.description && payload.problemPDFName) {
+			axios.put(`http://localhost:3001/api/problems/get_problem/${props.ID}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
@@ -47,16 +43,30 @@ const CreateProblem = (props) => {
 		}
 	}
 
+	useEffect(() => {
+		axios
+			.get(`http://localhost:3001/api/problems/get_problem/${props.ID}`)
+			.then(res => {
+				setName(res.data.name);
+				setCategory(res.data.category);
+				setRating(res.data.rating);
+				setDifficulty(res.data.difficulty);
+				setLength(res.data.length);
+				setDescription(res.data.description);
+				setProblemPDFName(res.data.problemPDFName);
+				setSolutionPDFName(res.data.solutionPDFName);
+			});
+	}, []);
+
 	return (
 		<>
-			<button class="row btn px-1 py-1 mx-1 my-1" onClick={handleShow}>
-				<PlusIcon/>
-				<a class="mx-1 align-middle">Add</a>
+			<button class="row btn px-0 py-0 mx-0 my-0" onClick={handleShow}>
+				<PencilIcon/>
 			</button>
 
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
-					<Modal.Title>Adding Problem</Modal.Title>
+					<Modal.Title>Editing Problem</Modal.Title>
 				</Modal.Header>
 
 				<Modal.Body>
@@ -109,4 +119,4 @@ const CreateProblem = (props) => {
 	);
 }
 
-export default CreateProblem;
+export default EditProblem;

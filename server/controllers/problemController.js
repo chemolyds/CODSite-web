@@ -22,8 +22,10 @@ export const getProblemList = async (req, res) => {
 }
 
 export const getProblem = async (req, res) => {
-	res.status(200).sendFile(path.join(__dirname, '../chicken.pdf'));
-	//res.status(200).type('application/pdf').send(binaryData);
+	initMongoose()
+	Problem.findOne({_id: req.params.id}, (err, data) => {
+		res.status(200).json(data);
+	});
 }
 
 export const createProblem = async (req, res) => {
@@ -40,7 +42,7 @@ export const createProblem = async (req, res) => {
 export const removeProblem = async (req, res) => {
 	try {
 		initMongoose()
-		let data = await Problem.deleteOne({ name: req.params.name });
+		let data = await Problem.deleteOne({ _id: req.params.id });
 		if (data.n !== 1) {
 			data = { error: 'Problem not found!' };
 			res.status(404).send(data);
@@ -57,7 +59,7 @@ export const updateProblem = async (req, res) => {
 	try {
 		initMongoose()
 		const updateParams = req.body;
-		const problem = await Problem.findOneAndUpdate({name: req.params.name}, updateParams).exec();
+		const problem = await Problem.findOneAndUpdate({_id: req.params.id}, updateParams).exec();
 		res.status(200).type('json').send(problem);
 	} catch(err) {
 		res.status(403).type('json').send(err);
