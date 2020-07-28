@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const ProblemSchema = mongoose.Schema({
 	name: {type: String, required: true},
 	description: {type: String, required: true, default: 'TBA'},
+	category: {type: String, required: true, default: 'Misc'},
 
 	rating: {type: Number, required: true},
 	difficulty: {type: Number, required: true},
