@@ -4,7 +4,7 @@ import '../App.css';
 import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
 
-const Home = () => {
+const About = () => {
 	return (
 		<div className="App">
 			<NavBar page="About"/>
@@ -15,4 +15,4 @@ const Home = () => {
 	)
 }
 
-export default Home;
+export default About;
