@@ -4,15 +4,15 @@ import '../App.css';
 import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
 
-const About = () => {
+const Guides = () => {
 	return (
 		<div className="App">
-			<NavBar page="About"/>
+			<NavBar page="Guides"/>
 
-			<PageContents page="about"/>
+			<PageContents page="Guides"/>
 			
 		</div>
 	)
 }
 
-export default About;
+export default Guides;

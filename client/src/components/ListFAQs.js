@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import ReactMarkdown from "react-markdown/with-html";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import EditFAQ from "./EditFAQ";
 import DeleteFAQ from "./DeleteFAQ";
 import CreateFAQ from "./CreateFAQ";
-import MarkdownIt from "markdown-it";
-const md = new MarkdownIt();
 
-const FAQs = (props) => {
+const ListFAQs = (props) => {
 	const [FAQs, setFAQs] = useState([]);
 	const [query, setQuery] = useState("");
 
@@ -57,7 +56,7 @@ const FAQs = (props) => {
 				<h1>{item.question}</h1>
 				{editable(item._id)}
 				<div>
-					<div dangerouslySetInnerHTML={{__html: md.render(item.answer)}}/>
+					<ReactMarkdown source={item.answer} escapeHtml={false}/>
 				</div>
 			</div>
 		)
@@ -65,17 +64,19 @@ const FAQs = (props) => {
 	
 	const QList = FAQs.map(item => {
 		return(
-			<div class="text-left mb-2">
-			<a href={`#${item.question.substring(0,32).replace(/ /g, "_")}`}>{item.question}</a>
+			<div class="text-left my-2">
+			<a class="text-white" href={`#${item.question.substring(0,32).replace(/ /g, "_")}`}>{item.question}</a>
 			</div>
 		)
 	});
 
 	return (
 		<>
-			<div class="container">
+			
+
+			<div class="flex mx-4">
 				<div class="row">
-					<div class="col-2">
+					<div class="col-3">
 						{addable()}
 					</div>
 					<div class="col">
@@ -85,7 +86,7 @@ const FAQs = (props) => {
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-2">
+					<div class="col-3 bg-secondary">
 						{QList}
 					</div>
 					<div class="col">
@@ -97,4 +98,4 @@ const FAQs = (props) => {
 	)
 }
 
-export default FAQs;
+export default ListFAQs;
