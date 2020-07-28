@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
+import jwt from "jsonwebtoken";
 import {StarIcon, StarFillIcon} from "@primer/octicons-react";
 import ReactMarkdown from "react-markdown/with-html";
+
+//Components
+import CreateProblem from "./CreateProblem";
 
 function stars (num) {
 	return (
@@ -13,6 +17,19 @@ function stars (num) {
 			{ num >= 5 ? <StarFillIcon/> : <StarIcon/> }
 		</>
 	)
+}
+
+const addable = () => {
+	const token = localStorage.getItem("user_logged");
+	let isAdmin;
+	if (token) {
+		jwt.verify(token, "jerdan1980", function (err, decoded) {
+			isAdmin = decoded.user_info.isAdmin;
+		});
+		if (isAdmin) {
+			return <CreateProblem/>
+		}
+	}
 }
 
 const ListProblems = (props) => {
@@ -73,6 +90,8 @@ const ListProblems = (props) => {
 
 	return (
 		<div>
+			{addable()}
+
 			{ProblemList}
 		</div>
 	)
