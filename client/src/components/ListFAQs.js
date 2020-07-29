@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import ReactMarkdown from "react-markdown/with-html";
 import axios from "axios";
 import jwt from "jsonwebtoken";
+
+//Components
 import EditFAQ from "./EditFAQ";
 import DeleteFAQ from "./DeleteFAQ";
 import CreateFAQ from "./CreateFAQ";
