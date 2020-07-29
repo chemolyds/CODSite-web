@@ -3,11 +3,47 @@ import ReactMarkdown from "react-markdown/with-html";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 
+//components
+import CreateNAP from "./CreateNAP";
+import EditNAP from "./EditNAP";
+import DeleteNAP from "./DeleteNAP";
+
 const ListFAQs = (props) => {
 	const [NAP, setNAP] = useState([]);
 	const [numCols, setNumCols] = useState([]);
 	const [maxRows, setMaxRows] = useState(0);
 	const [maxCols, setMaxCols] = useState(0);
+
+	const addable = () => {
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			});
+			if (isAdmin) {
+				return <CreateNAP/>
+			}
+		}
+	}
+
+	const editable = (id) => {
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			});
+			if (isAdmin) {
+				return (
+					<div>
+						<EditNAP ID={id}/>
+						<DeleteNAP ID={id}/>
+					</div>
+				)
+			}
+		}
+	}
 
 	useEffect(() => {
 		axios.get(`http://localhost:3001/api/nap/get_nap`) 
@@ -52,6 +88,7 @@ const ListFAQs = (props) => {
 	
 	return (
 		<div class="flex mx-4">
+			{addable()}
 			<table class="table table-bordered">
 				{
 					//https://stackoverflow.com/questions/18947892/creating-range-in-javascript-strange-syntax
@@ -68,8 +105,9 @@ const ListFAQs = (props) => {
 												}
 												return(
 													<td colSpan={colSize}>
-														{item.hasHeader ? <p class="font-weight-bold">{item.header}</p> : <></>}
-														{item.hasDescription ? <p>{item.description}</p> : <></>}
+														{editable(item._id)}
+														{item.hasHeader ? <a class="font-weight-bold">{item.header}<br/></a> : <></>}
+														{item.hasDescription ? <a>{item.description}<br/></a> : <></>}
 														<a class="text-link" href={item.link}>{item.linkText}</a>
 													</td>
 												)
