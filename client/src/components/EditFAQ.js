@@ -28,7 +28,7 @@ const EditFAQ = (props) => {
 
 	useEffect(() => {
 		axios
-			.get(`/api/user/get_faq/${props.ID}`)
+			.get(`http://localhost:3001/api/user/get_faq/${props.ID}`)
 			.then(res => {
 				setAnswer(res.data.answer);
 				setQuestion(res.data.question);
