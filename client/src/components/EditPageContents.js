@@ -17,7 +17,7 @@ const EditPageContents = (props) => {
 			contents: contents
 		};
 		if (payload.header && payload.contents) {
-			axios.put(`/api/admin/edit_page/${props.page}`, payload)
+			axios.put(`http://localhost:3001/api/admin/edit_page/${props.page}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
@@ -27,7 +27,7 @@ const EditPageContents = (props) => {
 
 	useEffect(() => {
 		axios
-			.get(`/api/user/get_page/${props.page}`)
+			.get(`http://localhost:3001/api/user/get_page/${props.page}`)
 			.then(res => {
 				setHeader(res.data.header);
 				setContents(res.data.contents);

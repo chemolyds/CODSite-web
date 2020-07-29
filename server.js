@@ -11,6 +11,7 @@ import cors from 'cors';
 import problemRouter from './server/routes/problemRouter.js';
 import userRouter from './server/routes/userRouter.js';
 import adminRouter from './server/routes/adminRouter.js';
+import napRouter from './server/routes/napRouter.js';
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use(cors());
 app.use('/api/problems/', problemRouter);
 app.use('/api/user/', userRouter);
 app.use('/api/admin/', adminRouter);
+app.use('/api/nap/', napRouter);
 
 app.all('/*', (req, res) => {
 	// res.status(201).json({message: "nothing here!"});

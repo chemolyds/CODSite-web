@@ -3,14 +3,14 @@ import axios from "axios";
 import {Button, Modal} from 'react-bootstrap';
 import {TrashIcon} from "@primer/octicons-react";
 
-const DeleteFAQ = (props) => {
+const DeleteNAP = (props) => {
 	const [show, setShow] = useState(false);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
 	const handleSubmit = (event) => {
-		axios.delete(`http://localhost:3001/api/admin/delete_faq/${props.ID}`)
+		axios.delete(`http://localhost:3001/api/nap/delete_nap/${props.ID}`)
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);
@@ -26,7 +26,7 @@ const DeleteFAQ = (props) => {
 
 			<Modal show={show} onHide={handleClose} class="alert alert-danger">
 				<Modal.Header closeButton>
-					<Modal.Title>Delete FAQ</Modal.Title>
+					<Modal.Title>Delete NAP</Modal.Title>
 				</Modal.Header>
 
 				<Modal.Body>
@@ -46,4 +46,4 @@ const DeleteFAQ = (props) => {
 	);
 }
 
-export default DeleteFAQ;
+export default DeleteNAP;

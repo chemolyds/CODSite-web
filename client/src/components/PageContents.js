@@ -22,7 +22,7 @@ const PageContents = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get(`/api/user/get_page/${props.page}`) 
+		axios.get(`http://localhost:3001/api/user/get_page/${props.page}`) 
 			.then(res => {
 				setHeader(res.data.header);
 				setContents(res.data.contents);

@@ -97,11 +97,11 @@ const EditProblem = (props) => {
 						</Form.Group>
 						<Form.Group controlId="problemPDFName">
 							<Form.Label>Problem PDF Link</Form.Label>
-							<Form.Control as="textarea" rows="3" placeholder="Insert problem PDF link here!" value={problemPDFName} onChange={(event) => setProblemPDFName(event.target.value)}/>
+							<Form.Control as="textarea" rows="2" placeholder="Insert problem PDF link here!" value={problemPDFName} onChange={(event) => setProblemPDFName(event.target.value)}/>
 						</Form.Group>
 						<Form.Group controlId="solutionPDFName">
 							<Form.Label>Solution PDF Link</Form.Label>
-							<Form.Control as="textarea" rows="3" placeholder="Insert solution PDF link here! (completely optional!)" value={solutionPDFName} onChange={(event) => setSolutionPDFName(event.target.value)}/>
+							<Form.Control as="textarea" rows="2" placeholder="Insert solution PDF link here! (completely optional!)" value={solutionPDFName} onChange={(event) => setSolutionPDFName(event.target.value)}/>
 						</Form.Group>
 					</Form>
 				</Modal.Body>
