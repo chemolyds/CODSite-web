@@ -56,12 +56,15 @@ export const removeNap = async (req, res) => {
 }
 
 export const updateNap = async (req, res) => {
-	try {
-		initMongoose()
-		const updateParams = req.body;
-		const nap = await Nap.findOneAndUpdate({_id: req.params.id}, {new: true}, updateParams).exec();
-		res.status(200).type('json').send(nap);
-	} catch(err) {
-		res.status(403).type('json').send(err);
-	}
+	initMongoose()
+	Nap.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, (err, data) => {
+		if (err) {
+			res.status(400).json(err);
+			throw err;
+		} else if (!data) {
+			res.status(400).json({message: "NAP does not exist"});
+		} else {
+			res.status(200).json(data);
+		}
+	});
 }

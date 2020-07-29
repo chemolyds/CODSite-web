@@ -56,12 +56,15 @@ export const removeProblem = async (req, res) => {
 }
 
 export const updateProblem = async (req, res) => {
-	try {
-		initMongoose()
-		const updateParams = req.body;
-		const problem = await Problem.findOneAndUpdate({_id: req.params.id}, {new: true}, updateParams).exec();
-		res.status(200).type('json').send(problem);
-	} catch(err) {
-		res.status(403).type('json').send(err);
-	}
+	initMongoose()
+	Problem.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, (err, data) => {
+		if (err) {
+			res.status(400).json(err);
+			throw err;
+		} else if (!data) {
+			res.status(400).json({message: "Problem does not exist"});
+		} else {
+			res.status(200).json(data);
+		}
+	});
 }
