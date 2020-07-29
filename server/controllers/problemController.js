@@ -40,26 +40,26 @@ export const createProblem = async (req, res) => {
 }
 
 export const removeProblem = async (req, res) => {
-	try {
-		initMongoose()
-		let data = await Problem.deleteOne({ _id: req.params.id });
-		if (data.n !== 1) {
-			data = { error: 'Problem not found!' };
-			res.status(404).send(data);
+	initMongoose()
+	Problem.findOneAndDelete({_id: req.params.id}, (err, data) => {
+		if(err) {
+			res.status(400).json(err);
+			throw err;
+		} else if(!data) {
+			res.status(400).json({
+				message: "Problem does not exist!"
+			});
 		} else {
-			data = { error: 'Problem deleted' };
-			res.status(200).send(data);
+			res.status(200).json(data);
 		}
-	} catch (err) {
-		res.status(400).type('json').send(err);
-	}
+	});
 }
 
 export const updateProblem = async (req, res) => {
 	try {
 		initMongoose()
 		const updateParams = req.body;
-		const problem = await Problem.findOneAndUpdate({_id: req.params.id}, updateParams).exec();
+		const problem = await Problem.findOneAndUpdate({_id: req.params.id}, {new: true}, updateParams).exec();
 		res.status(200).type('json').send(problem);
 	} catch(err) {
 		res.status(403).type('json').send(err);
