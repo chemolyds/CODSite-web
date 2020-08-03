@@ -27,12 +27,14 @@ const EditFAQ = (props) => {
 	}
 
 	useEffect(() => {
-		axios
+		/*axios
 			.get(`http://localhost:3001/api/user/get_faq/${props.ID}`)
 			.then(res => {
 				setAnswer(res.data.answer);
 				setQuestion(res.data.question);
-			});
+			});*/
+		setAnswer(props.FAQ.answer);
+		setQuestion(props.FAQ.question);
 	}, []);
 
 	return (

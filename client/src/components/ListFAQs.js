@@ -31,7 +31,7 @@ const ListFAQs = (props) => {
 		}
 	}
 
-	const editable = (id) => {
+	const editable = (item) => {
 		const token = localStorage.getItem("user_logged");
 		let isAdmin;
 		if (token) {
@@ -43,8 +43,8 @@ const ListFAQs = (props) => {
 			if (isAdmin) {
 				return (
 					<div>
-						<EditFAQ ID={id}/>
-						<DeleteFAQ ID={id}/>
+						<EditFAQ FAQ={item} ID={item._id}/>
+						<DeleteFAQ FAQ={item} ID={item._id}/>
 					</div>
 				)
 			}
@@ -60,7 +60,7 @@ const ListFAQs = (props) => {
 		return(
 			<div question={item.question} id={item.question.substring(0,32).replace(/ /g, "_")} class="text-left">
 				<h1>{item.question}</h1>
-				{editable(item._id)}
+				{editable(item)}
 				<div>
 					<ReactMarkdown source={item.answer} escapeHtml={false}/>
 				</div>
