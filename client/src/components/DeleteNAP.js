@@ -10,7 +10,7 @@ const DeleteNAP = (props) => {
 	const handleShow = () => setShow(true);
 
 	const handleSubmit = (event) => {
-		axios.delete(`/api/nap/delete_nap/${props.ID}`)
+		axios.delete(`http://localhost:3001/api/nap/delete_nap/${props.ID}`)
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);

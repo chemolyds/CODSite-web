@@ -35,7 +35,7 @@ const EditProblem = (props) => {
 			payload["hasSolution"] = false;
 		}
 		if (payload.name && payload.category && payload.description && payload.problemPDFName) {
-			axios.put(`/api/problems/get_problem/${props.ID}`, payload)
+			axios.put(`http://localhost:3001/api/problems/get_problem/${props.ID}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);

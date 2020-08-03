@@ -46,7 +46,7 @@ const ListFAQs = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get(`/api/nap/get_nap`) 
+		axios.get(`http://localhost:3001/api/nap/get_nap`) 
 			.then(res => {setNAP(res.data)});
 	}, []);
 
