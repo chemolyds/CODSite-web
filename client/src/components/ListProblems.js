@@ -26,7 +26,9 @@ const addable = () => {
 	let isAdmin;
 	if (token) {
 		jwt.verify(token, "jerdan1980", function (err, decoded) {
-			isAdmin = decoded.user_info.isAdmin;
+			if (decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			}
 		});
 		if (isAdmin) {
 			return <CreateProblem/>
@@ -39,7 +41,9 @@ const editable = (id) => {
 	let isAdmin;
 	if (token) {
 		jwt.verify(token, "jerdan1980", function (err, decoded) {
-			isAdmin = decoded.user_info.isAdmin;
+			if (decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			}
 		});
 		if (isAdmin) {
 			return (
@@ -57,7 +61,9 @@ const balancer = () => {
 	let isAdmin;
 	if (token) {
 		jwt.verify(token, "jerdan1980", function (err, decoded) {
-			isAdmin = decoded.user_info.isAdmin;
+			if (decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			}
 		});
 		if (isAdmin) {
 			return (

@@ -21,7 +21,9 @@ const ListFAQs = (props) => {
 		let isAdmin;
 		if (token) {
 			jwt.verify(token, "jerdan1980", function (err, decoded) {
-				isAdmin = decoded.user_info.isAdmin;
+				if (decoded) {
+					isAdmin = decoded.user_info.isAdmin;
+				}
 			});
 			if (isAdmin) {
 				return <CreateFAQ/>
@@ -34,7 +36,9 @@ const ListFAQs = (props) => {
 		let isAdmin;
 		if (token) {
 			jwt.verify(token, "jerdan1980", function (err, decoded) {
-				isAdmin = decoded.user_info.isAdmin;
+				if (decoded) {
+					isAdmin = decoded.user_info.isAdmin;
+				}
 			});
 			if (isAdmin) {
 				return (
