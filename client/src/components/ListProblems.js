@@ -36,7 +36,7 @@ const addable = () => {
 	}
 }
 
-const editable = (id) => {
+const editable = (item) => {
 	const token = localStorage.getItem("user_logged");
 	let isAdmin;
 	if (token) {
@@ -48,8 +48,8 @@ const editable = (id) => {
 		if (isAdmin) {
 			return (
 				<div>
-					<EditProblem ID={id}/>
-					<DeleteProblem ID={id}/>
+					<EditProblem problem={item} ID={item._id}/>
+					<DeleteProblem problem={item} ID={item._id}/>
 				</div>
 			)
 		}
@@ -124,7 +124,7 @@ const ListProblems = (props) => {
 								<div class="col" key="Difficulty">{stars(item.difficulty)}</div>
 								<div class="col" key="Length">{stars(item.length)}</div>
 								<div class="col-6 text-left" key="Description">{item.description}</div>
-								{editable(item._id)}
+								{editable(item)}
 							</div>
 						)
 					})}
