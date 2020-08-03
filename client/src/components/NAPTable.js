@@ -29,7 +29,7 @@ const ListFAQs = (props) => {
 		}
 	}
 
-	const editable = (id) => {
+	const editable = (item) => {
 		const token = localStorage.getItem("user_logged");
 		let isAdmin;
 		if (token) {
@@ -41,8 +41,8 @@ const ListFAQs = (props) => {
 			if (isAdmin) {
 				return (
 					<div>
-						<EditNAP ID={id}/>
-						<DeleteNAP ID={id}/>
+						<EditNAP NAP={item} ID={item._id}/>
+						<DeleteNAP NAP={item} ID={item._id}/>
 					</div>
 				)
 			}
@@ -109,7 +109,7 @@ const ListFAQs = (props) => {
 												}
 												return(
 													<td colSpan={colSize}>
-														{editable(item._id)}
+														{editable(item)}
 														{item.hasHeader ? <a class="font-weight-bold">{item.header}<br/></a> : <></>}
 														{item.hasDescription ? <ReactMarkdown source={item.description} escapeHtml={false}/> : <></>}
 														<a class="text-link" href={item.link}>{item.linkText}</a>

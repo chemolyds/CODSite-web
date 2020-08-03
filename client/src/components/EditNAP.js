@@ -45,7 +45,7 @@ const EditNAP = (props) => {
 	}
 
 	useEffect(() => {
-		axios
+		/*axios
 			.get(`http://localhost:3001/api/nap/get_nap/${props.ID}`)
 			.then(res => {
 				setX(res.data.x);
@@ -54,7 +54,13 @@ const EditNAP = (props) => {
 				setDescription(res.data.description);
 				setLinkText(res.data.linkText);
 				setLink(res.data.link);
-			});
+			});*/
+		setX(props.NAP.x);
+		setY(props.NAP.y);
+		setHeader(props.NAP.header);
+		setDescription(props.NAP.description);
+		setLinkText(props.NAP.linkText);
+		setLink(props.NAP.link);
 	}, []);
 
 	return (
