@@ -17,7 +17,7 @@ const CreateFAQ = (props) => {
 			question: question
 		};
 		if (payload.answer && payload.question) {
-			axios.post(`/api/admin/create_faq`, payload)
+			axios.post(`http://localhost:3001/api/admin/create_faq`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);

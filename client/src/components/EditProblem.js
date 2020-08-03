@@ -35,7 +35,7 @@ const EditProblem = (props) => {
 			payload["hasSolution"] = false;
 		}
 		if (payload.name && payload.category && payload.description && payload.problemPDFName) {
-			axios.put(`/api/problems/get_problem/${props.ID}`, payload)
+			axios.put(`http://localhost:3001/api/problems/get_problem/${props.ID}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
@@ -44,7 +44,7 @@ const EditProblem = (props) => {
 	}
 
 	useEffect(() => {
-		axios
+		/*axios
 			.get(`/api/problems/get_problem/${props.ID}`)
 			.then(res => {
 				setName(res.data.name);
@@ -55,7 +55,15 @@ const EditProblem = (props) => {
 				setDescription(res.data.description);
 				setProblemPDFName(res.data.problemPDFName);
 				setSolutionPDFName(res.data.solutionPDFName);
-			});
+			});*/
+			setName(props.problem.name);
+			setCategory(props.problem.category);
+			setRating(props.problem.rating);
+			setDifficulty(props.problem.difficulty);
+			setLength(props.problem.length);
+			setDescription(props.problem.description);
+			setProblemPDFName(props.problem.problemPDFName);
+			setSolutionPDFName(props.problem.solutionPDFName);
 	}, []);
 
 	return (

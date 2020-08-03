@@ -26,7 +26,9 @@ const addable = () => {
 	let isAdmin;
 	if (token) {
 		jwt.verify(token, "jerdan1980", function (err, decoded) {
-			isAdmin = decoded.user_info.isAdmin;
+			if (decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			}
 		});
 		if (isAdmin) {
 			return <CreateProblem/>
@@ -34,18 +36,20 @@ const addable = () => {
 	}
 }
 
-const editable = (id) => {
+const editable = (item) => {
 	const token = localStorage.getItem("user_logged");
 	let isAdmin;
 	if (token) {
 		jwt.verify(token, "jerdan1980", function (err, decoded) {
-			isAdmin = decoded.user_info.isAdmin;
+			if (decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			}
 		});
 		if (isAdmin) {
 			return (
 				<div>
-					<EditProblem ID={id}/>
-					<DeleteProblem ID={id}/>
+					<EditProblem problem={item} ID={item._id}/>
+					<DeleteProblem problem={item} ID={item._id}/>
 				</div>
 			)
 		}
@@ -57,7 +61,9 @@ const balancer = () => {
 	let isAdmin;
 	if (token) {
 		jwt.verify(token, "jerdan1980", function (err, decoded) {
-			isAdmin = decoded.user_info.isAdmin;
+			if (decoded) {
+				isAdmin = decoded.user_info.isAdmin;
+			}
 		});
 		if (isAdmin) {
 			return (
@@ -75,7 +81,7 @@ const ListProblems = (props) => {
 	const [Categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		axios.get(`/api/problems/get_problem`)
+		axios.get(`http://localhost:3001/api/problems/get_problem`)
 			.then(res => {
 				//get problems
 				setProblems(res.data);
@@ -118,7 +124,7 @@ const ListProblems = (props) => {
 								<div class="col" key="Difficulty">{stars(item.difficulty)}</div>
 								<div class="col" key="Length">{stars(item.length)}</div>
 								<div class="col-6 text-left" key="Description">{item.description}</div>
-								{editable(item._id)}
+								{editable(item)}
 							</div>
 						)
 					})}

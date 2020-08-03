@@ -19,7 +19,9 @@ const ListFAQs = (props) => {
 		let isAdmin;
 		if (token) {
 			jwt.verify(token, "jerdan1980", function (err, decoded) {
-				isAdmin = decoded.user_info.isAdmin;
+				if (decoded) {
+					isAdmin = decoded.user_info.isAdmin;
+				}
 			});
 			if (isAdmin) {
 				return <CreateNAP/>
@@ -27,18 +29,20 @@ const ListFAQs = (props) => {
 		}
 	}
 
-	const editable = (id) => {
+	const editable = (item) => {
 		const token = localStorage.getItem("user_logged");
 		let isAdmin;
 		if (token) {
 			jwt.verify(token, "jerdan1980", function (err, decoded) {
-				isAdmin = decoded.user_info.isAdmin;
+				if (decoded) {
+					isAdmin = decoded.user_info.isAdmin;
+				}
 			});
 			if (isAdmin) {
 				return (
 					<div>
-						<EditNAP ID={id}/>
-						<DeleteNAP ID={id}/>
+						<EditNAP NAP={item} ID={item._id}/>
+						<DeleteNAP NAP={item} ID={item._id}/>
 					</div>
 				)
 			}
@@ -46,7 +50,7 @@ const ListFAQs = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get(`/api/nap/get_nap`) 
+		axios.get(`http://localhost:3001/api/nap/get_nap`) 
 			.then(res => {setNAP(res.data)});
 	}, []);
 
@@ -105,7 +109,7 @@ const ListFAQs = (props) => {
 												}
 												return(
 													<td colSpan={colSize}>
-														{editable(item._id)}
+														{editable(item)}
 														{item.hasHeader ? <a class="font-weight-bold">{item.header}<br/></a> : <></>}
 														{item.hasDescription ? <ReactMarkdown source={item.description} escapeHtml={false}/> : <></>}
 														<a class="text-link" href={item.link}>{item.linkText}</a>
