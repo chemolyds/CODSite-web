@@ -46,7 +46,7 @@ const ListFAQs = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get(`http://localhost:3001/api/nap/get_nap`) 
+		axios.get(`/api/nap/get_nap`) 
 			.then(res => {setNAP(res.data)});
 	}, []);
 
@@ -107,7 +107,7 @@ const ListFAQs = (props) => {
 													<td colSpan={colSize}>
 														{editable(item._id)}
 														{item.hasHeader ? <a class="font-weight-bold">{item.header}<br/></a> : <></>}
-														{item.hasDescription ? <a>{item.description}<br/></a> : <></>}
+														{item.hasDescription ? <ReactMarkdown source={item.description} escapeHtml={false}/> : <></>}
 														<a class="text-link" href={item.link}>{item.linkText}</a>
 													</td>
 												)
