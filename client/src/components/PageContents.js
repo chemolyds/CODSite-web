@@ -13,7 +13,9 @@ const PageContents = (props) => {
 		let isAdmin;
 		if (token) {
 			jwt.verify(token, "jerdan1980", function (err, decoded) {
-				isAdmin = decoded.user_info.isAdmin;
+				if (decoded) {
+					isAdmin = decoded.user_info.isAdmin;
+				}
 			});
 			if (isAdmin) {
 				return <EditPageContents page={props.page}/>
@@ -22,7 +24,7 @@ const PageContents = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get(`/api/user/get_page/${props.page}`) 
+		axios.get(`http://localhost:3001/api/user/get_page/${props.page}`) 
 			.then(res => {
 				setHeader(res.data.header);
 				setContents(res.data.contents);
