@@ -24,6 +24,7 @@ blockquote {
 table { 
 	border-collapse: collapse;
 	border-style: hidden;
+	table-layout: fixed;
 }
 
 th, td {
