@@ -13,9 +13,7 @@ const PageContents = (props) => {
 		let isAdmin;
 		if (token) {
 			jwt.verify(token, "jerdan1980", function (err, decoded) {
-				if (decoded) {
-					isAdmin = decoded.user_info.isAdmin;
-				}
+				isAdmin = decoded.user_info.isAdmin;
 			});
 			if (isAdmin) {
 				return <EditPageContents page={props.page}/>
