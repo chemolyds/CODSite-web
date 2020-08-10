@@ -37,7 +37,7 @@ const EditPageContents = (props) => {
 
 	return (
 		<>
-			<button class="row btn px-1 py-1" onClick={handleShow}>
+			<button class="row btn px-1 py-1 mx-1" onClick={handleShow}>
 				<PencilIcon/>
 				<a class="mx-1 align-middle">Edit</a>
 			</button>

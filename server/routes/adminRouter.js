@@ -19,6 +19,7 @@ adminRouter.delete('/delete_user/:id', admin.deleteUser);
 //pages
 adminRouter.post('/create_page', admin.createPage);
 adminRouter.put('/edit_page/:page', admin.editPage);
+adminRouter.get('/toggle_page/:page', admin.togglePage);
 
 //FAQs
 adminRouter.post('/create_faq', admin.createFAQ);

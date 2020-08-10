@@ -197,6 +197,22 @@ export const editPage = async (req, res) => {
 	});
 }
 
+export const togglePage = async (req, res) => {
+	const page = req.params.page;
+	initMongoose();
+	let bruh = await Page.findOne({page: page});
+	Page.findOneAndUpdate({page: page}, {hidden: !bruh.hidden}, {new: true}, (err, data) => {
+		if (err) {
+			res.status(400).json(err);
+			throw err;
+		} else if (!data) {
+			res.status(400).json({ message: 'Page contents does not exist!'});
+		} else {
+			res.status(200).json(data);
+		}
+	});
+}
+
 export const createFAQ = async (req, res) => {
 	initMongoose()
 	let save_FAQ

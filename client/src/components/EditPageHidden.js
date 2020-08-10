@@ -1,19 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-//import {Button, Modal, Form} from 'react-bootstrap';
-//import {PencilIcon} from "@primer/octicons-react";
+import {CircleIcon, CheckCircleFillIcon} from "@primer/octicons-react";
 
 const EditPageHidden = (props) => {
 	const [hidden, setHidden] = useState(true);
+	const [icon, setIcon] = useState();
+	const [text, setText] = useState("");
+
+	const handleSubmit = () => {
+		axios.get(`http://localhost:3001/api/admin/toggle_page/${props.page}`)
+			.then((res) => {
+				window.location.reload(true);
+			});
+	}
 
 	useEffect(() => {
-		setHidden(props.page.hidden);
+		axios.get(`http://localhost:3001/api/user/get_page/${props.page}`) 
+			.then(res => {
+				setHidden(res.data.hidden);
+			});
 	}, []);
 
+	useEffect(() => {
+		console.log(hidden);
+		hidden ? setIcon(<CheckCircleFillIcon/>) : setIcon(<CircleIcon/>);
+		hidden ? setText("") : setText("Not ");
+	}, [hidden])
+
 	return (
-		<>
-		<p>Hidden</p>
-		</>
+		<button class="row btn px-1 py-1 mx-1" checked={hidden} onClick={(event) => handleSubmit()}>
+			{icon}
+			<a class="mx-1 align-middle">Hidden</a>
+		</button>
 	);
 }
 
