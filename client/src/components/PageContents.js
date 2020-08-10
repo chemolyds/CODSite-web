@@ -2,7 +2,10 @@ import React, {useState, useEffect} from 'react';
 import ReactMarkdown from "react-markdown/with-html";
 import axios from "axios";
 import jwt from 'jsonwebtoken';
+
+//Components
 import EditPageContents from "./EditPageContents";
+import EditPageHidden from "./EditPageHidden";
 
 const PageContents = (props) => {
 	const [header, setHeader] = useState(props.page);
@@ -18,7 +21,12 @@ const PageContents = (props) => {
 				}
 			});
 			if (isAdmin) {
-				return <EditPageContents page={props.page}/>
+				return (
+					<span>
+						<EditPageContents page={props.page}/>
+						<EditPageHidden page={props.page}/>
+					</span>
+				)
 			}
 		}
 	}
