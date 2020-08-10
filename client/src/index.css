@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+/* Discord type blockquotes */
 blockquote {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -21,6 +22,7 @@ blockquote {
 	text-align: left;
 } 
 
+/* Outlined tables */
 table { 
 	border-collapse: collapse;
 	border-style: hidden;
@@ -39,6 +41,7 @@ table th {
 	text-align: center;
 }
 
+/* Wide modals */
 .modal-lg {
 	width: 90%;
 }
