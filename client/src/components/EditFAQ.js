@@ -44,7 +44,7 @@ const EditFAQ = (props) => {
 				<a class="mx-1 align-middle">Edit</a>
 			</button>
 
-			<Modal show={show} onHide={handleClose}>
+			<Modal show={show} onHide={handleClose} dialogClassName="modal-lg">
 				<Modal.Header closeButton>
 					<Modal.Title>Editing FAQ</Modal.Title>
 				</Modal.Header>

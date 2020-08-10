@@ -32,7 +32,7 @@ const CreateFAQ = (props) => {
 				<a class="mx-1 align-middle">Add</a>
 			</button>
 
-			<Modal show={show} onHide={handleClose}>
+			<Modal show={show} onHide={handleClose} dialogClassName="modal-lg">
 				<Modal.Header closeButton>
 					<Modal.Title>Adding FAQ</Modal.Title>
 				</Modal.Header>

@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from "axios";
+import jwt from "jsonwebtoken";
 import logo from '../usnco-server-icon.png';
 import LoginHandler from './LoginHandler';
 
 const NavBar = (props) => {
+	const [hidden, setHidden] = useState({});
+
 	//menuItem should be the string of a navbar item
 	const setActivePageHighlight = (menuItem) => {
 		if (menuItem === props.page) {
@@ -11,6 +15,55 @@ const NavBar = (props) => {
 			return
 		}
 	}
+
+	const viewable = () => {
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				if (decoded) {
+					isAdmin = decoded.user_info.isAdmin;
+				}
+			});
+			if (isAdmin) {
+				//return EVERYTHING
+				return (
+					<>
+						<li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li>
+						<li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li>
+						<li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li>
+						<li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/nap">NAP</a></li>
+						<li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li>
+						<li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li>
+					</>
+				);
+			}
+		}
+		//else not logged in or admin
+		return (
+			<>
+				{!hidden["home"] ? <li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li> : <></>}
+				{!hidden["faq"] ? <li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li> : <></>}
+				{!hidden["Problems"] ? <li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li> : <></>}
+				{!hidden["nap"] ? <li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/nap">NAP</a></li> : <></>}
+				{!hidden["Guides"] ? <li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li> : <></>}
+				{!hidden["about"] ? <li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li> : <></>}
+			</>
+		)
+	}
+
+	useEffect(() => {
+		let map = {};
+		axios.get(`http://localhost:3001/api/user/get_page`) 
+			.then(res => {
+				let item;
+				for (item of res.data) {
+					map[item.page] = item.hidden;
+				};
+				console.log(map);
+				setHidden(map);
+		});
+	}, []);
 
 	//handles how to present the login/logout buttons
 	const logged = () => {
@@ -37,12 +90,7 @@ const NavBar = (props) => {
 			</div>
 			<nav role="navigation">
 				<ul class="navbar-nav">
-					<li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li>
-					<li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li>
-					<li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li>
-					<li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/nap">NAP</a></li>
-					<li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li>
-					<li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li>
+					{viewable()}
 					<li class="nav-link">{logged()}</li>
 				</ul>
 			</nav>

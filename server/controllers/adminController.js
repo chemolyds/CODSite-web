@@ -156,6 +156,9 @@ export const createPage = async (req, res) => {
 		header: req.body.header,
 		contents: req.body.contents
 	});
+	if (req.body.hidden) {
+		payload.hidden = req.body.hidden;
+	}
 	save_page.save(function (err, save_page) {
 		if (err) {
 			return res.status(400).json(err);
@@ -178,8 +181,27 @@ export const editPage = async (req, res) => {
 	if (req.body.contents) {
 		payload.contents = req.body.contents;
 	}
+	if (req.body.hidden) {
+		payload.hidden = req.body.hidden;
+	}
 
 	Page.findOneAndUpdate({page: page}, payload, {new: true}, (err, data) => {
+		if (err) {
+			res.status(400).json(err);
+			throw err;
+		} else if (!data) {
+			res.status(400).json({ message: 'Page contents does not exist!'});
+		} else {
+			res.status(200).json(data);
+		}
+	});
+}
+
+export const togglePage = async (req, res) => {
+	const page = req.params.page;
+	initMongoose();
+	let bruh = await Page.findOne({page: page});
+	Page.findOneAndUpdate({page: page}, {hidden: !bruh.hidden}, {new: true}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);
 			throw err;

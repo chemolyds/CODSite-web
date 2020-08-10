@@ -26,6 +26,7 @@ const EditPageContents = (props) => {
 	}
 
 	useEffect(() => {
+		//this cannot be used with props for some reason
 		axios
 			.get(`/api/user/get_page/${props.page}`)
 			.then(res => {
@@ -36,12 +37,12 @@ const EditPageContents = (props) => {
 
 	return (
 		<>
-			<button class="row btn px-1 py-1" onClick={handleShow}>
+			<button class="row btn px-1 py-1 mx-1" onClick={handleShow}>
 				<PencilIcon/>
 				<a class="mx-1 align-middle">Edit</a>
 			</button>
 
-			<Modal show={show} onHide={handleClose}>
+			<Modal show={show} onHide={handleClose} dialogClassName="modal-lg">
 				<Modal.Header closeButton>
 					<Modal.Title>Editing {props.page}</Modal.Title>
 				</Modal.Header>
