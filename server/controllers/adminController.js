@@ -156,6 +156,9 @@ export const createPage = async (req, res) => {
 		header: req.body.header,
 		contents: req.body.contents
 	});
+	if (req.body.hidden) {
+		payload.hidden = req.body.hidden;
+	}
 	save_page.save(function (err, save_page) {
 		if (err) {
 			return res.status(400).json(err);
@@ -177,6 +180,9 @@ export const editPage = async (req, res) => {
 	}
 	if (req.body.contents) {
 		payload.contents = req.body.contents;
+	}
+	if (req.body.hidden) {
+		payload.hidden = req.body.hidden;
 	}
 
 	Page.findOneAndUpdate({page: page}, payload, {new: true}, (err, data) => {
