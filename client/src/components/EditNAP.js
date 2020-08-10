@@ -65,7 +65,7 @@ const EditNAP = (props) => {
 
 	return (
 		<>
-			<button class="row btn px-1 py-1 mx-2" onClick={handleShow}>
+			<button class="row btn px-1 py-1 mx-2" onClick={handleShow} dialogClassName="modal-lg">
 				<PencilIcon/>
 				<a class="mx-1 align-middle">Edit</a>
 			</button>

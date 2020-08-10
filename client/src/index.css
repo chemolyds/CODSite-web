@@ -38,3 +38,7 @@ th, td {
 table th {
 	text-align: center;
 }
+
+.modal-lg {
+	width: 90%;
+}

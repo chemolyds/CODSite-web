@@ -72,7 +72,7 @@ const EditProblem = (props) => {
 				<PencilIcon/>
 			</button>
 
-			<Modal show={show} onHide={handleClose}>
+			<Modal show={show} onHide={handleClose} dialogClassName="modal-lg">
 				<Modal.Header closeButton>
 					<Modal.Title>Editing Problem</Modal.Title>
 				</Modal.Header>
