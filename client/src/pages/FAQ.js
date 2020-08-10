@@ -11,16 +11,6 @@ const FAQ = () => {
 
 	return (
 		<div className="App">
-			<div id="overlayer">
-				<div className="loader">
-					<div className="sr-only" role="status">
-						<div className="spinner-border text-primary">
-							<span>Loading...</span>
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<NavBar page='FAQ'/>
 
 			<PageContents page='faq'/>
