@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import logo from '../usnco-server-icon.png';
+import LoginHandler from './LoginHandler';
 
-const NavBar = (props) => {
+const Footer = (props) => {
 	const [hidden, setHidden] = useState({});
 
 	//menuItem should be the string of a navbar item
@@ -64,23 +65,37 @@ const NavBar = (props) => {
 		});
 	}, []);
 
+	//handles how to present the login/logout buttons
+	const logged = () => {
+		if(localStorage.getItem("user_logged")) {
+			return <a onClick={handleLogout}>Logout</a>
+		} else {
+			return <LoginHandler/>
+		}
+	}
+
+	const handleLogout = () => {
+		localStorage.removeItem("user_logged");
+		window.location.reload(true);
+	}
 
 	return (
-		<div class="container-fluid navbar navbar-expand-sm bg-dark navbar-dark">
-			<div class="col-2">
-				<h2 class="mb-0 site-logo">
-					<a href="/">
-						<img src={logo} alt="logo" height="55"/>
-					</a>
-				</h2>
+		<>
+			<p class="py-5 my-5"/>
+			<div class="four-c-gray">
+				<p class="py-4"/>
+				<div class="container-fluid navbar navbar-expand-sm navbar-dark justify-content-around pb-0">
+					<nav role="navigation">
+						<ul class="navbar-nav smol">
+							{viewable()}
+							<li class="nav-link">{logged()}</li>
+						</ul>
+					</nav>
+				</div>
+				<p class="text-muted smoller mb-0 pb-5"><i>-Chemistry Olympiads Discord Server-</i></p>
 			</div>
-			<nav role="navigation">
-				<ul class="navbar-nav">
-					{viewable()}
-				</ul>
-			</nav>
-		</div>
+		</>
 	);
 }
 
-export default NavBar;
+export default Footer;
