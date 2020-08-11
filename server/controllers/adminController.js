@@ -36,7 +36,7 @@ function buildPayload(user) {
 }
 
 export const getUserList = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	User.find({}, (err, data) => {
 		res.status(200).json(data);
 	});
@@ -44,7 +44,7 @@ export const getUserList = async (req, res) => {
 
 export const getUser = async (req, res) => {
 	const id = req.params.id;
-	initMongoose()
+	let db = req.app.locals.db;
 	User.findOne({_id: id}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
@@ -64,7 +64,7 @@ export const createUser = async (req, res) => {
 	const salt = await bcrypt.genSalt(10);
 	req.body.password = await bcrypt.hash(req.body.password, salt);
 
-	initMongoose()
+	let db = req.app.locals.db;
 	let save_user
 	save_user = new User({
 		username: req.body.username,
@@ -90,7 +90,7 @@ export const editUser = async (req, res) => {
 	}
 
 	const id = req.params.id;
-	initMongoose()
+	let db = req.app.locals.db;
 	User.findOneAndUpdate({_id: id}, req.body, {new: true}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
@@ -106,7 +106,7 @@ export const editUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
 	const id = req.params.id;
-	initMongoose()
+	let db = req.app.locals.db;
 	User.findOneAndDelete({_id: id}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
@@ -122,7 +122,7 @@ export const deleteUser = async (req, res) => {
 }
 
 export const createAbout = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	let save_about
 	save_about = new About({ contents: req.body.contents });
 	save_about.save(function (err, save_about) {
@@ -136,7 +136,7 @@ export const createAbout = async (req, res) => {
 }
 
 export const editAbout = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	About.findOneAndUpdate({name: 'about'}, {contents: req.body.contents}, {new: true}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);
@@ -150,7 +150,7 @@ export const editAbout = async (req, res) => {
 }
 
 export const createPage = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	let save_page = new Page({
 		page: req.body.page,
 		header: req.body.header,
@@ -171,7 +171,7 @@ export const createPage = async (req, res) => {
 
 export const editPage = async (req, res) => {
 	const page = req.params.page;
-	initMongoose();
+	let db = req.app.locals.db;;
 
 	//clean data
 	let payload = {};
@@ -199,7 +199,7 @@ export const editPage = async (req, res) => {
 
 export const togglePage = async (req, res) => {
 	const page = req.params.page;
-	initMongoose();
+	let db = req.app.locals.db;;
 	let bruh = await Page.findOne({page: page});
 	Page.findOneAndUpdate({page: page}, {hidden: !bruh.hidden}, {new: true}, (err, data) => {
 		if (err) {
@@ -214,7 +214,7 @@ export const togglePage = async (req, res) => {
 }
 
 export const createFAQ = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	let save_FAQ
 	save_FAQ = new FAQ({
 		answer: req.body.answer,
@@ -232,7 +232,7 @@ export const createFAQ = async (req, res) => {
 
 export const editFAQ = async (req, res) => {
 	const id = req.params.id;
-	initMongoose()
+	let db = req.app.locals.db;
 	FAQ.findOneAndUpdate({_id: id}, req.body, {new: true}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);
@@ -247,7 +247,7 @@ export const editFAQ = async (req, res) => {
 
 export const deleteFAQ = async (req, res) => {
 	const id = req.params.id;
-	initMongoose()
+	let db = req.app.locals.db;
 	FAQ.findOneAndDelete({_id: id}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);

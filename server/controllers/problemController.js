@@ -7,22 +7,21 @@ import {dirname} from 'path';
 import {fileURLToPath} from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-let db;
 function initMongoose() {
   mongoose.connect(config.db.uri, {useNewUrlParser: true});
-  db = mongoose.connection;
+  let db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
 }
 
 export const getProblemList = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	Problem.find({}, (err, data) => {
 		res.status(200).json(data);
 	});
 }
 
 export const getProblem = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	Problem.findOne({_id: req.params.id}, (err, data) => {
 		res.status(200).json(data);
 	});
@@ -30,7 +29,7 @@ export const getProblem = async (req, res) => {
 
 export const createProblem = async (req, res) => {
 	try {
-		initMongoose()
+		let db = req.app.locals.db;
 		const params = req.body;
 		const problem = await Problem.create(params);
 		res.status(200).type('json').send(problem);
@@ -40,7 +39,7 @@ export const createProblem = async (req, res) => {
 }
 
 export const removeProblem = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	Problem.findOneAndDelete({_id: req.params.id}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
@@ -56,7 +55,7 @@ export const removeProblem = async (req, res) => {
 }
 
 export const updateProblem = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	Problem.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);

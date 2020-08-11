@@ -60,14 +60,14 @@ export const login = async (req, res) => {
 }
 
 export const about = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	About.findOne({name: 'about'}, (err, data) => {
 		res.status(200).json(data);
 	});
 }
 
 export const getPageList = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	Page.find({}, (err, data) => {
 		res.status(200).json(data);
 	});
@@ -75,14 +75,14 @@ export const getPageList = async (req, res) => {
 
 export const getPage = async (req, res) => {
 	const page = req.params.page;
-	initMongoose()
+	let db = req.app.locals.db;
 	Page.findOne({page: page}, (err, data) => {
 		res.status(200).json(data);
 	});
 }
 
 export const getFAQList = async (req, res) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	FAQ.find({}, (err, data) => {
 		res.status(200).json(data);
 	});
@@ -90,7 +90,7 @@ export const getFAQList = async (req, res) => {
 
 export const getFAQ = async (req, res) => {
 	const id = req.params.id;
-	initMongoose()
+	let db = req.app.locals.db;
 	FAQ.findOne({_id: id}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);
