@@ -36,7 +36,7 @@ const EditNAP = (props) => {
 		}
 		console.log(payload);
 		if (payload.x > 0 && payload.y > 0 && payload.linkText && payload.link) {
-			axios.put(`http://localhost:3001/api/nap/edit_nap/${props.ID}`, payload)
+			axios.put(`/api/nap/edit_nap/${props.ID}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
@@ -46,7 +46,7 @@ const EditNAP = (props) => {
 
 	useEffect(() => {
 		/*axios
-			.get(`http://localhost:3001/api/nap/get_nap/${props.ID}`)
+			.get(`/api/nap/get_nap/${props.ID}`)
 			.then(res => {
 				setX(res.data.x);
 				setY(res.data.y);
