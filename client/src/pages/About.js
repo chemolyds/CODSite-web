@@ -3,6 +3,7 @@ import '../App.css';
 
 import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
+import Footer from '../components/Footer';
 
 const About = () => {
 	return (
@@ -11,6 +12,7 @@ const About = () => {
 
 			<PageContents page="about"/>
 			
+			<Footer page="home"/>
 		</div>
 	)
 }

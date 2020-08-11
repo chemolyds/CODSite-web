@@ -71,3 +71,11 @@ p, a {
 .four-c-gray {
 	background-color: #4c4c4c;
 }
+
+/* Change text size */
+.smol {
+	font-size: 14px;
+}
+.smoller {
+	font-size: 10px;
+}
