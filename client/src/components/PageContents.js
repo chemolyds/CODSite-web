@@ -128,7 +128,7 @@ const PageContents = (props) => {
 		<div>
 			{editable()}
 
-			<h1 class="display-1 font-weight-bold">{header}</h1>
+			<h1 class="display-1">{header}</h1>
 			<p class="py-1"/>
 			<div class="flex mx-4 text-left">
 				<ReactMarkdown source={contents} escapeHtml={false}/>
