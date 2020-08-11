@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-//import config from '../config/config.js';
+import config from './server/config/config.js';
 
 //routes
 import problemRouter from './server/routes/problemRouter.js';
@@ -14,6 +14,11 @@ import adminRouter from './server/routes/adminRouter.js';
 import napRouter from './server/routes/napRouter.js';
 
 const app = express();
+
+//try single connection in mongoose
+mongoose.connect(config.db.uri, {useNewUrlParser: true});
+app.locals.db = mongoose.connection;
+app.locals.db.on('error', console.error.bind(console, 'connection error:'));
 
 //enable request logging for development debugging
 app.use(morgan('dev'));
