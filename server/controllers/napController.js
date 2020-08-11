@@ -7,10 +7,9 @@ import {dirname} from 'path';
 import {fileURLToPath} from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-let db;
 function initMongoose() {
   mongoose.connect(config.db.uri, {useNewUrlParser: true});
-  db = mongoose.connection;
+  let db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
 }
 
