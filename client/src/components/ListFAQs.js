@@ -70,7 +70,7 @@ const ListFAQs = (props) => {
 	
 	const QList = FAQs.map(item => {
 		return(
-			<div class="text-left my-2">
+			<div class="text-left">
 			<a class="text-dark" href={`#${item.question.substring(0,32).replace(/ /g, "_")}`}>{item.question}</a>
 			</div>
 		)
@@ -78,7 +78,7 @@ const ListFAQs = (props) => {
 
 	return (
 		<>
-			<div class="flex mx-4">
+			<div class="container">
 				<div class="row">
 					<div class="col-3">
 						{addable()}
@@ -90,7 +90,8 @@ const ListFAQs = (props) => {
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-3" style={{background: "#ccc"}}>
+					<div class="col-3">
+						<h3>Navigation</h3>
 						{QList}
 					</div>
 					<div class="col">
