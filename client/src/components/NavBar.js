@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import logo from '../usnco-server-icon.png';
-import LoginHandler from './LoginHandler';
 
 const NavBar = (props) => {
 	const [hidden, setHidden] = useState({});
@@ -65,19 +64,6 @@ const NavBar = (props) => {
 		});
 	}, []);
 
-	//handles how to present the login/logout buttons
-	const logged = () => {
-		if(localStorage.getItem("user_logged")) {
-			return <a onClick={handleLogout}>Logout</a>
-		} else {
-			return <LoginHandler/>
-		}
-	}
-
-	const handleLogout = () => {
-		localStorage.removeItem("user_logged");
-		window.location.reload(true);
-	}
 
 	return (
 		<div class="container-fluid navbar navbar-expand-sm bg-dark navbar-dark">
@@ -91,7 +77,6 @@ const NavBar = (props) => {
 			<nav role="navigation">
 				<ul class="navbar-nav">
 					{viewable()}
-					<li class="nav-link">{logged()}</li>
 				</ul>
 			</nav>
 		</div>
