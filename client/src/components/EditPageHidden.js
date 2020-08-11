@@ -8,7 +8,7 @@ const EditPageHidden = (props) => {
 	const [text, setText] = useState("");
 
 	const handleSubmit = () => {
-		axios.get(`http://localhost:3001/api/admin/toggle_page/${props.page}`)
+		axios.get(`/api/admin/toggle_page/${props.page}`)
 			.then((res) => {
 				window.location.reload(true);
 			});
@@ -16,7 +16,7 @@ const EditPageHidden = (props) => {
 
 	useEffect(() => {
 		/*
-		axios.get(`http://localhost:3001/api/user/get_page/${props.page}`) 
+		axios.get(`/api/user/get_page/${props.page}`) 
 			.then(res => {
 				setHidden(res.data.hidden);
 			});

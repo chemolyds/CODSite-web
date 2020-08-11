@@ -106,7 +106,7 @@ const PageContents = (props) => {
 
 	//fetch
 	useEffect(() => {
-		axios.get(`http://localhost:3001/api/user/get_page/${props.page}`) 
+		axios.get(`/api/user/get_page/${props.page}`) 
 			.then(res => {
 				//viewer
 				setHeader(res.data.header);
