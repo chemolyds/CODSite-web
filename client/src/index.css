@@ -1,3 +1,14 @@
+/* font imports */
+@font-face {
+	font-family: Exo2-Regular;
+	src: url("./resources/Exo2-Regular.ttf");
+}
+
+@font-face {
+	font-family: OpenSans-Light;
+	src: url("./resources/OpenSans-Light.ttf");
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -44,4 +55,19 @@ table th {
 /* Wide modals */
 .modal-lg {
 	width: 90%;
+}
+
+/* Change Heading font */
+h1, h2, h3 {
+	font-family: Exo2-Regular;
+}
+
+/* Change Text font */
+p, a {
+	font-family: OpenSans-Light;
+}
+
+/* Custom gray background */
+.four-c-gray {
+	background-color: #4c4c4c;
 }
