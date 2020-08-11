@@ -37,7 +37,7 @@ export const loginCheck = async (req, res, next) => {
 }
 
 export const adminCheck = async (req, res, next) => {
-	initMongoose()
+	let db = req.app.locals.db;
 	let result = await User.findOne({_id: req.decoded.user_info.id})
 	if (result.isAdmin) {
 		next();
