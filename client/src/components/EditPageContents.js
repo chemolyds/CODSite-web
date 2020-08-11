@@ -27,12 +27,14 @@ const EditPageContents = (props) => {
 
 	useEffect(() => {
 		//this cannot be used with props for some reason
+		/*
 		axios
 			.get(`http://localhost:3001/api/user/get_page/${props.page}`)
 			.then(res => {
 				setHeader(res.data.header);
 				setContents(res.data.contents);
 			});
+		*/
 	}, []);
 
 	return (

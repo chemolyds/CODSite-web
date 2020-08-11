@@ -15,10 +15,12 @@ const EditPageHidden = (props) => {
 	}
 
 	useEffect(() => {
+		/*
 		axios.get(`http://localhost:3001/api/user/get_page/${props.page}`) 
 			.then(res => {
 				setHidden(res.data.hidden);
 			});
+		*/
 	}, []);
 
 	useEffect(() => {
