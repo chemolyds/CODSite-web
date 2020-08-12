@@ -6,7 +6,7 @@ import {Button, Modal, Form} from 'react-bootstrap';
 import {PencilIcon, CheckCircleFillIcon, CircleIcon} from "@primer/octicons-react";
 
 // markdown-it
-var md = require("markdown-it")()
+var md = require("markdown-it")({html: true, linkify: true, typographer: true})
 	.use(require("markdown-it-abbr"))
 	.use(require("markdown-it-align"))
 	.use(require("markdown-it-container"))

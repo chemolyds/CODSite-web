@@ -9,7 +9,7 @@ import DeleteFAQ from "./DeleteFAQ";
 import CreateFAQ from "./CreateFAQ";
 
 //markdown-it
-var md = require("markdown-it")()
+var md = require("markdown-it")({html: true, linkify: true, typographer: true})
 	.use(require("markdown-it-abbr"))
 	.use(require("markdown-it-align"))
 	.use(require("markdown-it-container"))
