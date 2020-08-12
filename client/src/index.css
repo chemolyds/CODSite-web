@@ -63,7 +63,7 @@ h1, h2, h3 {
 }
 
 /* Change Text font */
-p, a {
+p, a, li, div {
 	font-family: OpenSans-Light;
 }
 
