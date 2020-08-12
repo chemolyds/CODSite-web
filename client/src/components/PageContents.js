@@ -143,7 +143,7 @@ const PageContents = (props) => {
 
 			<h1 class="display-1">{header}</h1>
 			<p class="py-1"/>
-			<div class="flex mx-4 text-left">
+			<div class="flex mx-5 px-5 text-left">
 				{
 					/*<ReactMarkdown source={contents} escapeHtml={false}/>*/
 				}
