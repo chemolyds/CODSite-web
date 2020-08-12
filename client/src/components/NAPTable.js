@@ -8,6 +8,19 @@ import CreateNAP from "./CreateNAP";
 import EditNAP from "./EditNAP";
 import DeleteNAP from "./DeleteNAP";
 
+//markdown-it
+var md = require("markdown-it")({html: true, linkify: true, typographer: true})
+	.use(require("markdown-it-abbr"))
+	.use(require("markdown-it-align"))
+	.use(require("markdown-it-container"))
+	.use(require("markdown-it-deflist"))
+	.use(require("markdown-it-emoji"))
+	.use(require("markdown-it-footnote"))
+	.use(require("markdown-it-ins"))
+	.use(require("markdown-it-mark"))
+	.use(require('markdown-it-sub'))
+	.use(require("markdown-it-sup"));
+
 const ListFAQs = (props) => {
 	const [NAP, setNAP] = useState([]);
 	const [numCols, setNumCols] = useState([]);
@@ -111,7 +124,7 @@ const ListFAQs = (props) => {
 													<td colSpan={colSize}>
 														{editable(item)}
 														{item.hasHeader ? <a class="font-weight-bold">{item.header}<br/></a> : <></>}
-														{item.hasDescription ? <ReactMarkdown source={item.description} escapeHtml={false}/> : <></>}
+														{item.hasDescription ? <div dangerouslySetInnerHTML={{ __html: md.render(item.description) }}/> /*<ReactMarkdown source={item.description} escapeHtml={false}/>*/ : <></>}
 														<a class="text-link" href={item.link}>{item.linkText}</a>
 													</td>
 												)

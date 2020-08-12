@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import {StarIcon, StarFillIcon, TriangleDownIcon} from "@primer/octicons-react";
-import ReactMarkdown from "react-markdown/with-html";
 
 //Components
 import CreateProblem from "./CreateProblem";
@@ -101,10 +100,10 @@ const ListProblems = (props) => {
 
 	const ProblemList = Categories.map(category => {
 		return(
-			<>
+			<div class="flex mx-5">
 				<h1>{category}</h1>
 				<hr/>
-				<div class="flex mx-4" key={category}>
+				<div key={category}>
 					<div class="row" key="header">
 						<div class="col-2" key="Problem">Problem</div>
 						<div class="col" key="Rating">Rating</div>
@@ -130,7 +129,7 @@ const ListProblems = (props) => {
 					})}
 					<br class="my-4"/>
 				</div>
-			</>
+			</div>
 		)
 	})
 
