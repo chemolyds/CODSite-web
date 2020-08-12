@@ -5,6 +5,19 @@ import jwt from 'jsonwebtoken';
 import {Button, Modal, Form} from 'react-bootstrap';
 import {PencilIcon, CheckCircleFillIcon, CircleIcon} from "@primer/octicons-react";
 
+// markdown-it
+var md = require("markdown-it")()
+	.use(require("markdown-it-abbr"))
+	.use(require("markdown-it-align"))
+	.use(require("markdown-it-container"))
+	.use(require("markdown-it-deflist"))
+	.use(require("markdown-it-emoji"))
+	.use(require("markdown-it-footnote"))
+	.use(require("markdown-it-ins"))
+	.use(require("markdown-it-mark"))
+	.use(require('markdown-it-sub'))
+	.use(require("markdown-it-sup"));
+
 //Components
 //import EditPageContents from "./EditPageContents";
 //import EditPageHidden from "./EditPageHidden";
@@ -131,7 +144,10 @@ const PageContents = (props) => {
 			<h1 class="display-1">{header}</h1>
 			<p class="py-1"/>
 			<div class="flex mx-4 text-left">
-				<ReactMarkdown source={contents} escapeHtml={false}/>
+				{
+					/*<ReactMarkdown source={contents} escapeHtml={false}/>*/
+				}
+				<div dangerouslySetInnerHTML={{ __html: md.render(contents) }}/>
 			</div>
 			
 		</div>

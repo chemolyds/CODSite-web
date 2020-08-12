@@ -8,6 +8,19 @@ import EditFAQ from "./EditFAQ";
 import DeleteFAQ from "./DeleteFAQ";
 import CreateFAQ from "./CreateFAQ";
 
+//markdown-it
+var md = require("markdown-it")()
+	.use(require("markdown-it-abbr"))
+	.use(require("markdown-it-align"))
+	.use(require("markdown-it-container"))
+	.use(require("markdown-it-deflist"))
+	.use(require("markdown-it-emoji"))
+	.use(require("markdown-it-footnote"))
+	.use(require("markdown-it-ins"))
+	.use(require("markdown-it-mark"))
+	.use(require('markdown-it-sub'))
+	.use(require("markdown-it-sup"));
+
 const ListFAQs = (props) => {
 	const [FAQs, setFAQs] = useState([]);
 	const [query, setQuery] = useState("");
@@ -62,7 +75,10 @@ const ListFAQs = (props) => {
 				<h1>{item.question}</h1>
 				{editable(item)}
 				<div>
-					<ReactMarkdown source={item.answer} escapeHtml={false}/>
+					{
+						/*<ReactMarkdown source={item.answer} escapeHtml={false}/>*/
+					}
+					<div dangerouslySetInnerHTML={{ __html: md.render(item.answer) }}/>
 				</div>
 			</div>
 		)
