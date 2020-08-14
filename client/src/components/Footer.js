@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import jwt from "jsonwebtoken";
-import logo from '../usnco-server-icon.png';
 import LoginHandler from './LoginHandler';
 
 const Footer = (props) => {

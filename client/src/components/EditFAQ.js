@@ -3,7 +3,6 @@ import axios from "axios";
 import {Button, Modal, Form} from 'react-bootstrap';
 import {PencilIcon} from "@primer/octicons-react";
 
-
 const EditFAQ = (props) => {
 	const [show, setShow] = useState(false);
 	const [question, setQuestion] = useState("");
@@ -27,12 +26,6 @@ const EditFAQ = (props) => {
 	}
 
 	useEffect(() => {
-		/*axios
-			.get(`http://localhost:3001/api/user/get_faq/${props.ID}`)
-			.then(res => {
-				setAnswer(res.data.answer);
-				setQuestion(res.data.question);
-			});*/
 		setAnswer(props.FAQ.answer);
 		setQuestion(props.FAQ.question);
 	}, []);

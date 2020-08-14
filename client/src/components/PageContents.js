@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import ReactMarkdown from "react-markdown/with-html";
 import axios from "axios";
 import jwt from 'jsonwebtoken';
 import {Button, Modal, Form} from 'react-bootstrap';
@@ -140,9 +139,6 @@ const PageContents = (props) => {
 			<h1 class="display-1">{header}</h1>
 			<p class="py-1"/>
 			<div class="flex mx-5 px-5 text-left">
-				{
-					/*<ReactMarkdown source={contents} escapeHtml={false}/>*/
-				}
 				<div dangerouslySetInnerHTML={{ __html: md.render(contents) }}/>
 			</div>
 			

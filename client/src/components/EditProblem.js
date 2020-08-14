@@ -3,7 +3,6 @@ import axios from "axios";
 import {Button, Modal, Form} from 'react-bootstrap';
 import {PencilIcon} from "@primer/octicons-react";
 
-
 const EditProblem = (props) => {
 	const [show, setShow] = useState(false);
 	const [name, setName] = useState("");
@@ -44,18 +43,6 @@ const EditProblem = (props) => {
 	}
 
 	useEffect(() => {
-		/*axios
-			.get(`http://localhost:3001/api/problems/get_problem/${props.ID}`)
-			.then(res => {
-				setName(res.data.name);
-				setCategory(res.data.category);
-				setRating(res.data.rating);
-				setDifficulty(res.data.difficulty);
-				setLength(res.data.length);
-				setDescription(res.data.description);
-				setProblemPDFName(res.data.problemPDFName);
-				setSolutionPDFName(res.data.solutionPDFName);
-			});*/
 			setName(props.problem.name);
 			setCategory(props.problem.category);
 			setRating(props.problem.rating);
