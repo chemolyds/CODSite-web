@@ -12,10 +12,6 @@ adminRouter.post('/create_user', admin.createUser);
 adminRouter.put('/edit_user/:id', admin.editUser);
 adminRouter.delete('/delete_user/:id', admin.deleteUser);
 
-//about page
-//adminRouter.post('/create_about', admin.createAbout); //only need it for initialization
-//adminRouter.put('/edit_about', admin.editAbout);
-
 //pages
 adminRouter.post('/create_page', admin.createPage);
 adminRouter.put('/edit_page/:page', admin.editPage);

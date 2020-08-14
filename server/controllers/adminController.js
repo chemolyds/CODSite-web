@@ -108,32 +108,6 @@ export const deleteUser = async (req, res) => {
 	});
 }
 
-export const createAbout = async (req, res) => {
-	let save_about
-	save_about = new About({ contents: req.body.contents });
-	save_about.save(function (err, save_about) {
-		if (err) {
-			return res.status(400).json(err);
-		} else {
-			console.log('saved =>', save_about);
-			return res.status(200).json(save_about);
-		}
-	});
-}
-
-export const editAbout = async (req, res) => {
-	About.findOneAndUpdate({name: 'about'}, {contents: req.body.contents}, {new: true}, (err, data) => {
-		if (err) {
-			res.status(400).json(err);
-			throw err;
-		} else if (!data) {
-			res.status(400).json({ message: 'About does not exist!'});
-		} else {
-			res.status(200).json(data);
-		}
-	});
-}
-
 export const createPage = async (req, res) => {
 	let save_page = new Page({
 		page: req.body.page,
