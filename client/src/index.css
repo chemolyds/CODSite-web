@@ -79,3 +79,10 @@ p, a, li, div {
 .smoller {
 	font-size: 10px;
 }
+
+/* Table spacing */
+table {
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
