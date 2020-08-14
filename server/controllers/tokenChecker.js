@@ -1,15 +1,7 @@
 import jwt from "jsonwebtoken";
-import mongoose from "mongoose";
-import config from '../config/config.js';
 
 //Models
 import User from '../models/userModel.js';
-
-function initMongoose() {
-  mongoose.connect(config.db.uri, {useNewUrlParser: true});
-  let db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
-}
 
 export const loginCheck = async (req, res, next) => {
 	const authHeader = req.headers.authorization;
@@ -37,7 +29,6 @@ export const loginCheck = async (req, res, next) => {
 }
 
 export const adminCheck = async (req, res, next) => {
-	let db = req.app.locals.db;
 	let result = await User.findOne({_id: req.decoded.user_info.id})
 	if (result.isAdmin) {
 		next();
