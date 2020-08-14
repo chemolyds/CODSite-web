@@ -18,10 +18,6 @@ var md = require("markdown-it")({html: true, linkify: true, typographer: true})
 	.use(require('markdown-it-sub'))
 	.use(require("markdown-it-sup"));
 
-//Components
-//import EditPageContents from "./EditPageContents";
-//import EditPageHidden from "./EditPageHidden";
-
 const PageContents = (props) => {
 	//viewer
 	const [header, setHeader] = useState(props.page);
