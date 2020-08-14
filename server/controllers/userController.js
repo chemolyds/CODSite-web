@@ -1,19 +1,11 @@
-import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import config from '../config/config.js';
 
 //Models
 import About from '../models/aboutModel.js';
 import FAQ from '../models/faqModel.js';
 import Page from '../models/pageModel.js';
 import User from '../models/userModel.js';
-
-function initMongoose() {
-  mongoose.connect(config.db.uri, {useNewUrlParser: true});
-  let db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
-}
 
 function signJWT(payload, res) {
 	jwt.sign(payload, "jerdan1980", {expiresIn: 360000}, (err, token) => {
@@ -39,7 +31,6 @@ function buildPayload(user) {
 export const login = async (req, res) => {
 	const username = req.body.username;
 	const password = req.body.password;
-	initMongoose()
 	let user = await User.findOne({username: username});
 	if(!user) {
 		return res.status(400).json({
@@ -60,14 +51,12 @@ export const login = async (req, res) => {
 }
 
 export const about = async (req, res) => {
-	let db = req.app.locals.db;
 	About.findOne({name: 'about'}, (err, data) => {
 		res.status(200).json(data);
 	});
 }
 
 export const getPageList = async (req, res) => {
-	let db = req.app.locals.db;
 	Page.find({}, (err, data) => {
 		res.status(200).json(data);
 	});
@@ -75,14 +64,12 @@ export const getPageList = async (req, res) => {
 
 export const getPage = async (req, res) => {
 	const page = req.params.page;
-	let db = req.app.locals.db;
 	Page.findOne({page: page}, (err, data) => {
 		res.status(200).json(data);
 	});
 }
 
 export const getFAQList = async (req, res) => {
-	let db = req.app.locals.db;
 	FAQ.find({}, (err, data) => {
 		res.status(200).json(data);
 	});
@@ -90,7 +77,6 @@ export const getFAQList = async (req, res) => {
 
 export const getFAQ = async (req, res) => {
 	const id = req.params.id;
-	let db = req.app.locals.db;
 	FAQ.findOne({_id: id}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);

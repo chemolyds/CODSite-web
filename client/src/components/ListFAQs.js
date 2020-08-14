@@ -75,9 +75,6 @@ const ListFAQs = (props) => {
 				<h1>{item.question}</h1>
 				{editable(item)}
 				<div>
-					{
-						/*<ReactMarkdown source={item.answer} escapeHtml={false}/>*/
-					}
 					<div dangerouslySetInnerHTML={{ __html: md.render(item.answer) }}/>
 				</div>
 			</div>

@@ -1,19 +1,11 @@
-import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import config from '../config/config.js';
 
 //Models
 import About from '../models/aboutModel.js';
 import FAQ from '../models/faqModel.js';
 import Page from '../models/pageModel.js';
 import User from '../models/userModel.js';
-
-function initMongoose() {
-  mongoose.connect(config.db.uri, {useNewUrlParser: true});
-  let db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
-}
 
 function signJWT(payload, res) {
 	jwt.sign(payload, "jerdan1980", {expiresIn: 360000}, (err, token) => {
@@ -36,7 +28,6 @@ function buildPayload(user) {
 }
 
 export const getUserList = async (req, res) => {
-	let db = req.app.locals.db;
 	User.find({}, (err, data) => {
 		res.status(200).json(data);
 	});
@@ -44,7 +35,6 @@ export const getUserList = async (req, res) => {
 
 export const getUser = async (req, res) => {
 	const id = req.params.id;
-	let db = req.app.locals.db;
 	User.findOne({_id: id}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
@@ -64,7 +54,6 @@ export const createUser = async (req, res) => {
 	const salt = await bcrypt.genSalt(10);
 	req.body.password = await bcrypt.hash(req.body.password, salt);
 
-	let db = req.app.locals.db;
 	let save_user
 	save_user = new User({
 		username: req.body.username,
@@ -90,7 +79,6 @@ export const editUser = async (req, res) => {
 	}
 
 	const id = req.params.id;
-	let db = req.app.locals.db;
 	User.findOneAndUpdate({_id: id}, req.body, {new: true}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
@@ -106,7 +94,6 @@ export const editUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
 	const id = req.params.id;
-	let db = req.app.locals.db;
 	User.findOneAndDelete({_id: id}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
@@ -121,36 +108,7 @@ export const deleteUser = async (req, res) => {
 	});
 }
 
-export const createAbout = async (req, res) => {
-	let db = req.app.locals.db;
-	let save_about
-	save_about = new About({ contents: req.body.contents });
-	save_about.save(function (err, save_about) {
-		if (err) {
-			return res.status(400).json(err);
-		} else {
-			console.log('saved =>', save_about);
-			return res.status(200).json(save_about);
-		}
-	});
-}
-
-export const editAbout = async (req, res) => {
-	let db = req.app.locals.db;
-	About.findOneAndUpdate({name: 'about'}, {contents: req.body.contents}, {new: true}, (err, data) => {
-		if (err) {
-			res.status(400).json(err);
-			throw err;
-		} else if (!data) {
-			res.status(400).json({ message: 'About does not exist!'});
-		} else {
-			res.status(200).json(data);
-		}
-	});
-}
-
 export const createPage = async (req, res) => {
-	let db = req.app.locals.db;
 	let save_page = new Page({
 		page: req.body.page,
 		header: req.body.header,
@@ -171,7 +129,6 @@ export const createPage = async (req, res) => {
 
 export const editPage = async (req, res) => {
 	const page = req.params.page;
-	let db = req.app.locals.db;;
 
 	//clean data
 	let payload = {};
@@ -199,7 +156,6 @@ export const editPage = async (req, res) => {
 
 export const togglePage = async (req, res) => {
 	const page = req.params.page;
-	let db = req.app.locals.db;;
 	let bruh = await Page.findOne({page: page});
 	Page.findOneAndUpdate({page: page}, {hidden: !bruh.hidden}, {new: true}, (err, data) => {
 		if (err) {
@@ -214,7 +170,6 @@ export const togglePage = async (req, res) => {
 }
 
 export const createFAQ = async (req, res) => {
-	let db = req.app.locals.db;
 	let save_FAQ
 	save_FAQ = new FAQ({
 		answer: req.body.answer,
@@ -232,7 +187,6 @@ export const createFAQ = async (req, res) => {
 
 export const editFAQ = async (req, res) => {
 	const id = req.params.id;
-	let db = req.app.locals.db;
 	FAQ.findOneAndUpdate({_id: id}, req.body, {new: true}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);
@@ -247,7 +201,6 @@ export const editFAQ = async (req, res) => {
 
 export const deleteFAQ = async (req, res) => {
 	const id = req.params.id;
-	let db = req.app.locals.db;
 	FAQ.findOneAndDelete({_id: id}, (err, data) => {
 		if (err) {
 			res.status(400).json(err);
