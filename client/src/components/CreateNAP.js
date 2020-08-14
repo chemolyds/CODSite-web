@@ -36,7 +36,7 @@ const CreateNAP = (props) => {
 		}
 		console.log(payload);
 		if (payload.x > 0 && payload.y > 0 && payload.linkText && payload.link) {
-			axios.post(`http://localhost:3001/api/nap/create_nap`, payload)
+			axios.post(`/api/nap/create_nap`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
