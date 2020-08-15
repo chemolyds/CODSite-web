@@ -80,7 +80,7 @@ const ListProblems = (props) => {
 	const [Categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		axios.get(`/api/problems/get_problem`)
+		axios.get(`http://localhost:3001/api/problems/get_problem`)
 			.then(res => {
 				//get problems
 				setProblems(res.data);
