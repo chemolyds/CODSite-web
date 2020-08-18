@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 //Models
-import About from '../models/aboutModel.js';
 import FAQ from '../models/faqModel.js';
 import Page from '../models/pageModel.js';
 import User from '../models/userModel.js';
