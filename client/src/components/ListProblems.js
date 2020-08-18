@@ -7,6 +7,7 @@ import {StarIcon, StarFillIcon, TriangleDownIcon} from "@primer/octicons-react";
 import CreateProblem from "./CreateProblem";
 import EditProblem from "./EditProblem";
 import DeleteProblem from "./DeleteProblem";
+import EditProblemCategories from "./EditProblemCategoriesReact";
 
 function stars (num) {
 	return (
@@ -130,6 +131,8 @@ const ListProblems = (props) => {
 	return (
 		<div>
 			{addable(Categories)}
+
+			<EditProblemCategories/>
 
 			{ProblemList}
 		</div>
