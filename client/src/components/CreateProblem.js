@@ -6,7 +6,7 @@ import {PlusIcon} from "@primer/octicons-react";
 const CreateProblem = (props) => {
 	const [show, setShow] = useState(false);
 	const [name, setName] = useState("");
-	const [category, setCategory] = useState("");
+	const [category, setCategory] = useState("Misc");
 	const [rating, setRating] = useState(1);
 	const [difficulty, setDifficulty] = useState(1);
 	const [length, setLength] = useState(1);
@@ -39,7 +39,7 @@ const CreateProblem = (props) => {
 		}
 		console.log(payload);
 		if (payload.name && payload.problemPDFName) {
-			axios.post(`/api/problems/get_problem`, payload)
+			axios.post(`http://localhost:3001/api/problems/get_problem`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
@@ -67,8 +67,15 @@ const CreateProblem = (props) => {
 						</Form.Group>
 						<Form.Group controlId="category">
 							<Form.Label>Category</Form.Label>
-							<Form.Control type="text" placeholder="Type in the category!" value={category} onChange={(event) => setCategory(event.target.value)}/>
-						</Form.Group>
+							<Form.Control as="select" value={category} onChange={(event) => setCategory(event.target.value)}>
+								{
+									props.categories.map(item => {
+										return (
+											<option>{item}</option>
+										)
+									})
+								}
+							</Form.Control>						</Form.Group>
 						<Form.Group controlId="rating">
 							<Form.Label>Rating</Form.Label>
 							<Form.Control type="range" min="1" max="5" step="1" value={rating} onChange={(event) => setRating(event.target.value)}/>

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import ReactMarkdown from "react-markdown/with-html";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 
@@ -65,7 +64,7 @@ const ListFAQs = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get(`/api/user/get_faq`) 
+		axios.get(`http://localhost:3001/api/user/get_faq`) 
 			.then(res => {setFAQs(res.data)});
 	}, []);
 

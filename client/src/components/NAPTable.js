@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import ReactMarkdown from "react-markdown/with-html";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 
@@ -63,7 +62,7 @@ const ListFAQs = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get(`/api/nap/get_nap`) 
+		axios.get(`http://localhost:3001/api/nap/get_nap`) 
 			.then(res => {setNAP(res.data)});
 	}, []);
 

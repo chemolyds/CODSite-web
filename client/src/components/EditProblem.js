@@ -34,7 +34,7 @@ const EditProblem = (props) => {
 			payload["hasSolution"] = false;
 		}
 		if (payload.name && payload.category && payload.description && payload.problemPDFName) {
-			axios.put(`/api/problems/get_problem/${props.ID}`, payload)
+			axios.put(`http://localhost:3001/api/problems/get_problem/${props.ID}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
@@ -72,7 +72,15 @@ const EditProblem = (props) => {
 						</Form.Group>
 						<Form.Group controlId="category">
 							<Form.Label>Category</Form.Label>
-							<Form.Control type="text" placeholder="Type in the category!" value={category} onChange={(event) => setCategory(event.target.value)}/>
+							<Form.Control as="select" value={category} onChange={(event) => setCategory(event.target.value)}>
+								{
+									props.categories.map(item => {
+										return (
+											<option>{item}</option>
+										)
+									})
+								}
+							</Form.Control>
 						</Form.Group>
 						<Form.Group controlId="rating">
 							<Form.Label>Rating</Form.Label>

@@ -7,6 +7,7 @@ import {StarIcon, StarFillIcon, TriangleDownIcon} from "@primer/octicons-react";
 import CreateProblem from "./CreateProblem";
 import EditProblem from "./EditProblem";
 import DeleteProblem from "./DeleteProblem";
+import EditProblemCategories from "./EditProblemCategoriesReact";
 
 function stars (num) {
 	return (
@@ -20,7 +21,7 @@ function stars (num) {
 	)
 }
 
-const addable = () => {
+const addable = (categories) => {
 	const token = localStorage.getItem("user_logged");
 	let isAdmin;
 	if (token) {
@@ -30,12 +31,12 @@ const addable = () => {
 			}
 		});
 		if (isAdmin) {
-			return <CreateProblem/>
+			return <CreateProblem categories={categories}/>
 		}
 	}
 }
 
-const editable = (item) => {
+const editable = (item, categories) => {
 	const token = localStorage.getItem("user_logged");
 	let isAdmin;
 	if (token) {
@@ -47,8 +48,8 @@ const editable = (item) => {
 		if (isAdmin) {
 			return (
 				<div>
-					<EditProblem problem={item} ID={item._id}/>
-					<DeleteProblem problem={item} ID={item._id}/>
+					<EditProblem problem={item} ID={item._id} categories={categories}/>
+					<DeleteProblem problem={item} ID={item._id} categories={categories}/>
 				</div>
 			)
 		}
@@ -80,23 +81,17 @@ const ListProblems = (props) => {
 	const [Categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		axios.get(`/api/problems/get_problem`)
+		axios.get(`http://localhost:3001/api/problems/get_problem`)
 			.then(res => {
 				//get problems
 				setProblems(res.data);
 			});
+		axios.get(`http://localhost:3001/api/problems/get_categories`)
+			.then(res => {
+				//get categories
+				setCategories(res.data.categories);
+			});
 	}, []);
-	
-	useEffect(() => {
-		//find and append categories
-		let cats = [];
-		Problems.forEach(item => {
-			if(!cats.includes(item.category)) {
-				cats.push(item.category)
-			}
-		});
-		setCategories(cats);
-	}, [Problems])
 
 	const ProblemList = Categories.map(category => {
 		return(
@@ -123,7 +118,7 @@ const ListProblems = (props) => {
 								<div class="col" key="Difficulty">{stars(item.difficulty)}</div>
 								<div class="col" key="Length">{stars(item.length)}</div>
 								<div class="col-6 text-left" key="Description">{item.description}</div>
-								{editable(item)}
+								{editable(item, Categories)}
 							</div>
 						)
 					})}
@@ -135,7 +130,9 @@ const ListProblems = (props) => {
 
 	return (
 		<div>
-			{addable()}
+			{addable(Categories)}
+
+			<EditProblemCategories/>
 
 			{ProblemList}
 		</div>
