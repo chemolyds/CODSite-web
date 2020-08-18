@@ -6,7 +6,6 @@ const userRouter = express.Router();
 userRouter.post('/login', user.login);
 
 //pages
-//userRouter.get('/about', user.about);
 userRouter.get('/get_page/', user.getPageList)
 userRouter.get('/get_page/:page', user.getPage);
 
