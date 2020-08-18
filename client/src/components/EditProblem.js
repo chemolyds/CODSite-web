@@ -72,7 +72,15 @@ const EditProblem = (props) => {
 						</Form.Group>
 						<Form.Group controlId="category">
 							<Form.Label>Category</Form.Label>
-							<Form.Control type="text" placeholder="Type in the category!" value={category} onChange={(event) => setCategory(event.target.value)}/>
+							<Form.Control as="select" value={category} onChange={(event) => setCategory(event.target.value)}>
+								{
+									props.categories.map(item => {
+										return (
+											<option>{item}</option>
+										)
+									})
+								}
+							</Form.Control>
 						</Form.Group>
 						<Form.Group controlId="rating">
 							<Form.Label>Rating</Form.Label>
