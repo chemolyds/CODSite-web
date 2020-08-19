@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 //Models
-import About from '../models/aboutModel.js';
 import FAQ from '../models/faqModel.js';
 import Page from '../models/pageModel.js';
 import User from '../models/userModel.js';
@@ -48,12 +47,6 @@ export const login = async (req, res) => {
 	const payload = buildPayload(user);
 	console.log(payload);
 	signJWT(payload, res);
-}
-
-export const about = async (req, res) => {
-	About.findOne({name: 'about'}, (err, data) => {
-		res.status(200).json(data);
-	});
 }
 
 export const getPageList = async (req, res) => {
