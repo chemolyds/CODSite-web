@@ -4,7 +4,6 @@ import express from 'express';
 const problemRouter = express.Router();
 
 //categories for problems
-//problemRouter.post('/create_categories', problem.createCategories);
 problemRouter.get('/get_categories', problem.getCategories);
 problemRouter.put('/edit_categories/', tokenChecker.loginCheck, tokenChecker.adminCheck, problem.editCategories);
 

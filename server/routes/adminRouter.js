@@ -22,4 +22,7 @@ adminRouter.post('/create_faq', admin.createFAQ);
 adminRouter.put('/edit_faq/:id', admin.editFAQ);
 adminRouter.delete('/delete_faq/:id', admin.deleteFAQ);
 
+//categories
+adminRouter.post('/create_categories', admin.createCategories);
+
 export default adminRouter;

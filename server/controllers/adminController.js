@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 import FAQ from '../models/faqModel.js';
 import Page from '../models/pageModel.js';
 import User from '../models/userModel.js';
+import Categories from '../models/categoriesModel.js';
 
 function signJWT(payload, res) {
 	jwt.sign(payload, "jerdan1980", {expiresIn: 360000}, (err, token) => {
@@ -210,3 +211,20 @@ export const deleteFAQ = async (req, res) => {
 		}
 	});
 }
+
+export const createCategories = async (req, res) => {
+	let save_categories
+	save_categories = new Categories({
+		name: req.body.name,
+		categories: req.body.categories
+	});
+
+	save_categories.save(function (err, save_categories) {
+		if(err) {
+			return res.status(400).json(err);
+		} else {
+			console.log('saved =>', save_categories);
+			return res.status(200).json(save_categories);
+		}
+	})
+};

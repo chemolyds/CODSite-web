@@ -6,23 +6,6 @@ import {dirname} from 'path';
 import {fileURLToPath} from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export const createCategories = async (req, res) => {
-	let save_categories
-	save_categories = new Categories({
-		name: req.body.name,
-		categories: req.body.categories
-	});
-
-	save_categories.save(function (err, save_categories) {
-		if(err) {
-			return res.status(400).json(err);
-		} else {
-			console.log('saved =>', save_categories);
-			return res.status(200).json(save_categories);
-		}
-	})
-};
-
 export const getCategories = async (req, res) => {
 	Categories.findOne({ name: "problems"}, (err, data) => {
 		res.status(200).json(data);
