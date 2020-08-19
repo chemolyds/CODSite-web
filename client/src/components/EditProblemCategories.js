@@ -6,7 +6,7 @@ const EditProblemCategories = (props) => {
 	const [categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		axios.get("/api/problems/get_categories")
+		axios.get("http://localhost:3001/api/problems/get_categories")
 			.then(res => {
 				setCategories(res.data.categories);
 			})

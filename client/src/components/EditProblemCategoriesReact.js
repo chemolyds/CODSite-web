@@ -20,7 +20,7 @@ const EditProblemCategoriesReact = (props) => {
 		categories.forEach(item => {
 			payload.push(item.name);
 		})
-		axios.put("/api/problems/edit_categories", {categories: payload})
+		axios.put("http://localhost:3001/api/problems/edit_categories", {categories: payload})
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);
@@ -38,7 +38,7 @@ const EditProblemCategoriesReact = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get("/api/problems/get_categories")
+		axios.get("http://localhost:3001/api/problems/get_categories")
 			.then(res => {
 				let cat = res.data.categories
 				let arr = [];
