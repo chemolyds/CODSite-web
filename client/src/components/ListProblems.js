@@ -33,7 +33,12 @@ const addable = (categories) => {
 			}
 		});
 		if (isAdmin) {
-			return <CreateProblem categories={categories}/>
+			return (
+				<>
+				<CreateProblem categories={categories}/>
+				<EditProblemCategories/>
+				</>
+			)
 		}
 	}
 }
@@ -133,8 +138,6 @@ const ListProblems = (props) => {
 	return (
 		<div>
 			{addable(Categories)}
-
-			<EditProblemCategories/>
 
 			{ProblemList}
 		</div>
