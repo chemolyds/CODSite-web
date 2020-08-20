@@ -8,6 +8,8 @@ import CreateProblem from "./CreateProblem";
 import EditProblem from "./EditProblem";
 import DeleteProblem from "./DeleteProblem";
 import EditProblemCategories from "./EditProblemCategoriesReact";
+import DeleteCategory from './DeleteCategory';
+import EditCategoryName from './EditCategoryName';
 
 function stars (num) {
 	return (
@@ -56,7 +58,7 @@ const editable = (item, categories) => {
 	}
 }
 
-const balancer = () => {
+const balancer = (category) => {
 	const token = localStorage.getItem("user_logged");
 	let isAdmin;
 	if (token) {
@@ -68,8 +70,8 @@ const balancer = () => {
 		if (isAdmin) {
 			return (
 				<div>
-					<button class="row btn px-0 py-0 mx-0 my-0" ><TriangleDownIcon/></button>
-					<button class="row btn px-0 py-0 mx-0 my-0" ><TriangleDownIcon/></button>
+					<EditCategoryName category={category}/>
+					<DeleteCategory category={category}/>
 				</div>
 			)
 		}
@@ -105,7 +107,7 @@ const ListProblems = (props) => {
 						<div class="col" key="Difficulty">Difficulty</div>
 						<div class="col" key="Length">Length</div>
 						<div class="col-6" key="Description">Description</div>
-						{balancer()}
+						{balancer(category)}
 					</div>
 					{Problems.filter(item => item.category === category).map(item => {
 						return(
