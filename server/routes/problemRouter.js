@@ -6,6 +6,8 @@ const problemRouter = express.Router();
 //categories for problems
 problemRouter.get('/get_categories', problem.getCategories);
 problemRouter.put('/edit_categories/', tokenChecker.loginCheck, tokenChecker.adminCheck, problem.editCategories);
+problemRouter.put('/edit_category', tokenChecker.loginCheck, tokenChecker.adminCheck, problem.editCategoryName, problem.editCategories);
+problemRouter.delete('/delete_category', tokenChecker.loginCheck, tokenChecker.adminCheck, problem.deleteCategory, problem.editCategories);
 
 //problems
 problemRouter.get('/get_problem', problem.getProblemList);
