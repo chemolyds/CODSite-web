@@ -20,7 +20,7 @@ const EditProblemCategoriesReact = (props) => {
 		categories.forEach(item => {
 			payload.push(item.name);
 		})
-		axios.put("/api/problems/edit_categories", {categories: payload})
+		axios.put("http://localhost:3001/api/problems/edit_categories", {categories: payload})
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);
@@ -37,20 +37,24 @@ const EditProblemCategoriesReact = (props) => {
 		setCategories(arr);
 	}
 
+	const handleReset = () => {
+		axios.get("http://localhost:3001/api/problems/get_categories")
+		.then(res => {
+			let cat = res.data.categories
+			let arr = [];
+			for (const c of cat) {
+				arr.push({
+					id: cat.indexOf(c),
+					name: c
+				});
+			};
+			//console.log("arr =>", arr);
+			setCategories(arr);
+		})
+	}
+
 	useEffect(() => {
-		axios.get("/api/problems/get_categories")
-			.then(res => {
-				let cat = res.data.categories
-				let arr = [];
-				for (const c of cat) {
-					arr.push({
-						id: cat.indexOf(c),
-						name: c
-					});
-				};
-				//console.log("arr =>", arr);
-				setCategories(arr);
-			})
+		handleReset();
 	}, []);
 
 	return (
@@ -73,7 +77,10 @@ const EditProblemCategoriesReact = (props) => {
 							<Button variant="outline-secondary" onClick={handleNewCategory}>Add</Button>
 						</InputGroup.Append>
 					</InputGroup>
-					<h1>Categories</h1>
+					<h1>
+						Categories
+						<Button variant="danger ml-3" onClick={handleReset}>Reset</Button>
+					</h1>
 					<div class="container text-align-center">
 						<ReactSortable list={categories} setList={setCategories}>
 							{

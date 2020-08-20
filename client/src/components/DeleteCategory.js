@@ -3,34 +3,39 @@ import axios from "axios";
 import {Button, Modal} from 'react-bootstrap';
 import {TrashIcon} from "@primer/octicons-react";
 
-const DeleteFAQ = (props) => {
+const DeleteCategory = (props) => {
 	const [show, setShow] = useState(false);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
 	const handleSubmit = (event) => {
-		axios.delete(`http://localhost:3001/api/admin/delete_faq/${props.ID}`)
+		//https://stackoverflow.com/questions/51069552/axios-delete-request-with-body-and-headers
+		axios.delete(`http://localhost:3001/api/problems/delete_category`, { data: { category: props.category } })
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);
+			})
+			.catch((err) => {
+				if(err.res) {
+					console.log(err.res.status, err.res.data);
+				}
 			})
 	}
 
 	return (
 		<>
-			<button class="row btn px-1 py-1 mx-2" onClick={handleShow}>
+			<button class="row btn px-0 py-0 mx-0 my-0" onClick={handleShow}>
 				<TrashIcon/>
-				<a class="mx-1 align-middle">Delete</a>
 			</button>
 
 			<Modal show={show} onHide={handleClose} class="alert alert-danger">
 				<Modal.Header closeButton>
-					<Modal.Title>Delete FAQ</Modal.Title>
+					<Modal.Title>Delete Category</Modal.Title>
 				</Modal.Header>
 
 				<Modal.Body>
-					<p>Are you sure you want to delete this?</p>
+					<p>Are you sure you want to delete {props.category}?</p>
 				</Modal.Body>
 
 				<Modal.Footer>
@@ -46,4 +51,4 @@ const DeleteFAQ = (props) => {
 	);
 }
 
-export default DeleteFAQ;
+export default DeleteCategory;
