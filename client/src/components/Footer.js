@@ -24,6 +24,7 @@ const Footer = (props) => {
 						<li><a class="nav-link" href="/problems">Problems</a></li>
 						<li><a class="nav-link" href="/nap">NAP</a></li>
 						<li><a class="nav-link" href="/guides">Guides</a></li>
+						<li><a class="nav-link" href="/resources">Resources</a></li>
 						<li><a class="nav-link" href="/about">About</a></li>
 					</>
 				);
@@ -37,6 +38,7 @@ const Footer = (props) => {
 				{!hidden["Problems"] ? <li><a class="nav-link" href="/problems">Problems</a></li> : <></>}
 				{!hidden["nap"] ? <li><a class="nav-link" href="/nap">NAP</a></li> : <></>}
 				{!hidden["Guides"] ? <li><a class="nav-link" href="/guides">Guides</a></li> : <></>}
+				{!hidden["Resources"] ? <li><a class="nav-link" href="/resources">Resources</a></li> : <></>}
 				{!hidden["about"] ? <li><a class="nav-link" href="/about">About</a></li> : <></>}
 			</>
 		)
@@ -78,7 +80,6 @@ const Footer = (props) => {
 					<nav role="navigation">
 						<ul class="navbar-nav smol">
 							{viewable()}
-							<li><a class="nav-link" href="/resources">Resources</a></li>
 							<li class="nav-link">{logged()}</li>
 						</ul>
 					</nav>
