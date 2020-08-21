@@ -3,54 +3,52 @@ import axios from "axios";
 import {Button, Modal, Form} from 'react-bootstrap';
 import {PencilIcon} from "@primer/octicons-react";
 
-const EditFAQ = (props) => {
+const EditProblemCategoryName = (props) => {
 	const [show, setShow] = useState(false);
-	const [question, setQuestion] = useState("");
-	const [answer, setAnswer] = useState("");
+	const [category, setCategory] = useState("");
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
 	const handleSubmit = (event) => {
 		let payload = {
-			answer: answer,
-			question: question
+			original: props.category,
+			category: category
 		};
-		if (payload.answer && payload.question) {
-			axios.put(`http://localhost:3001/api/admin/edit_faq/${props.ID}`, payload)
+		if (payload.category) {
+			axios.put(`http://localhost:3001/api/problems/edit_category`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
+				})
+				.catch((err) => {
+					if(err.res) {
+						console.log(err.res.status, err.res.data);
+					}
 				})
 		}
 	}
 
 	useEffect(() => {
-		setAnswer(props.FAQ.answer);
-		setQuestion(props.FAQ.question);
+		setCategory(props.category);
 	}, []);
 
 	return (
 		<>
-			<button class="row btn px-1 py-1 mx-2" onClick={handleShow}>
+			<button class="row btn px-0 py-0 mx-0 my-0" onClick={handleShow}>
 				<PencilIcon/>
-				<a class="mx-1 align-middle">Edit</a>
 			</button>
 
 			<Modal show={show} onHide={handleClose} dialogClassName="modal-lg">
 				<Modal.Header closeButton>
-					<Modal.Title>Editing FAQ</Modal.Title>
+					<Modal.Title>Editing {props.category}</Modal.Title>
 				</Modal.Header>
 
 				<Modal.Body>
 					<Form>
-						<Form.Group controlId="question">
-							<Form.Label>Question</Form.Label>
-							<Form.Control type="text" value={question} onChange={(event) => setQuestion(event.target.value)}/>
-						</Form.Group>
-						<Form.Group controlId="answer">
-							<Form.Label>Answer</Form.Label>
-							<Form.Control as="textarea" rows="5" value={answer} onChange={(event) => setAnswer(event.target.value)}/>
+						<Form.Group controlId="category">
+							<Form.Label>Category Name</Form.Label>
+							<Form.Control type="text" value={category} onChange={(event) => setCategory(event.target.value)}/>
 						</Form.Group>
 					</Form>
 				</Modal.Body>
@@ -68,4 +66,4 @@ const EditFAQ = (props) => {
 	);
 }
 
-export default EditFAQ;
+export default EditProblemCategoryName;

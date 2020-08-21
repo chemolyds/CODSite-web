@@ -3,7 +3,7 @@ import axios from "axios";
 import {Button, Modal} from 'react-bootstrap';
 import {TrashIcon} from "@primer/octicons-react";
 
-const DeleteCategory = (props) => {
+const DeleteProblemCategory = (props) => {
 	const [show, setShow] = useState(false);
 
 	const handleClose = () => setShow(false);
@@ -11,7 +11,7 @@ const DeleteCategory = (props) => {
 
 	const handleSubmit = (event) => {
 		//https://stackoverflow.com/questions/51069552/axios-delete-request-with-body-and-headers
-		axios.delete(`/api/problems/delete_category`, { data: { category: props.category } })
+		axios.delete(`http://localhost:3001/api/problems/delete_category`, { data: { category: props.category } })
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);
@@ -51,4 +51,4 @@ const DeleteCategory = (props) => {
 	);
 }
 
-export default DeleteCategory;
+export default DeleteProblemCategory;

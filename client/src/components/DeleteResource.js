@@ -3,14 +3,14 @@ import axios from "axios";
 import {Button, Modal} from 'react-bootstrap';
 import {TrashIcon} from "@primer/octicons-react";
 
-const DeleteFAQ = (props) => {
+const DeleteResource = (props) => {
 	const [show, setShow] = useState(false);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
 	const handleSubmit = (event) => {
-		axios.delete(`http://localhost:3001/api/admin/delete_faq/${props.ID}`)
+		axios.delete(`http://localhost:3001/api/resources/delete_resource/${props.ID}`)
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);
@@ -19,14 +19,13 @@ const DeleteFAQ = (props) => {
 
 	return (
 		<>
-			<button class="row btn px-1 py-1 mx-2" onClick={handleShow}>
+			<button class="row btn px-0 py-0 mx-0 my-0" onClick={handleShow}>
 				<TrashIcon/>
-				<a class="mx-1 align-middle">Delete</a>
 			</button>
 
 			<Modal show={show} onHide={handleClose} class="alert alert-danger">
 				<Modal.Header closeButton>
-					<Modal.Title>Delete FAQ</Modal.Title>
+					<Modal.Title>Delete Resource</Modal.Title>
 				</Modal.Header>
 
 				<Modal.Body>
@@ -46,4 +45,4 @@ const DeleteFAQ = (props) => {
 	);
 }
 
-export default DeleteFAQ;
+export default DeleteResource;

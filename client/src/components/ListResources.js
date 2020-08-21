@@ -4,12 +4,12 @@ import jwt from "jsonwebtoken";
 import {StarIcon, StarFillIcon, TriangleDownIcon} from "@primer/octicons-react";
 
 //Components
-import CreateProblem from "./CreateProblem";
-import EditProblem from "./EditProblem";
-import DeleteProblem from "./DeleteProblem";
-import EditProblemCategories from "./EditProblemCategoriesReact";
-import DeleteProblemCategory from './DeleteProblemCategory';
-import EditProblemCategoryName from './EditProblemCategoryName';
+import CreateResource from "./CreateResource";
+import EditResource from "./EditResource";
+import DeleteResource from "./DeleteResource";
+import EditResourceCategories from "./EditResourceCategories";
+import DeleteCategory from './DeleteResourceCategory';
+import EditResourceCategoryName from './EditResourceCategoryName';
 
 function stars (num) {
 	return (
@@ -35,8 +35,8 @@ const addable = (categories) => {
 		if (isAdmin) {
 			return (
 				<>
-				<CreateProblem categories={categories}/>
-				<EditProblemCategories/>
+				<CreateResource categories={categories}/>
+				<EditResourceCategories/>
 				</>
 			)
 		}
@@ -55,8 +55,8 @@ const editable = (item, categories) => {
 		if (isAdmin) {
 			return (
 				<div>
-					<EditProblem problem={item} ID={item._id} categories={categories}/>
-					<DeleteProblem problem={item} ID={item._id} categories={categories}/>
+					<EditResource resource={item} ID={item._id} categories={categories}/>
+					<DeleteResource resource={item} ID={item._id} categories={categories}/>
 				</div>
 			)
 		}
@@ -75,51 +75,50 @@ const balancer = (category) => {
 		if (isAdmin) {
 			return (
 				<div>
-					<EditProblemCategoryName category={category}/>
-					<DeleteProblemCategory category={category}/>
+					<EditResourceCategoryName category={category}/>
+					<DeleteCategory category={category}/>
 				</div>
 			)
 		}
 	}
 }
 
-const ListProblems = (props) => {
-	const [Problems, setProblems] = useState([]);
+const ListResources = (props) => {
+	const [Resources, setResources] = useState([]);
 	const [Categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		axios.get(`http://localhost:3001/api/problems/get_problem`)
+		axios.get(`http://localhost:3001/api/resources/get_resource`)
 			.then(res => {
-				//get problems
-				setProblems(res.data);
+				//get resources
+				setResources(res.data);
 			});
-		axios.get(`http://localhost:3001/api/problems/get_categories`)
+		axios.get(`http://localhost:3001/api/resources/get_categories`)
 			.then(res => {
 				//get categories
 				setCategories(res.data.categories);
 			});
 	}, []);
 
-	const ProblemList = Categories.map(category => {
+	const ResourceList = Categories.map(category => {
 		return(
 			<div class="flex mx-5">
 				<h1>{category}</h1>
 				<hr/>
 				<div key={category}>
 					<div class="row" key="header">
-						<div class="col-2" key="Problem">Problem</div>
+						<div class="col-2" key="Resource">Resource</div>
 						<div class="col" key="Rating">Rating</div>
 						<div class="col" key="Difficulty">Difficulty</div>
 						<div class="col" key="Length">Length</div>
 						<div class="col-6" key="Description">Description</div>
 						{balancer(category)}
 					</div>
-					{Problems.filter(item => item.category === category).map(item => {
+					{Resources.filter(item => item.category === category).map(item => {
 						return(
 							<div class="row" key={item.name}>
-								<div class="col-2" key="Problem">
-									<a href={item.problemPDFName}>{item.name}</a>
-									{item.hasSolution ? (<a> <a href={item.solutionPDFName} class="text-success">[S]</a></a>) : <a/>}
+								<div class="col-2" key="Resource">
+									<a href={item.resourceLink}>{item.name}</a>
 								</div>
 								<div class="col" key="Rating">{stars(item.rating)}</div>
 								<div class="col" key="Difficulty">{stars(item.difficulty)}</div>
@@ -139,9 +138,9 @@ const ListProblems = (props) => {
 		<div>
 			{addable(Categories)}
 
-			{ProblemList}
+			{ResourceList}
 		</div>
 	)
 }
 
-export default ListProblems;
+export default ListResources;

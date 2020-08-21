@@ -115,7 +115,7 @@ export const createPage = async (req, res) => {
 		contents: req.body.contents
 	});
 	if (req.body.hidden) {
-		payload.hidden = req.body.hidden;
+		save_page.hidden = req.body.hidden;
 	}
 	save_page.save(function (err, save_page) {
 		if (err) {

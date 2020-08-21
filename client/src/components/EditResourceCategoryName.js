@@ -3,7 +3,7 @@ import axios from "axios";
 import {Button, Modal, Form} from 'react-bootstrap';
 import {PencilIcon} from "@primer/octicons-react";
 
-const EditCategoryName = (props) => {
+const EditResourceCategoryName = (props) => {
 	const [show, setShow] = useState(false);
 	const [category, setCategory] = useState("");
 
@@ -16,7 +16,7 @@ const EditCategoryName = (props) => {
 			category: category
 		};
 		if (payload.category) {
-			axios.put(`/api/problems/edit_category`, payload)
+			axios.put(`http://localhost:3001/api/resources/edit_category`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
@@ -66,4 +66,4 @@ const EditCategoryName = (props) => {
 	);
 }
 
-export default EditCategoryName;
+export default EditResourceCategoryName;

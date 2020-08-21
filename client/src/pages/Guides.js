@@ -13,7 +13,7 @@ const Guides = () => {
 
 			<PageContents page="Guides"/>
 			
-			<Footer page="home"/>
+			<Footer/>
 		</div>
 	)
 }

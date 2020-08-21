@@ -12,7 +12,7 @@ const PageNotFound = () => {
 
 			<PageContents page="PageNotFound"/>
 
-			<Footer page="home"/>
+			<Footer/>
 		</div>
 	);
 }

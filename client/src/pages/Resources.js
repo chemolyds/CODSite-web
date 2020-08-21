@@ -1,23 +1,22 @@
 import React, {useState} from 'react';
-import '../App.css';
 
 //Components
 import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
-import NAPTable from '../components/NAPTable';
 import Footer from '../components/Footer';
+import ListResources from '../components/ListResources';
 
-const NAP = () => {
+const Resources = () => {
 	return (
 		<div className="App">
-			<NavBar page="NAP"/>
+			<NavBar page="Resources"/>
 
-			<PageContents page="nap"/>
-			<NAPTable/>
+			<PageContents page="Resources"/>
+			<ListResources/>
 
 			<Footer/>
 		</div>
 	)
 }
 
-export default NAP;
+export default Resources;

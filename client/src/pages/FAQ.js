@@ -17,7 +17,7 @@ const FAQ = () => {
 			<PageContents page='faq'/>
 			<ListFAQs/>
 
-			<Footer page="home"/>
+			<Footer/>
 		</div>
 	)
 }

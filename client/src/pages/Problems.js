@@ -6,7 +6,7 @@ import PageContents from '../components/PageContents';
 import ListProblems from '../components/ListProblems';
 import Footer from '../components/Footer';
 
-const Home = () => {
+const Problems = () => {
 	return (
 		<div className="App">
 			<NavBar page="Problems"/>
@@ -14,9 +14,9 @@ const Home = () => {
 			<PageContents page="Problems"/>
 			<ListProblems/>
 
-			<Footer page="home"/>
+			<Footer/>
 		</div>
 	)
 }
 
-export default Home;
+export default Problems;

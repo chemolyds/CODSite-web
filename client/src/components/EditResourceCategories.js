@@ -5,7 +5,7 @@ import {PencilIcon, PlusIcon} from "@primer/octicons-react";
 import axios from "axios";
 import { InputGroupAppend } from "react-bootstrap/InputGroup";
 
-const EditProblemCategoriesReact = (props) => {
+const EditResourceCategoriesReact = (props) => {
 	const [show, setShow] = useState(false);
 	const [categories, setCategories] = useState([
 		{ id: 1, name: "Misc" }
@@ -20,7 +20,7 @@ const EditProblemCategoriesReact = (props) => {
 		categories.forEach(item => {
 			payload.push(item.name);
 		})
-		axios.put("http://localhost:3001/api/problems/edit_categories", {categories: payload})
+		axios.put("http://localhost:3001/api/resources/edit_categories", {categories: payload})
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);
@@ -38,7 +38,7 @@ const EditProblemCategoriesReact = (props) => {
 	}
 
 	const handleReset = () => {
-		axios.get("http://localhost:3001/api/problems/get_categories")
+		axios.get("http://localhost:3001/api/resources/get_categories")
 		.then(res => {
 			let cat = res.data.categories
 			let arr = [];
@@ -105,4 +105,4 @@ const EditProblemCategoriesReact = (props) => {
 	);
 };
 
-export default EditProblemCategoriesReact;
+export default EditResourceCategoriesReact;

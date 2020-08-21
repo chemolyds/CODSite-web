@@ -12,6 +12,7 @@ import problemRouter from './server/routes/problemRouter.js';
 import userRouter from './server/routes/userRouter.js';
 import adminRouter from './server/routes/adminRouter.js';
 import napRouter from './server/routes/napRouter.js';
+import resourceRouter from './server/routes/resourceRouter.js';
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use('/api/problems/', problemRouter);
 app.use('/api/user/', userRouter);
 app.use('/api/admin/', adminRouter);
 app.use('/api/nap/', napRouter);
+app.use('/api/resources/', resourceRouter);
 
 app.all('/*', (req, res) => {
 	// res.status(201).json({message: "nothing here!"});

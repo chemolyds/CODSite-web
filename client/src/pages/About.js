@@ -12,7 +12,7 @@ const About = () => {
 
 			<PageContents page="about"/>
 			
-			<Footer page="home"/>
+			<Footer/>
 		</div>
 	)
 }

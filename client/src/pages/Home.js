@@ -13,7 +13,7 @@ const Home = () => {
 
 			<PageContents page="home"/>
 
-			<Footer page="home"/>
+			<Footer/>
 		</div>
 	)
 }

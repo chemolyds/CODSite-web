@@ -6,15 +6,6 @@ import LoginHandler from './LoginHandler';
 const Footer = (props) => {
 	const [hidden, setHidden] = useState({});
 
-	//menuItem should be the string of a navbar item
-	const setActivePageHighlight = (menuItem) => {
-		if (menuItem === props.page) {
-			return "active"
-		} else {
-			return
-		}
-	}
-
 	const viewable = () => {
 		const token = localStorage.getItem("user_logged");
 		let isAdmin;
@@ -28,12 +19,13 @@ const Footer = (props) => {
 				//return EVERYTHING
 				return (
 					<>
-						<li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li>
-						<li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li>
-						<li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li>
-						<li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/nap">NAP</a></li>
-						<li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li>
-						<li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li>
+						<li><a class="nav-link" href="/">Home</a></li>
+						<li><a class="nav-link" href="/FAQ">FAQ</a></li>
+						<li><a class="nav-link" href="/problems">Problems</a></li>
+						<li><a class="nav-link" href="/nap">NAP</a></li>
+						<li><a class="nav-link" href="/guides">Guides</a></li>
+						<li><a class="nav-link" href="/resources">Resources</a></li>
+						<li><a class="nav-link" href="/about">About</a></li>
 					</>
 				);
 			}
@@ -41,19 +33,20 @@ const Footer = (props) => {
 		//else not logged in or admin
 		return (
 			<>
-				{!hidden["home"] ? <li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li> : <></>}
-				{!hidden["faq"] ? <li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li> : <></>}
-				{!hidden["Problems"] ? <li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li> : <></>}
-				{!hidden["nap"] ? <li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/nap">NAP</a></li> : <></>}
-				{!hidden["Guides"] ? <li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li> : <></>}
-				{!hidden["about"] ? <li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li> : <></>}
+				{!hidden["home"] ? <li><a class="nav-link" href="/">Home</a></li> : <></>}
+				{!hidden["faq"] ? <li><a class="nav-link" href="/FAQ">FAQ</a></li> : <></>}
+				{!hidden["Problems"] ? <li><a class="nav-link" href="/problems">Problems</a></li> : <></>}
+				{!hidden["nap"] ? <li><a class="nav-link" href="/nap">NAP</a></li> : <></>}
+				{!hidden["Guides"] ? <li><a class="nav-link" href="/guides">Guides</a></li> : <></>}
+				{!hidden["Resources"] ? <li><a class="nav-link" href="/resources">Resources</a></li> : <></>}
+				{!hidden["about"] ? <li><a class="nav-link" href="/about">About</a></li> : <></>}
 			</>
 		)
 	}
 
 	useEffect(() => {
 		let map = {};
-		axios.get(`/api/user/get_page`) 
+		axios.get(`http://localhost:3001/api/user/get_page`) 
 			.then(res => {
 				let item;
 				for (item of res.data) {
