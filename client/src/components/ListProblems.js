@@ -119,7 +119,7 @@ const ListProblems = (props) => {
 							<div class="row" key={item.name}>
 								<div class="col-2" key="Problem">
 									<a href={item.problemPDFName}>{item.name}</a>
-									{item.hasSolution ? (<a> <a href={item.solutionPDFName}>[S]</a></a>) : <a/>}
+									{item.hasSolution ? (<a> <a href={item.solutionPDFName} class="text-success">[S]</a></a>) : <a/>}
 								</div>
 								<div class="col" key="Rating">{stars(item.rating)}</div>
 								<div class="col" key="Difficulty">{stars(item.difficulty)}</div>
