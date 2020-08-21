@@ -8,8 +8,8 @@ import CreateProblem from "./CreateProblem";
 import EditProblem from "./EditProblem";
 import DeleteProblem from "./DeleteProblem";
 import EditProblemCategories from "./EditProblemCategoriesReact";
-import DeleteCategory from './DeleteCategory';
-import EditCategoryName from './EditCategoryName';
+import DeleteProblemCategory from './DeleteProblemCategory';
+import EditProblemCategoryName from './EditProblemCategoryName';
 
 function stars (num) {
 	return (
@@ -75,8 +75,8 @@ const balancer = (category) => {
 		if (isAdmin) {
 			return (
 				<div>
-					<EditCategoryName category={category}/>
-					<DeleteCategory category={category}/>
+					<EditProblemCategoryName category={category}/>
+					<DeleteProblemCategory category={category}/>
 				</div>
 			)
 		}

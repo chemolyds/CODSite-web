@@ -3,7 +3,7 @@ import axios from "axios";
 import {Button, Modal} from 'react-bootstrap';
 import {TrashIcon} from "@primer/octicons-react";
 
-const DeleteCategory = (props) => {
+const DeleteProblemCategory = (props) => {
 	const [show, setShow] = useState(false);
 
 	const handleClose = () => setShow(false);
@@ -51,4 +51,4 @@ const DeleteCategory = (props) => {
 	);
 }
 
-export default DeleteCategory;
+export default DeleteProblemCategory;

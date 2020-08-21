@@ -3,7 +3,7 @@ import axios from "axios";
 import {Button, Modal, Form} from 'react-bootstrap';
 import {PencilIcon} from "@primer/octicons-react";
 
-const EditCategoryName = (props) => {
+const EditProblemCategoryName = (props) => {
 	const [show, setShow] = useState(false);
 	const [category, setCategory] = useState("");
 
@@ -66,4 +66,4 @@ const EditCategoryName = (props) => {
 	);
 }
 
-export default EditCategoryName;
+export default EditProblemCategoryName;
