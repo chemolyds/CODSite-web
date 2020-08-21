@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
 import Footer from '../components/Footer';
+import ListResources from '../components/ListResources';
 
 const Resources = () => {
 	return (
@@ -11,6 +12,7 @@ const Resources = () => {
 			<NavBar page="Resources"/>
 
 			<PageContents page="Resources"/>
+			<ListResources/>
 
 			<Footer/>
 		</div>
