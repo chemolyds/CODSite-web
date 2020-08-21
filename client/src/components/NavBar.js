@@ -77,6 +77,7 @@ const NavBar = (props) => {
 			<nav role="navigation">
 				<ul class="navbar-nav">
 					{viewable()}
+					<li class={setActivePageHighlight("Resources")}><a class="nav-link" href="/resources">Resources</a></li>
 				</ul>
 			</nav>
 		</div>

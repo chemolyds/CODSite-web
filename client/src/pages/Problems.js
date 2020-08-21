@@ -14,7 +14,7 @@ const Problems = () => {
 			<PageContents page="Problems"/>
 			<ListProblems/>
 
-			<Footer page="home"/>
+			<Footer/>
 		</div>
 	)
 }
