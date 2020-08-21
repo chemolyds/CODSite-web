@@ -17,7 +17,7 @@ const EditFAQ = (props) => {
 			question: question
 		};
 		if (payload.answer && payload.question) {
-			axios.put(`http://localhost:3001/api/admin/edit_faq/${props.ID}`, payload)
+			axios.put(`/api/admin/edit_faq/${props.ID}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
