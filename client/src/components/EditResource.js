@@ -27,7 +27,7 @@ const EditResource = (props) => {
 			resourceLink: resourceLink
 		};
 		if (payload.name && payload.category && payload.description && payload.resourceLink) {
-			axios.put(`http://localhost:3001/api/resources/edit_resource/${props.ID}`, payload)
+			axios.put(`/api/resources/edit_resource/${props.ID}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
