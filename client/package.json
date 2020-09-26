@@ -34,7 +34,7 @@
     "react-scripts": "^3.4.3",
     "react-sortablejs": "^2.0.11",
     "semver": "^7.1.3",
-    "sortablejs": "^1.10.2"
+    "sortablejs": "1.10.X"
   },
   "scripts": {
     "start": "react-scripts start",
