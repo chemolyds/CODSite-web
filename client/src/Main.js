@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Switch, Route} from 'react-router-dom';
 import axios from "axios";
 
@@ -22,6 +22,7 @@ const Main = () => {
 			<Route exact path='/problems' component={Problems}/>
 			<Route exact path='/about' component={About}/>
 			<Route exact path='/faq' component={FAQ}/>
+				<Route exact path='/faq/:question' component={FAQ}/>
 			<Route exact path='/guides' component={Guides}/>
 			<Route exact path='/nap' component={NAP}/>
 			<Route exact path='/resources' component={Resources}/>
