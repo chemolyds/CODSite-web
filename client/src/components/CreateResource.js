@@ -32,7 +32,7 @@ const CreateResource = (props) => {
 		}
 		console.log(payload);
 		if (payload.name && payload.resourceLink) {
-			axios.post(`/api/resources/create_resource`, payload)
+			axios.post(`http://localhost:3001/api/resources/create_resource`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);

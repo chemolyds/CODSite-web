@@ -39,7 +39,7 @@ const CreateProblem = (props) => {
 		}
 		console.log(payload);
 		if (payload.name && payload.problemPDFName) {
-			axios.post(`/api/problems/get_problem`, payload)
+			axios.post(`http://localhost:3001/api/problems/get_problem`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);

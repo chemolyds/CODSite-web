@@ -36,7 +36,7 @@ const EditNAP = (props) => {
 		}
 		console.log(payload);
 		if (payload.x > 0 && payload.y > 0 && payload.linkText && payload.link) {
-			axios.put(`/api/nap/edit_nap/${props.ID}`, payload)
+			axios.put(`http://localhost:3001/api/nap/edit_nap/${props.ID}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
