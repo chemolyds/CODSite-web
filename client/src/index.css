@@ -86,3 +86,8 @@ table {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+/* dynamic image scaling */
+img {
+	max-width: 100%;
+}
