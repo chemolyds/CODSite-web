@@ -132,6 +132,7 @@ const FAQ = ({match, location}) => {
 										return (
 											<div class="container text-left">
 												<h1>{q.question}</h1>
+												{editable(q)}
 												<div dangerouslySetInnerHTML={{ __html: md.render(q.answer) }}/>
 											</div>
 										);
