@@ -17,7 +17,7 @@ const LoginHandler = (props) => {
 		};
 		if(username && password) {
 			axios
-				.post(`http://localhost:3001/api/user/login`, payload)
+				.post(`/api/user/login`, payload)
 				.then(res => {
 					if (res) {
 						console.log(res);
