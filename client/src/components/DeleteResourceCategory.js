@@ -11,7 +11,7 @@ const DeleteResourceCategory = (props) => {
 
 	const handleSubmit = (event) => {
 		//https://stackoverflow.com/questions/51069552/axios-delete-request-with-body-and-headers
-		axios.delete(`/api/resources/delete_category`, { data: { category: props.category } })
+		axios.delete(`http://localhost:3001/api/resources/delete_category`, { data: { category: props.category } })
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);

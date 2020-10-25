@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Switch, Route} from 'react-router-dom';
 import axios from "axios";
 
@@ -8,6 +8,7 @@ import Problems from './pages/Problems';
 import About from './pages/About';
 import PageNotFound from './pages/PageNotFound';
 import FAQ from './pages/FAQ';
+//import FAQItem from './pages/FAQ'
 import Guides from './pages/Guides';
 import NAP from './pages/NAP';
 import Resources from './pages/Resources';
@@ -22,6 +23,7 @@ const Main = () => {
 			<Route exact path='/problems' component={Problems}/>
 			<Route exact path='/about' component={About}/>
 			<Route exact path='/faq' component={FAQ}/>
+				<Route exact path='/faq/:question' component={FAQ}/>
 			<Route exact path='/guides' component={Guides}/>
 			<Route exact path='/nap' component={NAP}/>
 			<Route exact path='/resources' component={Resources}/>

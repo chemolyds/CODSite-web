@@ -20,7 +20,7 @@ const EditResourceCategoriesReact = (props) => {
 		categories.forEach(item => {
 			payload.push(item.name);
 		})
-		axios.put("/api/resources/edit_categories", {categories: payload})
+		axios.put("http://localhost:3001/api/resources/edit_categories", {categories: payload})
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);
@@ -38,7 +38,7 @@ const EditResourceCategoriesReact = (props) => {
 	}
 
 	const handleReset = () => {
-		axios.get("/api/resources/get_categories")
+		axios.get("http://localhost:3001/api/resources/get_categories")
 		.then(res => {
 			let cat = res.data.categories
 			let arr = [];

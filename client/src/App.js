@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from "./logo.svg";
 import Main from './Main';
 
 //https://github.com/nguyenbathanh/react-loading-screen
@@ -21,7 +20,7 @@ class App extends React.Component {
           ele.outerHTML = ''
         }, 2000)
       }
-    })
+    });
   }
 
 	render() {

@@ -16,7 +16,7 @@ const EditResourceCategoryName = (props) => {
 			category: category
 		};
 		if (payload.category) {
-			axios.put(`/api/resources/edit_category`, payload)
+			axios.put(`http://localhost:3001/api/resources/edit_category`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);

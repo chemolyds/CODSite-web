@@ -88,12 +88,12 @@ const ListResources = (props) => {
 	const [Categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		axios.get(`/api/resources/get_resource`)
+		axios.get(`http://localhost:3001/api/resources/get_resource`)
 			.then(res => {
 				//get resources
 				setResources(res.data);
 			});
-		axios.get(`/api/resources/get_categories`)
+		axios.get(`http://localhost:3001/api/resources/get_categories`)
 			.then(res => {
 				//get categories
 				setCategories(res.data.categories);

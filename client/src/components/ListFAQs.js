@@ -64,17 +64,18 @@ const ListFAQs = (props) => {
 	}
 
 	useEffect(() => {
-		axios.get(`/api/user/get_faq`) 
+		axios.get(`http://localhost:3001/api/user/get_faq`) 
 			.then(res => {setFAQs(res.data)});
 	}, []);
 
 	const FAQList = FAQs.map(item => {
 		return(
-			<div question={item.question} id={item.question.substring(0,32).replace(/ /g, "_")} class="text-left">
+			<div question={item.question} id={item.question.substring(0,32).replace(/ /g, "_")} class="text-left pb-4 mb-4">
 				<h1>{item.question}</h1>
 				{editable(item)}
 				<div>
-					<div dangerouslySetInnerHTML={{ __html: md.render(item.answer) }}/>
+					<div dangerouslySetInnerHTML={{ __html: md.render(item.answer.substring(0, 256) + "...") }}/>
+					<a class="link-primary" href={`/FAQ/${item.question.substring(0,32).replace(/ /g, "_")}`}>Read More</a>
 				</div>
 			</div>
 		)
@@ -83,35 +84,63 @@ const ListFAQs = (props) => {
 	const QList = FAQs.map(item => {
 		return(
 			<div class="text-left">
-			<a class="text-dark" href={`#${item.question.substring(0,32).replace(/ /g, "_")}`}>{item.question}</a>
+			<a class="text-dark" href={`/FAQ/${item.question.substring(0,32).replace(/ /g, "_")}`}>{item.question}</a>
 			</div>
 		)
 	});
 
 	return (
-		<>
-			<div class="container">
-				<div class="row">
-					<div class="col-3">
-						{addable()}
-					</div>
-					<div class="col">
-						<form >
-							<input class="input-group input-group-text mb-3" type="text" placeholder="Search FAQs" onChange={updateQuery}/>
-						</form>
-					</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-3">
+					{addable()}
+					{
+						!props.question ?
+							<></> 
+						: 
+							<form>
+								<input class="input-group input-group-text mb-3" type="text" placeholder="Search FAQs" onchange={updateQuery}/>
+							</form>
+					}
 				</div>
-				<div class="row">
-					<div class="col-3">
-						<h3>Navigation</h3>
-						{QList}
-					</div>
-					<div class="col">
-						{FAQList.filter(item => item.props.question.toLowerCase().includes(query))}
-					</div>
+				<div class="col">
+					{
+						!props.question ?
+							<form>
+								<input class="input-group input-group-text mb-3" type="text" placeholder="Search FAQs" onchange={updateQuery}/>
+							</form>
+						: 
+							<h1><a class="link-primary" href="/FAQ">Back to home</a></h1>
+					}
 				</div>
 			</div>
-		</>
+
+			<div class="row">
+				<div class="col-3">
+					<h3>Navigation</h3>
+					{QList}
+				</div>
+				<div class="col">
+					{
+					!props.question ? 
+						FAQList.filter(item => item.props.question.toLowerCase().includes(query))
+					:
+						<>
+							{
+								FAQs.filter(q => q.question.includes(props.question.replace(/_/g, " "))).map(q => {
+									return (
+										<div class="container text-left">
+											<h1>{q.question}</h1>
+											<div dangerouslySetInnerHTML={{ __html: md.render(q.answer) }}/>
+										</div>
+									);
+								})
+							}
+						</>
+					}
+				</div>
+			</div>
+		</div>
 	)
 }
 

@@ -10,7 +10,7 @@ const DeleteProblem = (props) => {
 	const handleShow = () => setShow(true);
 
 	const handleSubmit = (event) => {
-		axios.delete(`/api/problems/get_problem/${props.ID}`)
+		axios.delete(`http://localhost:3001/api/problems/get_problem/${props.ID}`)
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);
