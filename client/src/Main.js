@@ -8,6 +8,7 @@ import Problems from './pages/Problems';
 import About from './pages/About';
 import PageNotFound from './pages/PageNotFound';
 import FAQ from './pages/FAQ';
+//import FAQItem from './pages/FAQ'
 import Guides from './pages/Guides';
 import NAP from './pages/NAP';
 import Resources from './pages/Resources';
