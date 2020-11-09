@@ -25,7 +25,7 @@ const Main = () => {
 			<Route exact path='/faq' component={FAQ}/>
 				<Route exact path='/faq/:question' component={FAQ}/>
 			<Route exact path='/guides' component={Guides}/>
-			<Route exact path='/nap' component={NAP}/>
+			<Route exact path='/notes' component={NAP}/>
 			<Route exact path='/resources' component={Resources}/>
 
 			<Route exact path='/404' component={PageNotFound}/>
