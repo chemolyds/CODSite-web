@@ -30,6 +30,7 @@ export const createGuide = async (req, res) => {
 	let save_guide
 	save_guide = new Guide({
 		url: req.body.url,
+		thumbnail: req.body.thumbnail,
 		header: req.body.header,
 		description: req.body.description
 	});
@@ -47,6 +48,7 @@ export const createGuide = async (req, res) => {
 export const editGuide = async (req, res) => {
 	let toUpdate = {};
 	if (req.body.url) toUpdate.url = req.body.url;
+	if (req.body.thumbnail) toUpdate.thumbnail = req.body.thumbnail;
 	if (req.body.header) toUpdate.header = req.body.header;
 	if (req.body.description) toUpdate.description = req.body.description;
 
@@ -116,6 +118,7 @@ export const createSubpage = async (req, res) => {
 	//add child
 	guide.subpages.push({
 		url: req.body.url,
+		thumbnail: req.body.thumbnail,
 		header: req.body.header,
 		contents: req.body.contents
 	});
@@ -138,6 +141,7 @@ export const editSubpage = async (req, res) => {
 
 	//update child
 	if (req.body.url) subpage.url = req.body.url;
+	if (req.body.thumbnail) subpage.thumbnail = req.body.thumbnail;
 	if (req.body.header) subpage.header = req.body.header;
 	if (req.body.contents) subpage.contents = req.body.contents;
 

@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 //child first
 const SubpageSchema = mongoose.Schema({
 	url: { type: String, required: true },
+	thumbnail: {type: String},
 	header: { type: String, required: true },
 	contents: {type: String, required: true }
 });
@@ -10,6 +11,7 @@ const SubpageSchema = mongoose.Schema({
 //parent last
 const GuideSchema = mongoose.Schema({
 	url: { type: String, required: true },
+	thumbnail: {type: String},
 	header: { type: String, required: true },
 	description: { type: String, required: true},
 	subpages: [SubpageSchema]
