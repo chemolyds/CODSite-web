@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import jwt from "jsonwebtoken";
-
 import {Card, CardColumns} from 'react-bootstrap';
+
+//components
 import CreateGuide from "./CreateGuide";
+import DeleteGuide from "./DeleteGuide";
 
 const ListGuides = (props) => {
 	const [Guides, setGuides] = useState([]);
@@ -36,7 +38,7 @@ const ListGuides = (props) => {
 				return (
 					<>
 						<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-						<button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+						<DeleteGuide guide={guide}/>
 					</>
 				)
 			}
