@@ -28,12 +28,21 @@ export const getGuide = async (req, res) => {
 
 export const createGuide = async (req, res) => {
 	let save_guide
-	save_guide = new Guide({
-		url: req.body.url,
-		thumbnail: req.body.thumbnail,
-		header: req.body.header,
-		description: req.body.description
-	});
+	if(req.body.thumbnail) {
+		save_guide = new Guide({
+			url: req.body.url,
+			thumbnail: req.body.thumbnail,
+			header: req.body.header,
+			description: req.body.description
+		});
+	} else {
+		save_guide = new Guide({
+			url: req.body.url,
+			header: req.body.header,
+			description: req.body.description
+		});
+	}
+	
 
 	save_guide.save(function (err, save_guide) {
 		if (err) {
@@ -115,13 +124,16 @@ export const createSubpage = async (req, res) => {
 	//get parent
 	let guide = await Guide.findOne({_id: req.params.guideID});
 
-	//add child
-	guide.subpages.push({
+	//make payload
+	let payload = {
 		url: req.body.url,
-		thumbnail: req.body.thumbnail,
 		header: req.body.header,
 		contents: req.body.contents
-	});
+	};
+	if (req.body.thumbnail) subpage.thumbnail = req.body.thumbnail;
+
+	//add child
+	guide.subpages.push(payload);
 
 	//save parent
 	guide.save(function(err, save_guide) {

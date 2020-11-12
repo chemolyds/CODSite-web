@@ -12,8 +12,8 @@ const SubpageSchema = mongoose.Schema({
 const GuideSchema = mongoose.Schema({
 	url: { type: String, required: true },
 	thumbnail: {type: String, required: true, default: "https://via.placeholder.com/280x180"},
-	header: { type: String, required: true },
-	description: { type: String, required: true},
+	header: { type: String, required: true, default: "" },
+	description: { type: String, required: true, default: ""},
 	subpages: [SubpageSchema]
 });
 
