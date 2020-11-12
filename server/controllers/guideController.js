@@ -3,7 +3,6 @@ import Guide from '../models/GuideModel.js';
 
 import {dirname} from 'path';
 import {fileURLToPath} from 'url';
-import { post } from 'request';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const getGuideList = async (req, res) => {
@@ -13,7 +12,7 @@ export const getGuideList = async (req, res) => {
 }
 
 export const getGuide = async (req, res) => {
-	Guide.find({_id: req.params.ID}, (err, data) => {
+	Guide.findOne({_id: req.params.ID}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
 			throw err;
@@ -90,7 +89,7 @@ export const getSubpageList = async (req, res) => {
 
 export const getSubpage = async (req, res) => {
 	//get parent
-	let guide = await post.findOne({_id: req.params.guideID});
+	let guide = await Guide.findOne({_id: req.params.guideID});
 	
 	//get child
 	if (!guide) {
@@ -112,7 +111,7 @@ export const getSubpage = async (req, res) => {
 
 export const createSubpage = async (req, res) => {
 	//get parent
-	let guide = await Guide.findOne({_id: guideID});
+	let guide = await Guide.findOne({_id: req.params.guideID});
 
 	//add child
 	guide.subpages.push({
@@ -157,19 +156,34 @@ export const deleteSubpage = async (req, res) => {
 	//get parent
 	let guide = await Guide.findOne({_id: req.params.guideID});
 
-	//remove child
-	let subpage = guide.subpages.id(req.params.subpageID).remove();
+	//check if guide is there
+	if (!guide) {
+		return res.status(400).json({
+			message: "Guide does not exist!"	
+		});
+	}
 
-	//save parent
-	guide.save(function(err, save_guidee) {
-		if (err) {
-			return res.status(400).json(err);
-		} else {
-			console.log('updated =>', save_guide);
-			console.log('removed =>', subpage);
-			return res.status(200).json(save_guide);
-		}
-	});
+
+	try {
+		//remove child
+		let subpage = guide.subpages.id(req.params.subpageID).remove();
+
+		//save parent
+		guide.save(function(err, save_guide) {
+			if (err) {
+				return res.status(400).json(err);
+			} else {
+				console.log('updated =>', save_guide);
+				console.log('removed =>', subpage);
+				return res.status(200).json(save_guide);
+			}
+		});
+	} catch (error) {
+		return res.status(400).json({
+			message: "Subpage does not exist!"
+		});
+	}
+	
+
+
 }
-
-export default guideController;
