@@ -3,7 +3,7 @@ import axios from "axios";
 import jwt from "jsonwebtoken";
 
 import {Card, CardColumns} from 'react-bootstrap';
-import { CardHeader } from 'react-bootstrap/Card';
+import CreateGuide from "./CreateGuide";
 
 const ListGuides = (props) => {
 	const [Guides, setGuides] = useState([]);
@@ -36,12 +36,7 @@ const ListGuides = (props) => {
 		<div class="album py-5 container">
 			<CardColumns>
 				{GuideList}
-				<Card>
-				<Card.Title class="h3 pt-4 mb-0 pb-0"><strong>Add New</strong></Card.Title>
-				<Card.Body syle={{"padding-top": "0%", "margin-top": "0%"}}>
-					<button type="button" class="btn btn-sm btn-outline-secondary">New</button>
-				</Card.Body>
-				</Card>
+				<CreateGuide/>
 			</CardColumns>
 		</div>
 	)
