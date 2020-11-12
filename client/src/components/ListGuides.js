@@ -5,8 +5,6 @@ import jwt from "jsonwebtoken";
 import {Card, CardColumns} from 'react-bootstrap';
 import { CardHeader } from 'react-bootstrap/Card';
 
-const placeholder = "https://camo.githubusercontent.com/7900ca3227df27367ce5c62c38f34142d95017f6117800bc2422c03d9c2a825c/687474703a2f2f696d736b792e6769746875622e696f2f686f6c6465722f696d616765732f686f6c6465725f736b792e706e67"
-
 const ListGuides = (props) => {
 	const [Guides, setGuides] = useState([]);
 
@@ -18,7 +16,7 @@ const ListGuides = (props) => {
 	const GuideList = Guides.map(guide => {
 		return (
 			<Card key={guide._id}>
-				<Card.Img variant="top" src={placeholder} />
+				<Card.Img variant="top" src={guide.thumbnail} />
 				<Card.Title class="h3 pt-2"><strong>{guide.url}</strong></Card.Title>
 				<Card.Body syle={{"padding-top": "0%"}}>
 					<p>{guide.description}</p>
