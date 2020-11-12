@@ -8,6 +8,41 @@ import CreateGuide from "./CreateGuide";
 const ListGuides = (props) => {
 	const [Guides, setGuides] = useState([]);
 
+	const addable = () => {
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				if (decoded) {
+					isAdmin = decoded.user_info.isAdmin;
+				}
+			});
+			if (isAdmin) {
+				return <CreateGuide/>
+			}
+		}
+	}
+
+	const editable = (guide) => {
+		const token = localStorage.getItem("user_logged");
+		let isAdmin;
+		if (token) {
+			jwt.verify(token, "jerdan1980", function (err, decoded) {
+				if (decoded) {
+					isAdmin = decoded.user_info.isAdmin;
+				}
+			});
+			if (isAdmin) {
+				return (
+					<>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+						<button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+					</>
+				)
+			}
+		}
+	}
+
 	useEffect(() => {
 			axios.get(`http://localhost:3001/api/guide/get_guide`)
 				.then(res => {setGuides(res.data)});
@@ -23,8 +58,7 @@ const ListGuides = (props) => {
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="btn-group">
 							<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-							<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-							<button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+							{editable(guide)}
 						</div>
 					</div>
 				</Card.Body>
@@ -36,7 +70,7 @@ const ListGuides = (props) => {
 		<div class="album py-5 container">
 			<CardColumns>
 				{GuideList}
-				<CreateGuide/>
+				{addable()}
 			</CardColumns>
 		</div>
 	)
