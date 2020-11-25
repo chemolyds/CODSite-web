@@ -5,7 +5,7 @@ import '../App.css';
 import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
 import Footer from '../components/Footer';
-import ListGuides from '../components/ListGuides';
+import ListGuides from '../components/Guides/ListGuides';
 
 const Guides = () => {
 	return (
