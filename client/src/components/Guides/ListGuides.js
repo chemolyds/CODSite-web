@@ -61,7 +61,7 @@ const ListGuides = (props) => {
 					<p>{guide.description}</p>
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="btn-group">
-							<Link to={"guides/" + guide.url}>
+							<Link to={"guides/" + guide._id}>
 								<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 							</Link>
 							{editable(guide)}
