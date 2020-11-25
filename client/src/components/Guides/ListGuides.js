@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import {Card, CardColumns} from 'react-bootstrap';
+import '../../App.css';
 
 //components
 import CreateGuide from "./CreateGuide";
