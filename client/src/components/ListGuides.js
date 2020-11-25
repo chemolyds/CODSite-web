@@ -6,6 +6,7 @@ import {Card, CardColumns} from 'react-bootstrap';
 //components
 import CreateGuide from "./CreateGuide";
 import DeleteGuide from "./DeleteGuide";
+import EditGuide from "./EditGuide";
 
 const ListGuides = (props) => {
 	const [Guides, setGuides] = useState([]);
@@ -37,7 +38,7 @@ const ListGuides = (props) => {
 			if (isAdmin) {
 				return (
 					<>
-						<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+						<EditGuide guide={guide}/>
 						<DeleteGuide guide={guide}/>
 					</>
 				)
