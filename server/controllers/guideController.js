@@ -46,7 +46,7 @@ export const createGuide = async (req, res) => {
 
 	save_guide.save(function (err, save_guide) {
 		if (err) {
-			return res.statsu(400).json(err);
+			return res.status(400).json(err);
 		} else {
 			console.log('saved =>', save_guide);
 			return res.status(200).json(save_guide);
