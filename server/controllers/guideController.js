@@ -130,7 +130,7 @@ export const createSubpage = async (req, res) => {
 		header: req.body.header,
 		contents: req.body.contents
 	};
-	if (req.body.thumbnail) subpage.thumbnail = req.body.thumbnail;
+	if (req.body.thumbnail) payload.thumbnail = req.body.thumbnail;
 
 	//add child
 	guide.subpages.push(payload);
