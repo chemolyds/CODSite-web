@@ -6,9 +6,9 @@ const guideRouter = express.Router();
 //guides
 guideRouter.get('/get_guide', guide.getGuideList); //grabs all the guides
 guideRouter.get('/get_guide/:ID', guide.getGuide); //grabs one guide
-guideRouter.post('/add_guide', guide.createGuide);
-guideRouter.put('/edit_guide/:ID', guide.editGuide);
-guideRouter.delete('/delete_guide/:ID', guide.deleteGuide);
+guideRouter.post('/add_guide', tokenChecker.loginCheck, tokenChecker.adminCheck, guide.createGuide);
+guideRouter.put('/edit_guide/:ID', tokenChecker.loginCheck, tokenChecker.adminCheck, guide.editGuide);
+guideRouter.delete('/delete_guide/:ID', tokenChecker.loginCheck, tokenChecker.adminCheck, guide.deleteGuide);
 
 //subsections
 guideRouter.get('/get_subpage/:guideID', guide.getSubpageList); //grabs all subpages
