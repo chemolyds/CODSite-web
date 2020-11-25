@@ -10,6 +10,7 @@ import PageNotFound from './pages/PageNotFound';
 import FAQ from './pages/FAQ';
 //import FAQItem from './pages/FAQ'
 import Guides from './pages/Guides';
+import GuidePage from './pages/GuidePage';
 import NAP from './pages/NAP';
 import Resources from './pages/Resources';
 
@@ -25,6 +26,7 @@ const Main = () => {
 			<Route exact path='/faq' component={FAQ}/>
 				<Route exact path='/faq/:question' component={FAQ}/>
 			<Route exact path='/guides' component={Guides}/>
+				<Route exact path='/guides/:guide' component={GuidePage}/>
 			<Route exact path='/notes' component={NAP}/>
 			<Route exact path='/resources' component={Resources}/>
 
