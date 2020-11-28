@@ -53,7 +53,7 @@ const EditGuide = (props) => {
 						</Form.Group>
 						<Form.Group contolId="description">
 							<Form.Label>Description</Form.Label>
-							<Form.Control type="test" placeholder="Add your description here!" value={description} onChange={(event) => setDescription(event.target.value)}/>
+							<Form.Control as="textarea" rows="3" placeholder="Add your description here!" value={description} onChange={(event) => setDescription(event.target.value)}/>
 						</Form.Group>
 					</Form>
 				</Modal.Body>
