@@ -1,5 +1,5 @@
 import path from 'path';
-import Guide from '../models/GuideModel.js';
+import Guide from '../models/guideModel.js';
 
 import {dirname} from 'path';
 import {fileURLToPath} from 'url';
