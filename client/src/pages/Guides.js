@@ -12,7 +12,7 @@ const Guides = () => {
 		<div className="App">
 			<NavBar page="Guides"/>
 
-			{/*<PageContents page="Guides"/>*/}
+			<PageContents page="Guides"/>
 			<ListGuides/>
 
 			<Footer/>
