@@ -11,6 +11,7 @@ import FAQ from './pages/FAQ';
 //import FAQItem from './pages/FAQ'
 import Guides from './pages/Guides';
 import GuidePage from './pages/GuidePage';
+import GuideSubpage from './pages/GuideSubpage';
 import NAP from './pages/NAP';
 import Resources from './pages/Resources';
 
@@ -27,6 +28,7 @@ const Main = () => {
 				<Route exact path='/faq/:question' component={FAQ}/>
 			<Route exact path='/guides' component={Guides}/>
 				<Route exact path='/guides/:guide' component={GuidePage}/>
+					<Route exact path='/guides/:guideID/:subpageID' component={GuideSubpage}/>
 			<Route exact path='/notes' component={NAP}/>
 			<Route exact path='/resources' component={Resources}/>
 
