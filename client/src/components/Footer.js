@@ -46,7 +46,7 @@ const Footer = (props) => {
 
 	useEffect(() => {
 		let map = {};
-		axios.get(`http://localhost:3001/api/user/get_page`) 
+		axios.get(`/api/user/get_page`) 
 			.then(res => {
 				let item;
 				for (item of res.data) {

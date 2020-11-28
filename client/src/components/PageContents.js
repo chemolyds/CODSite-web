@@ -39,7 +39,7 @@ const PageContents = (props) => {
 			contents: editContents
 		};
 		if (payload.header && payload.contents) {
-			axios.put(`http://localhost:3001/api/admin/edit_page/${props.page}`, payload)
+			axios.put(`/api/admin/edit_page/${props.page}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
@@ -48,7 +48,7 @@ const PageContents = (props) => {
 	}
 
 	const handleHiddenSubmit = () => {
-		axios.get(`http://localhost:3001/api/admin/toggle_page/${props.page}`)
+		axios.get(`/api/admin/toggle_page/${props.page}`)
 		.then((res) => {
 			window.location.reload(true);
 		});
@@ -114,7 +114,7 @@ const PageContents = (props) => {
 
 	//fetch
 	useEffect(() => {
-		axios.get(`http://localhost:3001/api/user/get_page/${props.page}`) 
+		axios.get(`/api/user/get_page/${props.page}`) 
 			.then(res => {
 				//viewer
 				setHeader(res.data.header);
