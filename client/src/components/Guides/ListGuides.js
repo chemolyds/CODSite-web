@@ -49,7 +49,7 @@ const ListGuides = (props) => {
 	}
 
 	useEffect(() => {
-			axios.get(`http://localhost:3001/api/guide/get_guide`)
+			axios.get(`/api/guide/get_guide`)
 				.then(res => {setGuides(res.data)});
 	}, []);
 

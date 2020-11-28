@@ -79,7 +79,7 @@ const GuidePage = ({match, location}) => {
 	}
 
 	useEffect(() => {
-		axios.get(`http://localhost:3001/api/guide/get_guide/${match.params['guide']}`)
+		axios.get(`/api/guide/get_guide/${match.params['guide']}`)
 			.then(res => {
 				setGuide(res.data);
 				//for some reason guide.description =/= description

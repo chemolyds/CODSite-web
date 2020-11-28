@@ -23,7 +23,7 @@ const CreateGuide = (props) => {
 		};
 
 		if (payload.url) {
-			axios.post(`http://localhost:3001/api/guide/add_guide`, payload)
+			axios.post(`/api/guide/add_guide`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
