@@ -13,6 +13,7 @@ import userRouter from './server/routes/userRouter.js';
 import adminRouter from './server/routes/adminRouter.js';
 import napRouter from './server/routes/napRouter.js';
 import resourceRouter from './server/routes/resourceRouter.js';
+import guideRouter from './server/routes/guideRouter.js';
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.use('/api/user/', userRouter);
 app.use('/api/admin/', adminRouter);
 app.use('/api/nap/', napRouter);
 app.use('/api/resources/', resourceRouter);
+app.use('/api/guide', guideRouter);
 
 app.all('/*', (req, res) => {
 	// res.status(201).json({message: "nothing here!"});

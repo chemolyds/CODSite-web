@@ -31,7 +31,7 @@ const NavBar = (props) => {
 						<li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li>
 						<li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li>
 						<li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li>
-						<li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/nap">CODSNotes</a></li>
+						<li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/notes">Notes</a></li>
 						<li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li>
 						<li class={setActivePageHighlight("Resources")}><a class="nav-link" href="/resources">Resources</a></li>
 						<li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li>
@@ -45,7 +45,7 @@ const NavBar = (props) => {
 				{!hidden["home"] ? <li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li> : <></>}
 				{!hidden["faq"] ? <li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li> : <></>}
 				{!hidden["Problems"] ? <li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li> : <></>}
-				{!hidden["nap"] ? <li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/nap">CODSNotes</a></li> : <></>}
+				{!hidden["nap"] ? <li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/notes">Notes</a></li> : <></>}
 				{!hidden["Guides"] ? <li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li> : <></>}
 				{!hidden["Resources"] ? <li class={setActivePageHighlight("Resources")}><a class="nav-link" href="/resources">Resources</a></li> : <></>}
 				{!hidden["about"] ? <li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li> : <></>}
