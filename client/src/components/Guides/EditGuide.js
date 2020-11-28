@@ -28,10 +28,6 @@ const EditGuide = (props) => {
 		}
 	}
 
-	useEffect(() => {
-		
-	}, []);
-
 	return (
 		<>
 			<button type="button" class="btn btn-sm btn-outline-secondary" onClick={handleShow}>Edit</button>
@@ -43,7 +39,7 @@ const EditGuide = (props) => {
 
 				<Modal.Body>
 					<Form>
-					<Form.Group contolId="url">
+						<Form.Group contolId="url">
 							<Form.Label>URL</Form.Label>
 							<Form.Control type="test" placeholder="Add your url here!" value={URL} onChange={(event) => setURL(event.target.value)}/>
 						</Form.Group>
