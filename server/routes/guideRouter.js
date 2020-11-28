@@ -13,8 +13,8 @@ guideRouter.delete('/delete_guide/:ID', tokenChecker.loginCheck, tokenChecker.ad
 //subsections
 guideRouter.get('/get_subpage/:guideID', guide.getSubpageList); //grabs all subpages
 guideRouter.get('/get_subpage/:guideID/:subpageID', guide.getSubpage); //grabs one subpage
-guideRouter.post('/add_subpage/:guideID', guide.createSubpage);
-guideRouter.put('/edit_subpage/:guideID/:subpageID', guide.editSubpage);
-guideRouter.delete('/delete_subpage/:guideID/:subpageID', guide.deleteSubpage);
+guideRouter.post('/add_subpage/:guideID', tokenChecker.loginCheck, tokenChecker.adminCheck, guide.createSubpage);
+guideRouter.put('/edit_subpage/:guideID/:subpageID', tokenChecker.loginCheck, tokenChecker.adminCheck, guide.editSubpage);
+guideRouter.delete('/delete_subpage/:guideID/:subpageID', tokenChecker.loginCheck, tokenChecker.adminCheck, guide.deleteSubpage);
 
 export default guideRouter;
