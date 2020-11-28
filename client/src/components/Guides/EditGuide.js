@@ -40,16 +40,16 @@ const EditGuide = (props) => {
 				<Modal.Body>
 					<Form>
 						<Form.Group contolId="url">
-							<Form.Label>URL</Form.Label>
-							<Form.Control type="test" placeholder="Add your url here!" value={URL} onChange={(event) => setURL(event.target.value)}/>
+							<Form.Label>Card Title</Form.Label>
+							<Form.Control type="test" placeholder="Add the Card Title here!" value={URL} onChange={(event) => setURL(event.target.value)}/>
 						</Form.Group>
 						<Form.Group contolId="thumbnail">
 							<Form.Label>Thumbnail URL</Form.Label>
 							<Form.Control type="test" placeholder="Add the thumbnail's URL here!" value={thumbnail} onChange={(event) => setThumbnail(event.target.value)}/>
 						</Form.Group>
 						<Form.Group contolId="header">
-							<Form.Label>Header</Form.Label>
-							<Form.Control type="test" placeholder="Add your header here!" value={header} onChange={(event) => setHeader(event.target.value)}/>
+							<Form.Label>Card Description</Form.Label>
+							<Form.Control type="test" placeholder="Add the Card Description here!" value={header} onChange={(event) => setHeader(event.target.value)}/>
 						</Form.Group>
 						<Form.Group contolId="description">
 							<Form.Label>Description</Form.Label>

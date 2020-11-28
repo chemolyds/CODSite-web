@@ -39,21 +39,21 @@ const EditSubpage = (props) => {
 
 				<Modal.Body>
 					<Form>
-					<Form.Group contolId="url">
-							<Form.Label>URL</Form.Label>
-							<Form.Control type="text" placeholder="Add your url here!" value={URL} onChange={(event) => setURL(event.target.value)}/>
+					<Form.Group contolid="url">
+							<Form.Label>Card Title</Form.Label>
+							<Form.Control type="text" placeholder="Add the Card Title here!" value={URL} onChange={(event) => setURL(event.target.value)}/>
 						</Form.Group>
-						<Form.Group contolId="thumbnail">
+						<Form.Group contolid="thumbnail">
 							<Form.Label>Thumbnail URL</Form.Label>
 							<Form.Control type="text" placeholder="Add the thumbnail's URL here!" value={thumbnail} onChange={(event) => setThumbnail(event.target.value)}/>
 						</Form.Group>
-						<Form.Group contolId="header">
-							<Form.Label>Header</Form.Label>
-							<Form.Control type="text" placeholder="Add your header here!" value={header} onChange={(event) => setHeader(event.target.value)}/>
+						<Form.Group contolid="header">
+							<Form.Label>Card Description</Form.Label>
+							<Form.Control type="text" placeholder="Add the Card Description here!" value={header} onChange={(event) => setHeader(event.target.value)}/>
 						</Form.Group>
-						<Form.Group contolId="contents">
+						<Form.Group contolid="contents">
 							<Form.Label>Contents</Form.Label>
-							<Form.Control as="textarea" rows="5" placeholder="Add the contents!" value={contents} onChange={(event) => setContents(event.target.value)}/>
+							<Form.Control as="textarea" rows="5" placeholder="Add the contents of the subpage!" value={contents} onChange={(event) => setContents(event.target.value)}/>
 						</Form.Group>
 					</Form>
 				</Modal.Body>

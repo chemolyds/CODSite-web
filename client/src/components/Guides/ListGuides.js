@@ -59,7 +59,7 @@ const ListGuides = (props) => {
 				<Card.Img variant="top" src={guide.thumbnail} />
 				<Card.Title class="h3 pt-2"><strong>{guide.url}</strong></Card.Title>
 				<Card.Body syle={{"padding-top": "0%"}}>
-					<p>{guide.description}</p>
+					<p>{guide.header}</p>
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="btn-group">
 							<Link to={"guides/" + guide._id}>
