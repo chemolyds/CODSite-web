@@ -141,7 +141,7 @@ export const createSubpage = async (req, res) => {
 			return res.status(400).json(err);
 		} else {
 			console.log('updated =>', save_guide);
-			return res.status(400).json(save_guide);
+			return res.status(200).json(save_guide);
 		}
 	});
 }
