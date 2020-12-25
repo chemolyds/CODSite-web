@@ -1,24 +1,24 @@
 import path from 'path';
-import Guide from '../models/guideModel.js';
+import About from '../models/AboutModel.js';
 
 import {dirname} from 'path';
 import {fileURLToPath} from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export const getGuideList = async (req, res) => {
-	Guide.find({}, (err, data) => {
+export const getAboutList = async (req, res) => {
+	About.find({}, (err, data) => {
 		res.status(200).json(data);
 	});
 }
 
-export const getGuide = async (req, res) => {
-	Guide.findOne({_id: req.params.ID}, (err, data) => {
+export const getAbout = async (req, res) => {
+	About.findOne({_id: req.params.ID}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
 			throw err;
 		} else if (!data) {
 			res.status(400).json({
-				message: "Guide not found!"
+				message: "About not found!"
 			});
 		} else {
 			res.status(200).json(data);
@@ -26,17 +26,17 @@ export const getGuide = async (req, res) => {
 	});
 }
 
-export const createGuide = async (req, res) => {
-	let save_guide
+export const createAbout = async (req, res) => {
+	let save_about
 	if(req.body.thumbnail) {
-		save_guide = new Guide({
+		save_about = new About({
 			url: req.body.url,
 			thumbnail: req.body.thumbnail,
 			header: req.body.header,
 			description: req.body.description
 		});
 	} else {
-		save_guide = new Guide({
+		save_about = new About({
 			url: req.body.url,
 			header: req.body.header,
 			description: req.body.description
@@ -44,40 +44,40 @@ export const createGuide = async (req, res) => {
 	}
 	
 
-	save_guide.save(function (err, save_guide) {
+	save_about.save(function (err, save_about) {
 		if (err) {
 			return res.status(400).json(err);
 		} else {
-			console.log('saved =>', save_guide);
-			return res.status(200).json(save_guide);
+			console.log('saved =>', save_about);
+			return res.status(200).json(save_about);
 		}
 	});
 }
 
-export const editGuide = async (req, res) => {
+export const editAbout = async (req, res) => {
 	let toUpdate = {};
 	if (req.body.url) toUpdate.url = req.body.url;
 	if (req.body.thumbnail) toUpdate.thumbnail = req.body.thumbnail;
 	if (req.body.header) toUpdate.header = req.body.header;
 	if (req.body.description) toUpdate.description = req.body.description;
 
-	Guide.findOneAndUpdate({_id: req.params.ID}, toUpdate, {new: true}, function(err, save_guide) {
+	About.findOneAndUpdate({_id: req.params.ID}, toUpdate, {new: true}, function(err, save_about) {
 		if (err) {
 			return res.status(400).json(err);
 		} else {
-			console.log('updated =>', save_guide);
-			return res.status(200).json(save_guide);
+			console.log('updated =>', save_about);
+			return res.status(200).json(save_about);
 		}
 	});
 }
 
-export const deleteGuide = async (req, res) => {
-	Guide.findOneAndDelete({_id: req.params.ID}, (err, data) => {
+export const deleteAbout = async (req, res) => {
+	About.findOneAndDelete({_id: req.params.ID}, (err, data) => {
 		if(err) {
 			res.status(400).json(err);
 		} else if (!data) {
 			res.status(400).json({
-				message: 'Guide does not exist!'
+				message: 'About does not exist!'
 			});
 		} else {
 			res.status(200).json(data);
@@ -86,10 +86,10 @@ export const deleteGuide = async (req, res) => {
 }
 
 export const getSubpageList = async (req, res) => {
-	Guide.findOne({_id: req.params.guideID}, (err, data) => {
+	About.findOne({_id: req.params.aboutID}, (err, data) => {
 		if (!data) {
 			res.status(400).json({
-				message: 'Guide not found!'
+				message: 'About not found!'
 			});
 		} else {
 			//return only child
@@ -100,15 +100,15 @@ export const getSubpageList = async (req, res) => {
 
 export const getSubpage = async (req, res) => {
 	//get parent
-	let guide = await Guide.findOne({_id: req.params.guideID});
+	let about = await About.findOne({_id: req.params.aboutID});
 	
 	//get child
-	if (!guide) {
+	if (!about) {
 		res.status(400).json({
-			message: 'Guide does not exist!'
+			message: 'About does not exist!'
 		});
 	} else {
-		let subpage = guide.subpages.id(req.params.subpageID);
+		let subpage = about.subpages.id(req.params.subpageID);
 
 		if (!subpage) {
 			res.status(400).json({
@@ -122,7 +122,7 @@ export const getSubpage = async (req, res) => {
 
 export const createSubpage = async (req, res) => {
 	//get parent
-	let guide = await Guide.findOne({_id: req.params.guideID});
+	let about = await About.findOne({_id: req.params.aboutID});
 
 	//make payload
 	let payload = {
@@ -133,23 +133,23 @@ export const createSubpage = async (req, res) => {
 	if (req.body.thumbnail) payload.thumbnail = req.body.thumbnail;
 
 	//add child
-	guide.subpages.push(payload);
+	about.subpages.push(payload);
 
 	//save parent
-	guide.save(function(err, save_guide) {
+	about.save(function(err, save_about) {
 		if (err) {
 			return res.status(400).json(err);
 		} else {
-			console.log('updated =>', save_guide);
-			return res.status(200).json(save_guide);
+			console.log('updated =>', save_about);
+			return res.status(200).json(save_about);
 		}
 	});
 }
 
 export const editSubpage = async (req, res) => {
 	//get parent and child
-	let guide = await Guide.findOne({_id: req.params.guideID});
-	let subpage = guide.subpages.id(req.params.subpageID);
+	let about = await About.findOne({_id: req.params.aboutID});
+	let subpage = about.subpages.id(req.params.subpageID);
 
 	//update child
 	if (req.body.url) subpage.url = req.body.url;
@@ -158,40 +158,40 @@ export const editSubpage = async (req, res) => {
 	if (req.body.contents) subpage.contents = req.body.contents;
 
 	//save parent
-	guide.save(function(err, save_guide) {
+	about.save(function(err, save_about) {
 		if (err) {
 			return res.status(400).json(err);
 		} else {
-			console.log('updated =>', save_guide);
-			return res.status(200).json(save_guide);
+			console.log('updated =>', save_about);
+			return res.status(200).json(save_about);
 		}
 	});
 }
 
 export const deleteSubpage = async (req, res) => {
 	//get parent
-	let guide = await Guide.findOne({_id: req.params.guideID});
+	let about = await About.findOne({_id: req.params.aboutID});
 
-	//check if guide is there
-	if (!guide) {
+	//check if about is there
+	if (!about) {
 		return res.status(400).json({
-			message: "Guide does not exist!"	
+			message: "About does not exist!"	
 		});
 	}
 
 
 	try {
 		//remove child
-		let subpage = guide.subpages.id(req.params.subpageID).remove();
+		let subpage = about.subpages.id(req.params.subpageID).remove();
 
 		//save parent
-		guide.save(function(err, save_guide) {
+		about.save(function(err, save_about) {
 			if (err) {
 				return res.status(400).json(err);
 			} else {
-				console.log('updated =>', save_guide);
+				console.log('updated =>', save_about);
 				console.log('removed =>', subpage);
-				return res.status(200).json(save_guide);
+				return res.status(200).json(save_about);
 			}
 		});
 	} catch (error) {

@@ -6,6 +6,8 @@ import axios from "axios";
 import Home from './pages/Home';
 import Problems from './pages/Problems';
 import About from './pages/About';
+import AboutPage from './pages/AboutPage';
+import AboutSubpage from './pages/AboutSubpage';
 import PageNotFound from './pages/PageNotFound';
 import FAQ from './pages/FAQ';
 //import FAQItem from './pages/FAQ'
@@ -29,6 +31,9 @@ const Main = () => {
 			<Route exact path='/guides' component={Guides}/>
 				<Route exact path='/guides/:guide' component={GuidePage}/>
 					<Route exact path='/guides/:guideID/:subpageID' component={GuideSubpage}/>
+			<Route exact path='/about' component={About}/>
+				<Route exact path='/about/:about' component={AboutPage}/>
+					<Route exact path='/about/:aboutID/:subpageID' component={AboutSubpage}/>
 			<Route exact path='/notes' component={NAP}/>
 			<Route exact path='/resources' component={Resources}/>
 
