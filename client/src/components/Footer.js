@@ -15,31 +15,17 @@ const Footer = (props) => {
 					isAdmin = decoded.user_info.isAdmin;
 				}
 			});
-			if (isAdmin) {
-				//return EVERYTHING
-				return (
-					<>
-						<li><a class="nav-link" href="/">Home</a></li>
-						<li><a class="nav-link" href="/FAQ">FAQ</a></li>
-						<li><a class="nav-link" href="/problems">Problems</a></li>
-						<li><a class="nav-link" href="/nap">NAP</a></li>
-						<li><a class="nav-link" href="/guides">Guides</a></li>
-						<li><a class="nav-link" href="/resources">Resources</a></li>
-						<li><a class="nav-link" href="/about">About</a></li>
-					</>
-				);
-			}
 		}
 		//else not logged in or admin
 		return (
 			<>
-				{!hidden["home"] ? <li><a class="nav-link" href="/">Home</a></li> : <></>}
-				{!hidden["faq"] ? <li><a class="nav-link" href="/FAQ">FAQ</a></li> : <></>}
-				{!hidden["Problems"] ? <li><a class="nav-link" href="/problems">Problems</a></li> : <></>}
-				{!hidden["nap"] ? <li><a class="nav-link" href="/nap">NAP</a></li> : <></>}
-				{!hidden["Guides"] ? <li><a class="nav-link" href="/guides">Guides</a></li> : <></>}
-				{!hidden["Resources"] ? <li><a class="nav-link" href="/resources">Resources</a></li> : <></>}
-				{!hidden["about"] ? <li><a class="nav-link" href="/about">About</a></li> : <></>}
+				{(isAdmin || !hidden["home"]) ? <li><a class="nav-link" href="/">Home</a></li> : <></>}
+				{(isAdmin || !hidden["faq"]) ? <li><a class="nav-link" href="/FAQ">FAQ</a></li> : <></>}
+				{(isAdmin || !hidden["Problems"]) ? <li><a class="nav-link" href="/problems">Problems</a></li> : <></>}
+				{(isAdmin || !hidden["nap"]) ? <li><a class="nav-link" href="/nap">NAP</a></li> : <></>}
+				{(isAdmin || !hidden["Guides"]) ? <li><a class="nav-link" href="/guides">Guides</a></li> : <></>}
+				{(isAdmin || !hidden["Resources"]) ? <li><a class="nav-link" href="/resources">Resources</a></li> : <></>}
+				{(isAdmin || !hidden["about"]) ? <li><a class="nav-link" href="/about">About</a></li> : <></>}
 			</>
 		)
 	}
@@ -84,7 +70,7 @@ const Footer = (props) => {
 						</ul>
 					</nav>
 				</div>
-				<p class="text-muted smoller mb-0 pb-5"><i>-Chemistry Olympiads Discord Server-</i></p>
+				<p class="text-muted smoller mb-0 pb-2 pb-md-5"><i>-Chemistry Olympiads Discord Server-</i></p>
 			</div>
 		</>
 	);
