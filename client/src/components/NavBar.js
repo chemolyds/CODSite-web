@@ -5,6 +5,7 @@ import logo from '../usnco-server-icon.png';
 
 const NavBar = (props) => {
 	const [hidden, setHidden] = useState({});
+	const [showNavbar, setNavbar] = useState(false);
 
 	//menuItem should be the string of a navbar item
 	const setActivePageHighlight = (menuItem) => {
@@ -24,31 +25,17 @@ const NavBar = (props) => {
 					isAdmin = decoded.user_info.isAdmin;
 				}
 			});
-			if (isAdmin) {
-				//return EVERYTHING
-				return (
-					<>
-						<li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li>
-						<li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li>
-						<li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li>
-						<li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/notes">Notes</a></li>
-						<li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li>
-						<li class={setActivePageHighlight("Resources")}><a class="nav-link" href="/resources">Resources</a></li>
-						<li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li>
-					</>
-				);
-			}
 		}
 		//else not logged in or admin
 		return (
 			<>
-				{!hidden["home"] ? <li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li> : <></>}
-				{!hidden["faq"] ? <li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li> : <></>}
-				{!hidden["Problems"] ? <li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li> : <></>}
-				{!hidden["nap"] ? <li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/notes">Notes</a></li> : <></>}
-				{!hidden["Guides"] ? <li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li> : <></>}
-				{!hidden["Resources"] ? <li class={setActivePageHighlight("Resources")}><a class="nav-link" href="/resources">Resources</a></li> : <></>}
-				{!hidden["about"] ? <li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li> : <></>}
+				{(isAdmin || !hidden["home"]) ? <li class={setActivePageHighlight("Home")}><a class="nav-link" href="/">Home</a></li> : <></>}
+				{(isAdmin || !hidden["faq"]) ? <li class={setActivePageHighlight("FAQ")}><a class="nav-link" href="/FAQ">FAQ</a></li> : <></>}
+				{(isAdmin || !hidden["Problems"]) ? <li class={setActivePageHighlight("Problems")}><a class="nav-link" href="/problems">Problems</a></li> : <></>}
+				{(isAdmin || !hidden["nap"]) ? <li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/notes">Notes</a></li> : <></>}
+				{(isAdmin || !hidden["Guides"]) ? <li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li> : <></>}
+				{(isAdmin || !hidden["Resources"]) ? <li class={setActivePageHighlight("Resources")}><a class="nav-link" href="/resources">Resources</a></li> : <></>}
+				{(isAdmin || !hidden["about"]) ? <li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li> : <></>}
 			</>
 		)
 	}
@@ -66,22 +53,46 @@ const NavBar = (props) => {
 		});
 	}, []);
 
+	const toggleNavbar = () => {
+		setNavbar(!showNavbar);
+	};
 
 	return (
-		<div class="container-fluid navbar navbar-expand-sm bg-dark navbar-dark">
-			<div class="col-2">
-				<h2 class="mb-0 site-logo">
-					<a href="/">
-						<img src={logo} alt="logo" height="55"/>
-					</a>
-				</h2>
+		<>
+			<div class="d-none d-md-flex container-fluid navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+				<div class="col-2">
+					<h2 class="mb-0 site-logo">
+						<a href="/">
+							<img src={logo} alt="logo" height="55"/>
+						</a>
+					</h2>
+				</div>
+				<nav role="navigation">
+					<ul class="navbar-nav">
+						{viewable()}
+					</ul>
+				</nav>
 			</div>
-			<nav role="navigation">
-				<ul class="navbar-nav">
-					{viewable()}
-				</ul>
-			</nav>
-		</div>
+
+			<div class="d-flex d-sm-none container-fluid navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+				<button class="navbar-toggler" type="button" onClick={toggleNavbar}>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="col">
+					<h2 class="mb-0 site-logo">
+						<a href="/">
+							<img src={logo} alt="logo" height="55"/>
+						</a>
+					</h2>
+				</div>
+
+				<div class={(!showNavbar ? "collapse" : "") + " navbar-collapse"} id="navbarContents" show={false}>
+					<ul class="navbar-nav me-auto mt-2 mt-lg-0">
+						{viewable()}
+					</ul>
+				</div>
+			</div>
+		</>
 	);
 }
 
