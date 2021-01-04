@@ -130,7 +130,7 @@ const AboutPage = ({match, location}) => {
 				</div>
 
 				<div class="container py-1">
-					<div class="flex mx-5 px-5 text-left">
+					<div class="flex mx-2 px-2 mx-md-5 px-md-5 text-left">
 						<div dangerouslySetInnerHTML={{ __html: md.render(description) }}/>
 					</div>
 				</div>

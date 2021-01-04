@@ -1,5 +1,5 @@
 import path from 'path';
-import About from '../models/AboutModel.js';
+import About from '../models/aboutModel.js';
 
 import {dirname} from 'path';
 import {fileURLToPath} from 'url';

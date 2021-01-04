@@ -14,11 +14,16 @@ import EditProblemCategoryName from './EditProblemCategoryName';
 function stars (num) {
 	return (
 		<>
-			{ num >= 1 ? <StarFillIcon/> : <StarIcon/> }
-			{ num >= 2 ? <StarFillIcon/> : <StarIcon/> }
-			{ num >= 3 ? <StarFillIcon/> : <StarIcon/> }
-			{ num >= 4 ? <StarFillIcon/> : <StarIcon/> }
-			{ num >= 5 ? <StarFillIcon/> : <StarIcon/> }
+			<span class="d-none d-sm-block">
+				{ num >= 1 ? <StarFillIcon/> : <StarIcon/> }
+				{ num >= 2 ? <StarFillIcon/> : <StarIcon/> }
+				{ num >= 3 ? <StarFillIcon/> : <StarIcon/> }
+				{ num >= 4 ? <StarFillIcon/> : <StarIcon/> }
+				{ num >= 5 ? <StarFillIcon/> : <StarIcon/> }
+			</span>
+			<span class="d-sm-none">
+				{num}
+			</span>
 		</>
 	)
 }
@@ -102,29 +107,29 @@ const ListProblems = (props) => {
 
 	const ProblemList = Categories.map(category => {
 		return(
-			<div class="flex mx-5">
+			<div class="flex mx-2 mx-md-5">
 				<h1>{category}</h1>
 				<hr/>
 				<div key={category}>
 					<div class="row" key="header">
-						<div class="col-2" key="Problem">Problem</div>
+						<div class="col-5 col-md-2" key="Problem">Problem</div>
 						<div class="col" key="Rating">Rating</div>
 						<div class="col" key="Difficulty">Difficulty</div>
 						<div class="col" key="Length">Length</div>
-						<div class="col-6" key="Description">Description</div>
+						<div class="col-6 d-none d-sm-block" key="Description">Description</div>
 						{balancer(category)}
 					</div>
 					{Problems.filter(item => item.category === category).map(item => {
 						return(
 							<div class="row" key={item.name}>
-								<div class="col-2" key="Problem">
+								<div class="col-5 col-md-2" key="Problem">
 									<a href={item.problemPDFName}>{item.name}</a>
 									{item.hasSolution ? (<a> <a href={item.solutionPDFName} class="text-success">[S]</a></a>) : <a/>}
 								</div>
 								<div class="col" key="Rating">{stars(item.rating)}</div>
 								<div class="col" key="Difficulty">{stars(item.difficulty)}</div>
 								<div class="col" key="Length">{stars(item.length)}</div>
-								<div class="col-6 text-left" key="Description">{item.description}</div>
+								<div class="col-6 text-left d-none d-sm-block" key="Description">{item.description}</div>
 								{editable(item, Categories)}
 							</div>
 						)

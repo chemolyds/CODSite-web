@@ -20,7 +20,7 @@ const EditSubpage = (props) => {
 			contents: contents
 		};
 		if (payload.url) {
-			axios.put(`http://localhost:3001/api/guide/edit_subpage/${props.guideID}/${props.subpage._id}`, payload)
+			axios.put(`/api/guide/edit_subpage/${props.guideID}/${props.subpage._id}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);

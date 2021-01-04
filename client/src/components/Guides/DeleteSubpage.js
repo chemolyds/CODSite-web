@@ -9,7 +9,7 @@ const DeleteSubpage = (props) => {
 	const handleShow = () => setShow(true);
 
 	const handleSubmit = (event) => {
-		axios.delete(`http://localhost:3001/api/guide/delete_subpage/${props.guideID}/${props.subpage._id}`)
+		axios.delete(`/api/guide/delete_subpage/${props.guideID}/${props.subpage._id}`)
 			.then((res) => {
 				setShow(false);
 				window.location.reload(true);

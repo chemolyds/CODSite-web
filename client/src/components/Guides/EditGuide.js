@@ -20,7 +20,7 @@ const EditGuide = (props) => {
 			description: description
 		};
 		if (payload.url) {
-			axios.put(`http://localhost:3001/api/guide/edit_guide/${props.guide._id}`, payload)
+			axios.put(`/api/guide/edit_guide/${props.guide._id}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);

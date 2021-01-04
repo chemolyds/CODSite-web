@@ -27,7 +27,7 @@ const SubpageContents = (props) => {
 	const [contents, setContents] = useState("");
 
 	useEffect(() => {
-		axios.get(`http://localhost:3001/api/guide/get_subpage/${props.guideID}/${props.subpageID}`)
+		axios.get(`/api/guide/get_subpage/${props.guideID}/${props.subpageID}`)
 			.then(res => {
 				setSubpage(res.data);
 				//markdown-it requires string

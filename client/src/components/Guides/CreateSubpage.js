@@ -22,7 +22,7 @@ const CreateSubpage = (props) => {
 		};
 
 		if (payload.url) {
-			axios.post(`http://localhost:3001/api/guide/add_subpage/${props.GuideID}`, payload)
+			axios.post(`/api/guide/add_subpage/${props.GuideID}`, payload)
 				.then((res) => {
 					setShow(false);
 					window.location.reload(true);
