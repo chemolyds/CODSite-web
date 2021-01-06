@@ -92,7 +92,7 @@ const AboutPage = ({match, location}) => {
 		return(
 			<Card key={subpage._id}>
 				<Card.Img variant="top" src={subpage.thumbnail}/>
-				<Card.Title class="h3 pt-2">{subpage.url}</Card.Title>
+				<Card.Title class="h3 pt-2"><strong>{subpage.url}</strong></Card.Title>
 				<Card.Body>
 					<p>{subpage.header}</p>
 					<div class="d-flex justify-content-between align-items-center">
@@ -112,7 +112,7 @@ const AboutPage = ({match, location}) => {
 		<div className="App">
 			<NavBar page="About"/>
 
-			<div class="bg-light">
+			<div class="container-fluid bg-light">
 				<div class="row">
 					<Link to="/about" class="col-3">
 						<p class="py-1"/>
@@ -129,15 +129,14 @@ const AboutPage = ({match, location}) => {
 					<div class="col-3"/>
 				</div>
 
-				<div class="container py-1">
+				<div class="container-fluid py-1">
 					<div class="flex mx-2 px-2 mx-md-5 px-md-5 text-left">
 						<div dangerouslySetInnerHTML={{ __html: md.render(description) }}/>
 					</div>
 				</div>
 			</div>
 			
-			<div class="container">
-				<p class="py-1"/>	
+			<div class="album py-5 container">
 				<CardColumns>
 					{SubpageList}
 					{addable()}
