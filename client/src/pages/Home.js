@@ -68,6 +68,28 @@ const Home = () => {
 		)
 	}
 
+	const blueSection = () => {
+		return (
+			<>
+				<div class="bg-e2 py-2 px-2">
+					<h2 class="text-left text-weight-bold">Recommended by Staff</h2>
+					<br class="my-5"/>
+					<Card border="light">
+						<p>asdf1234</p>
+					</Card>
+				</div>
+				<br/>
+				<div class="bg-e2 py-2 px-2">
+					<h2 class="text-left text-weight-bold">Recent News</h2>
+					<br class="my-5"/>
+					<Card border="light">
+						<p>asdf1234</p>
+					</Card>
+				</div>
+			</>
+		)
+	}
+
 	return (
 		<div className="App">
 			
@@ -81,25 +103,25 @@ const Home = () => {
 			
 			<div class="d-none d-md-inline container-fluid py-5">
 				<div class="row mx-5 px-5">
-					<div class="col-8 mx-2 px-3 py-3 bg-light">
+					<div class="col-8 mx-2 px-3 py-3 bg-f2">
 						{MostFrequentlyUsed()}
 					</div>
-					<div class="col mx-2 px-2 border border-primary bg-light pt-2">
-						<p>asdf</p>
+					<div class="col mx-2 py-0 px-0">
+						{blueSection()}
 					</div>
 				</div>
 			</div>
 
 			<div class="d-block d-sm-none container-fluid py-5">
-				<div class="mx-2 px-2 my-4 bg-light pt-2">
+				<div class="mx-2 px-2 my-4 bg-f2 pt-2">
 					{MostFrequentlyUsed()}
 				</div>
-				<div class="mx-2 px-2 my-4 border border-primary bg-light pt-2">
-					<p>asdf</p>
+				<div class="mx-2 my-4 px-0 py-0">
+				{blueSection()}
 				</div>
 			</div>
 
-			<div class="container-fluid bg-light my-5 py-5 px-md-5">
+			<div class="container-fluid bg-e2 my-5 py-5 px-md-5">
 				<h2 class="font-weight-bold">CODS is a global community made for Chemistry Olympiad participants.</h2>
 				<h3 class="font-weight-light">Haven't joined the community yet? You can join <a class="text-link">here</a>.</h3>
 
