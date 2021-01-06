@@ -123,7 +123,7 @@ const Home = () => {
 
 			<div class="container-fluid bg-e2 my-5 py-5 px-md-5">
 				<h2 class="font-weight-bold">CODS is a global community made for Chemistry Olympiad participants.</h2>
-				<h3 class="font-weight-light">Haven't joined the community yet? You can join <a class="text-link">here</a>.</h3>
+				<h3 class="font-weight-light">Haven't joined the community yet? You can join <a href="https://tinyurl.com/codsinvite" class="text-link">here</a>.</h3>
 
 				<p class="my-5"/>
 
@@ -217,7 +217,7 @@ const Home = () => {
 
 					<h3 class="font-weight-bold">What are you waiting for?</h3>
 					<br/>
-					<a href="https://google.com">
+					<a href="https://tinyurl.com/codsinvite">
 						<button type="button" class="btn btn-lg btn-primary">
 							<ChevronRightIcon size={24}/>
 							Join the Community!
