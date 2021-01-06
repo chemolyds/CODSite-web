@@ -31,7 +31,7 @@ const Home = () => {
 								<p class="card-text">Just getting into competitive Chemistry? Read this guide to have a proper start and avoiding common traps!</p>
 							</div>
 						</div>
-						<a href="/problems" class="stretched-link"/>
+						<a href="/guides/5fc28efe7186110017aa4fe0/5fc290677186110017aa500b" class="stretched-link"/>
 					</div>
 				</Card>
 				<br/>
@@ -46,7 +46,7 @@ const Home = () => {
 								<p class="card-text">Have no idea what IChO Prep problems you should tyr out? Read llamachemist's (2020 USA Team, IChO Gold) guide!</p>
 							</div>
 						</div>
-						<a href="/problems" class="stretched-link"/>
+						<a href="/guides/5fc28efe7186110017aa4fe0/5fc296147186110017aa5038" class="stretched-link"/>
 					</div>
 				</Card>
 				<br/>
@@ -61,7 +61,7 @@ const Home = () => {
 								<p class="card-text">Do you need notes to supplement your fundemental knowledge of chemistry? Click here to access our library of notes!</p>
 							</div>
 						</div>
-						<a href="/problems" class="stretched-link"/>
+						<a href="/notes" class="stretched-link"/>
 					</div>
 				</Card>
 			</>
@@ -166,7 +166,7 @@ const Home = () => {
 							<Card.Title class="h3 pt-3 mb-0 font-weight-bold">Lectures</Card.Title>
 							<Card.Body>
 								<p>We provide lectures for everyone, from introductory lectures to problem solving and advanced topic lectures. You can watch our lectures on our YouTube channel.</p>
-								<a href="https://google.com" class="stretched-link"/>
+								<a href="/guides/5fc28efe7186110017aa4fe0" class="stretched-link"/>
 							</Card.Body>
 						</Card>
 						<Card key="CODSNotes">
