@@ -99,14 +99,12 @@ const Home = () => {
 				</div>
 			</div>
 
-			<div class="container-fluid bg-light my-5 py-5">
+			<div class="container-fluid bg-light my-5 py-5 px-md-5">
 				<h2 class="font-weight-bold">CODS is a global community made for Chemistry Olympiad participants.</h2>
 				<h3 class="font-weight-light">Haven't joined the community yet? You can join <a class="text-link">here</a>.</h3>
-			</div>
 
-			<p class="my-5"/>
+				<p class="my-5"/>
 
-			<div class="container-fluid px-md-5">
 				<div class="mx-2 px-2 mx-md-5 px-md-5">
 					<h3 class="text-left font-weight-bold my-4">Our Mission is to make Competitive Chemistry more...</h3>
 					<div class="row">
@@ -123,9 +121,13 @@ const Home = () => {
 							<p>by leveling out the playing field of competitive chemistry, we hope to increase the standards of Chemistry Olympiads.</p>
 						</div>
 					</div>
+				</div>
+			</div>
 
-					<p class="my-5 pb-5"/>
+			
 
+			<div class="container-fluid px-md-5">
+				<div class="mx-2 px-2 mx-md-5 px-md-5">
 					<h3 class="text-left font-weight-bold my-4">What is CODSite for?</h3>
 					<p class="text-left">
 						CODSite is an all-purpose website made for our community (competitive Chemistry enthusiasts). 
