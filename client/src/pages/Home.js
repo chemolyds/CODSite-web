@@ -7,55 +7,64 @@ import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
 import Footer from '../components/Footer';
 
+//images
+import cods_banner from "../resources/cods_banner.png";
+import erlenmeyer from "../resources/erlenmeyer.png";
+import roundbottom from "../resources/roundbottom.png";
+import docs from "../resources/docs.png";
+
 const Home = () => {
 
-	const yellowSection = () => {
+	const MostFrequentlyUsed = () => {
 		return (
-		<>
-			<p class="text-left">Most Frequently Used</p>
-
-			<div class="card mb-3 mx-5" style={{"max-width": "540px"}}>
-				<div class="row no-gutters">
-					<div class="col-4 align-self-center">
-						<img src="https://via.placeholder.com/5x5" class="card-img"/>
-					</div>
-					<div class="col-8">
-						<div class="card-body text-left">
-							<h3 class="card-title">Introductory Guide</h3>
-							<p class="card-text">asdf1234</p>
+			<>
+				<h2 class="text-left text-weight-bold">Most Frequently Used</h2>
+				<br/>
+				<Card border="light">
+					<div class="row no-gutters">
+						<div class="col align-self-center px-2 py-2" style={{maxwidth: "205px"}}>
+							<img src={erlenmeyer} class="card-img"/>
 						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="card mb-3 mx-5" style={{"max-width": "540px"}}>
-				<div class="row no-gutters">
-					<div class="col-4 align-self-center">
-						<img src="https://via.placeholder.com/5x5" class="card-img"/>
-					</div>
-					<div class="col-8">
-						<div class="card-body text-left">
-							<h3 class="card-title">Introductory Guide</h3>
-							<p class="card-text">asdf1234</p>
+						<div class="col-10">
+							<div class="card-body text-left">
+								<h3 class="card-title">Introductory Guide</h3>
+								<p class="card-text">Just getting into competitive Chemistry? Read this guide to have a proper start and avoiding common traps!</p>
+							</div>
 						</div>
+						<a href="/problems" class="stretched-link"/>
 					</div>
-				</div>
-			</div>
-
-			<div class="card mb-3 mx-5" style={{"max-width": "540px"}}>
-				<div class="row no-gutters">
-					<div class="col-4 align-self-center">
-						<img src="https://via.placeholder.com/5x5" class="card-img"/>
-					</div>
-					<div class="col-8">
-						<div class="card-body text-left">
-							<h3 class="card-title">Introductory Guide</h3>
-							<p class="card-text">asdf1234</p>
+				</Card>
+				<br/>
+				<Card border="light">
+					<div class="row no-gutters">
+						<div class="col align-self-center px-2 py-2" style={{maxwidth: "205px"}}>
+							<img src={roundbottom} class="card-img"/>
 						</div>
+						<div class="col-10">
+							<div class="card-body text-left">
+								<h3 class="card-title">Intermediate Guide</h3>
+								<p class="card-text">Have no idea what IChO Prep problems you should tyr out? Read llamachemist's (2020 USA Team, IChO Gold) guide!</p>
+							</div>
+						</div>
+						<a href="/problems" class="stretched-link"/>
 					</div>
-				</div>
-			</div>
-		</>
+				</Card>
+				<br/>
+				<Card border="light">
+					<div class="row no-gutters">
+						<div class="col align-self-center px-2 py-2" style={{maxwidth: "205px"}}>
+							<img src={docs} class="card-img"/>
+						</div>
+						<div class="col-10">
+							<div class="card-body text-left">
+								<h3 class="card-title">CODSNotes</h3>
+								<p class="card-text">Do you need notes to supplement your fundemental knowledge of chemistry? Click here to access our library of notes!</p>
+							</div>
+						</div>
+						<a href="/problems" class="stretched-link"/>
+					</div>
+				</Card>
+			</>
 		)
 	}
 
@@ -64,12 +73,16 @@ const Home = () => {
 			
 			<NavBar page="Home"/>
 
-			<PageContents page="home"/>
+			{/*<PageContents page="home"/>*/}
+
+			<div container-fluid>
+				<img src={cods_banner}/>
+			</div>
 			
-			<div class="d-none d-md-inline container-fluid">
+			<div class="d-none d-md-inline container-fluid py-5">
 				<div class="row mx-5 px-5">
-					<div class="col-8 mx-2 px-2 border border-warning bg-light pt-2">
-						{yellowSection()}
+					<div class="col-8 mx-2 px-3 py-3 bg-light">
+						{MostFrequentlyUsed()}
 					</div>
 					<div class="col mx-2 px-2 border border-primary bg-light pt-2">
 						<p>asdf</p>
@@ -77,25 +90,25 @@ const Home = () => {
 				</div>
 			</div>
 
-			<div class="d-block d-sm-none container-fluid">
-				<div class="mx-2 px-2 my-4 border border-warning bg-light pt-2">
-					{yellowSection()}
+			<div class="d-block d-sm-none container-fluid py-5">
+				<div class="mx-2 px-2 my-4 bg-light pt-2">
+					{MostFrequentlyUsed()}
 				</div>
 				<div class="mx-2 px-2 my-4 border border-primary bg-light pt-2">
 					<p>asdf</p>
 				</div>
 			</div>
 
-			<div class="container-fluid bg-light py-5">
-				<h2 class="font-weight-bold">CODS is a global community made for Chemistry Olympiad participants</h2>
+			<div class="container-fluid bg-light my-5 py-5">
+				<h2 class="font-weight-bold">CODS is a global community made for Chemistry Olympiad participants.</h2>
 				<h3 class="font-weight-light">Haven't joined the community yet? You can join <a class="text-link">here</a>.</h3>
 			</div>
 
-			<br class="my-5"/>
+			<p class="my-5"/>
 
-			<div class="container-fluid">
+			<div class="container-fluid px-md-5">
 				<div class="mx-2 px-2 mx-md-5 px-md-5">
-					<h3 class="text-left font-weight-bold">Our Mission is to make Competitive Chemistry more...</h3>
+					<h3 class="text-left font-weight-bold my-4">Our Mission is to make Competitive Chemistry more...</h3>
 					<div class="row">
 						<div class="col-md text-left">
 							<h3>Accessible</h3>
@@ -110,17 +123,20 @@ const Home = () => {
 							<p>by leveling out the playing field of competitive chemistry, we hope to increase the standards of Chemistry Olympiads.</p>
 						</div>
 					</div>
-					<br class="my-5"/>
-					<h3 class="text-left font-weight-bold">What is CODSite for?</h3>
+
+					<p class="my-5 pb-5"/>
+
+					<h3 class="text-left font-weight-bold my-4">What is CODSite for?</h3>
 					<p class="text-left">
 						CODSite is an all-purpose website made for our community (competitive Chemistry enthusiasts). 
 						Everything on CODSite is free to use for anybody, no sign-ups or membership required. 
-						We provide custom <b>open educational resources (OER)</b> such as lectures, detailed notes, 
+						We provide custom <b>open educational resources</b> such as lectures, detailed notes, 
 						useful websites, problem sets, guides, tools, and all of our past competition papers. 
 						Anything a chemistry freak could dream of lies within this website.
 					</p>
 					<br class="my-5"/>
-					<h3 class="font-weight-bold">Open Educational Resources at CODS</h3>
+					<h3 class="font-weight-bold my-4">Open Educational Resources at CODS</h3>
+					<p class="my-5"/>
 					<CardDeck>
 						<Card key="Lectures">
 							<Card.Title class="h3 pt-3 mb-0 font-weight-bold">Lectures</Card.Title>
@@ -172,8 +188,11 @@ const Home = () => {
 							</Card.Body>
 						</Card>
 					</CardDeck>
-					<br class="my-5"/>
+
+					<p class="my-5 py-2"/>
+
 					<h3 class="font-weight-bold">What are you waiting for?</h3>
+					<br/>
 					<a href="https://google.com">
 						<button type="button" class="btn btn-lg btn-primary">
 							<ChevronRightIcon size={24}/>
