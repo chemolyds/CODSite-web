@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import jwt from "jsonwebtoken";
-import logo from '../usnco-server-icon.png';
+import logo from '../resources/cods_logo_white.png';
 
 const NavBar = (props) => {
 	const [hidden, setHidden] = useState({});
