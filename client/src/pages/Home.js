@@ -43,7 +43,7 @@ const Home = () => {
 						<div class="col-10">
 							<div class="card-body text-left">
 								<h3 class="card-title">Intermediate Guide</h3>
-								<p class="card-text">Have no idea what IChO Prep problems you should tyr out? Read llamachemist's (2020 USA Team, IChO Gold) guide!</p>
+								<p class="card-text">Have no idea what IChO Prep problems you should try out? Read llamachemist's (2020 USA Team, IChO Gold) guide!</p>
 							</div>
 						</div>
 						<a href="/guides/5fc28efe7186110017aa4fe0/5fc296147186110017aa5038" class="stretched-link"/>
