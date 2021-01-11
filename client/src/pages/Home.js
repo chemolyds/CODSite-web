@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Card, CardDeck} from 'react-bootstrap';
+import {Card, CardDeck, Carousel} from 'react-bootstrap';
 import {ChevronRightIcon} from "@primer/octicons-react";
 
 //Components
@@ -14,6 +14,12 @@ import roundbottom from "../resources/roundbottom.png";
 import docs from "../resources/docs.png";
 
 const Home = () => {
+
+	const [index, setIndex] = useState(0);
+
+	const handleSelect =(selectedIndex, e) => {
+		setIndex(selectedIndex);
+	};
 
 	const MostFrequentlyUsed = () => {
 		return (
@@ -83,11 +89,11 @@ const Home = () => {
 					<h2 class="text-left text-weight-bold">Recent News</h2>
 					<br class="my-5"/>
 					<Card border="border-e2">
-						<Card.Title class="h3 pt-2">Staff Message of 2021</Card.Title>
+						<Card.Title class="h3 pt-2">WCC Part I Resources</Card.Title>
 						<Card.Body style={{"padding-top": "0%"}}>
-							<p>Messages from our staff members, and 2021 Plans</p>
+							<p>Test results and competition materials are out!</p>
 						</Card.Body>
-						<a href="/about/5fe5531179ed6a4fccea5fab" class="stretched-link"/>
+						<a href="/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d" class="stretched-link"/>
 					</Card>
 				</div>
 			</>
@@ -165,7 +171,7 @@ const Home = () => {
 						Anything a chemistry freak could dream of lies within this website.
 					</p>
 					<br class="my-5"/>
-					<h3 class="font-weight-bold my-4">Open Educational Resources at CODS</h3>
+					<h3 class="font-weight-bold my-4">Open Educational Resources at CODSite</h3>
 					<p class="my-5"/>
 					<CardDeck>
 						<Card key="Lectures">
@@ -203,11 +209,11 @@ const Home = () => {
 							<Card.Title class="h3 pt-3 mb-0 font-weight-bold">Competitions</Card.Title>
 							<Card.Body>
 								<p>We also translate and compile high-quality questions from chemistry competitions all around the world. Click here to see our library of problem sets.</p>
-								<p class="my-0">Q1: STC (CODSCT)</p>
-								<p class="my-0">Q2: SChO (CODSChO)</p>
-								<p class="my-0">Q3: ACOT</p>
-								<p class="my-0">Q4: WCC</p>
-								<a href="/resources" class="stretched-link"/>
+								<p class="my-0">Q1: <a href="/about/5ff5da9321914a0017536d59/5ff5dce921914a0017536d5a" class="text-link">STC (CODSCT)</a></p>
+								<p class="my-0">Q2: <a href="/about/5ff5da9321914a0017536d59/5ff5f5c221914a0017536d5b" class="text-link">SChO (CODSChO)</a></p>
+								<p class="my-0">Q3: <a href="/about/5ff5da9321914a0017536d59/5ff5f5c221914a0017536d5b" class="text-link">ACOT</a></p>
+								<p class="my-0">Q4: <a href="/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d" class="text-link">WCC</a></p>
+
 							</Card.Body>
 						</Card>
 						<Card key="Problem Sets">
@@ -219,21 +225,79 @@ const Home = () => {
 						</Card>
 					</CardDeck>
 
+					<p class="my-4 py-3"></p>
+
+					<h3 class="text-left font-weight-bold my-4">What is CODServer for?</h3>
+					<p class="text-left">
+						CODServer is a global community on Discord to discuss with your friends, rant about exams, and have fun! We also hold <b>live lectures</b> and <b>competitions</b> on Discord.
+					</p>
+					<br class="my-5"/>
+					<h1 class="font-weight-bold my-4">Features of CODServer</h1>
+					<p class="my-3"/>
+
+					<div class="mx-2 px-2 mx-md-5 px-md-5">
+					<Carousel activeIndex={index} onSelect={handleSelect}>
+                        <Carousel.Item>
+                        <img src="https://i.imgur.com/EwPy9Rm.png" class="d-block w-100"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="font-weight-bold">Study Topics</h5>
+                            <p>with six study topics ranging from organic chemistry to analytical chemistry, you can discuss with our community members about all chemistry topics.</p>
+                        </div>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                        <img src="https://i.imgur.com/CpXQJXi.png" class="d-block w-100"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="font-weight-bold">Chemistry Help</h5>
+                            <p> Have any questions about chemistry? Feel free to ask here! If you have a question about past tests, you can use Lavoisier to summon questions at command.</p>
+                        </div>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                        <img src="https://i.imgur.com/kiHiVL1.png" class="d-block w-100"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="font-weight-bold">Book Club</h5>
+                            <p>Have a chemistry book you’re reading? Join our book clubs and talk with other members of our community about your journey!</p>
+                        </div>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                        <img src="https://i.imgur.com/d4EyEGB.png" class="d-block w-100"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="font-weight-bold">Bots</h5>
+                            <p>We have bots on the server to amplify your experience at CODS. If you’re feeling bored, you can have Lavoisier pick a random problem, or you could pick a playlist if you’re up for a challenge.</p>
+                        </div>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                        <img src="https://i.imgur.com/oo3oAVN.png" class="d-block w-100"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="font-weight-bold">Competitions</h5>
+                            <p>All of our competitions are held on Discord. You can learn more about them in our About section!</p>
+                        </div>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                        <img src="https://i.imgur.com/faTtNn4.png" class="d-block w-100"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="font-weight-bold">Fun</h5>
+                            <p>A community wouldn’t be a community without some fun. Here at CODS, we have a lot of interaction between the staff and the community and make the worse chemistry jokes and debate about tea vs. coffee every day.</p>
+                        </div>
+                        </Carousel.Item>
+						
+
+                    </Carousel>
+					</div>
+
 					<p class="my-5 py-2"/>
 
 					<h3 class="font-weight-bold">What are you waiting for?</h3>
 					<br/>
 					<a href="https://tinyurl.com/codsinvite">
 						<button type="button" class="btn btn-lg btn-primary">
-							<ChevronRightIcon size={24}/>
 							Join the Community!
 						</button>
 					</a>
 				</div>
-			</div>
+				</div>
 
 			<Footer/>
-		</div>
+			</div>
 	)
 }
 
