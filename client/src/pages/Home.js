@@ -235,8 +235,10 @@ const Home = () => {
 					<h1 class="font-weight-bold my-4">Features of CODServer</h1>
 					<p class="my-3"/>
 
-					<div class="mx-2 px-2 mx-md-5 px-md-5">
-						<Carousel activeIndex={index} onSelect={handleSelect}>
+					<div class="row mx-2 px-2">
+						<div class="col-md-3"/>
+						<div class="col-md">
+						<Carousel activeIndex={index} onSelect={handleSelect} style={{"margin-left": "auto", "margin-right": "auto"}}>
 							<Carousel.Item>
 								<img src="https://i.imgur.com/ISTvSZ9.png" class="d-block w-100"/>
 								<div class="carousel-caption d-none d-md-block">
@@ -280,6 +282,8 @@ const Home = () => {
 								</div>
 							</Carousel.Item>
 						</Carousel>
+						</div>
+						<div class="col-md-3"/>
 					</div>
 
 					<p class="my-5 py-2"/>
