@@ -9,6 +9,11 @@
 	src: url("./resources/OpenSans-Light.ttf");
 }
 
+@font-face {
+	font-family: Raleway;
+	src: url("./resources/Raleway-VariableFont_wght.ttf")
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -64,7 +69,7 @@ h1, h2, h3 {
 
 /* Change Text font */
 p, a, li, div {
-	font-family: OpenSans-Light;
+	font-family: "Raleway", sans-serif;
 }
 
 /* Custom gray background */
