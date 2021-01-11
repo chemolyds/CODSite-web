@@ -236,52 +236,50 @@ const Home = () => {
 					<p class="my-3"/>
 
 					<div class="mx-2 px-2 mx-md-5 px-md-5">
-					<Carousel activeIndex={index} onSelect={handleSelect}>
-                        <Carousel.Item>
-                        <img src="https://i.imgur.com/ISTvSZ9.png" class="d-block w-100"/>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="font-weight-bold">Study Topics</h5>
-                            <p>with six study topics ranging from organic chemistry to analytical chemistry, you can discuss with our community members about all chemistry topics.</p>
-                        </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                        <img src="https://i.imgur.com/oXkF2NT.png" class="d-block w-100"/>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="font-weight-bold">Chemistry Help</h5>
-                            <p> Have any questions about chemistry? Feel free to ask here! If you have a question about past tests, you can use Lavoisier to summon questions at command.</p>
-                        </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                        <img src="https://i.imgur.com/mFj0bfz.png" class="d-block w-100"/>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="font-weight-bold">Book Club</h5>
-                            <p>Have a chemistry book you’re reading? Join our book clubs and talk with other members of our community about your journey!</p>
-                        </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                        <img src="https://i.imgur.com/oupjuzL.png" class="d-block w-100"/>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="font-weight-bold">Bots</h5>
-                            <p>We have bots on the server to amplify your experience at CODS. If you’re feeling bored, you can have Lavoisier pick a random problem, or you could pick a playlist if you’re up for a challenge.</p>
-                        </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                        <img src="https://i.imgur.com/XyDvWF7.png" class="d-block w-100"/>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="font-weight-bold">Competitions</h5>
-                            <p>All of our competitions are held on Discord. You can learn more about them in our About section!</p>
-                        </div>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                        <img src="https://i.imgur.com/74NEfGP.png" class="d-block w-100"/>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="font-weight-bold">Fun</h5>
-                            <p>A community wouldn’t be a community without some fun. Here at CODS, we have a lot of interaction between the staff and the community and make the worse chemistry jokes and debate about tea vs. coffee every day.</p>
-                        </div>
-                        </Carousel.Item>
-						
-
-                    </Carousel>
+						<Carousel activeIndex={index} onSelect={handleSelect}>
+							<Carousel.Item>
+								<img src="https://i.imgur.com/ISTvSZ9.png" class="d-block w-100"/>
+								<div class="carousel-caption d-none d-md-block">
+									<h5 class="font-weight-bold">Study Topics</h5>
+									<p>with six study topics ranging from organic chemistry to analytical chemistry, you can discuss with our community members about all chemistry topics.</p>
+								</div>
+							</Carousel.Item>
+							<Carousel.Item>
+								<img src="https://i.imgur.com/oXkF2NT.png" class="d-block w-100"/>
+								<div class="carousel-caption d-none d-md-block">
+									<h5 class="font-weight-bold">Chemistry Help</h5>
+									<p> Have any questions about chemistry? Feel free to ask here! If you have a question about past tests, you can use Lavoisier to summon questions at command.</p>
+								</div>
+							</Carousel.Item>
+							<Carousel.Item>
+								<img src="https://i.imgur.com/mFj0bfz.png" class="d-block w-100"/>
+								<div class="carousel-caption d-none d-md-block">
+									<h5 class="font-weight-bold">Book Club</h5>
+									<p>Have a chemistry book you’re reading? Join our book clubs and talk with other members of our community about your journey!</p>
+								</div>
+							</Carousel.Item>
+							<Carousel.Item>
+								<img src="https://i.imgur.com/oupjuzL.png" class="d-block w-100"/>
+								<div class="carousel-caption d-none d-md-block">
+									<h5 class="font-weight-bold">Bots</h5>
+									<p>We have bots on the server to amplify your experience at CODS. If you’re feeling bored, you can have Lavoisier pick a random problem, or you could pick a playlist if you’re up for a challenge.</p>
+								</div>
+							</Carousel.Item>
+							<Carousel.Item>
+								<img src="https://i.imgur.com/XyDvWF7.png" class="d-block w-100"/>
+								<div class="carousel-caption d-none d-md-block">
+									<h5 class="font-weight-bold">Competitions</h5>
+									<p>All of our competitions are held on Discord. You can learn more about them in our About section!</p>
+								</div>
+							</Carousel.Item>
+							<Carousel.Item>
+								<img src="https://i.imgur.com/74NEfGP.png" class="d-block w-100"/>
+								<div class="carousel-caption d-none d-md-block">
+									<h5 class="font-weight-bold">Fun</h5>
+									<p>A community wouldn’t be a community without some fun. Here at CODS, we have a lot of interaction between the staff and the community and make the worse chemistry jokes and debate about tea vs. coffee every day.</p>
+								</div>
+							</Carousel.Item>
+						</Carousel>
 					</div>
 
 					<p class="my-5 py-2"/>
@@ -294,10 +292,10 @@ const Home = () => {
 						</button>
 					</a>
 				</div>
-				</div>
+			</div>
 
 			<Footer/>
-			</div>
+		</div>
 	)
 }
 
