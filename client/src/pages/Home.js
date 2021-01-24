@@ -89,9 +89,9 @@ const Home = () => {
 					<h2 class="text-left text-weight-bold">Recent News</h2>
 					<br class="my-5"/>
 					<Card border="border-e2">
-						<Card.Title class="h3 pt-2">WCC Part I Resources</Card.Title>
+						<Card.Title class="h3 pt-2">WCC Results and Statistics are out!</Card.Title>
 						<Card.Body style={{"padding-top": "0%"}}>
-							<p>Test results and competition materials are out!</p>
+							<p>All of the test materials have also been publicly released. Click here for more information.</p>
 						</Card.Body>
 						<a href="/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d" class="stretched-link"/>
 					</Card>
