@@ -44,7 +44,8 @@
     "react-three-fiber": "^4.0.28",
     "request": "^2.88.2",
     "root": "^3.2.0",
-    "semver": "^7.1.3"
+    "semver": "^7.1.3",
+    "start": "^5.1.0"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.1.5",
