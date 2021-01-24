@@ -208,7 +208,7 @@ const Home = () => {
 						<Card key="Competitions">
 							<Card.Title class="h3 pt-3 mb-0 font-weight-bold">Competitions</Card.Title>
 							<Card.Body>
-								<p>We also translate and compile high-quality questions from chemistry competitions all around the world. Click here to see our library of problem sets.</p>
+								<p>We provide four annual chemistry competitions for anyone to participate. For more information:</p>
 								<p class="my-0">Q1: <a href="/about/5ff5da9321914a0017536d59/5ff5dce921914a0017536d5a" class="text-link">STC (CODSCT)</a></p>
 								<p class="my-0">Q2: <a href="/about/5ff5da9321914a0017536d59/5ff5f5c221914a0017536d5b" class="text-link">SChO (CODSChO)</a></p>
 								<p class="my-0">Q3: <a href="/about/5ff5da9321914a0017536d59/5ff5f5c221914a0017536d5b" class="text-link">ACOT</a></p>
