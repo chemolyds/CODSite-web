@@ -70,7 +70,20 @@ const Footer = (props) => {
 						</ul>
 					</nav>
 				</div>
-				<p class="text-muted smoller mb-0 pb-2 pb-md-5"><i>-Chemistry Olympiads Discord Server-</i></p>
+				<p class="text-white smoller mb-0">
+					CODSite was made by our community and staff members on the CODServer. If you would like to contribute, visit our <a href="https://github.com/ISODN/CODSite-web">Github</a>.
+				</p>
+				<p class="text-white-50 smoller mb-0">
+					For inquiries, click <a href="about">here</a>. For donations, click <a href="https://www.patreon.com/codsite">here</a>.
+				</p>
+				<p class="text-white smoll mb-0 pb-2 pb-md-5 font-weight-bold">
+					-
+					<span style={{"color": "#e70011"}}> C</span>
+					<span style={{"color": "#f9be00"}}>O</span>
+					<span style={{"color": "#009c44"}}>D</span>
+					<span style={{"color": "#1055bd"}}>S </span>
+					-
+				</p>
 			</div>
 		</>
 	);
