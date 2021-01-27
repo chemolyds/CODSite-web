@@ -19,6 +19,11 @@
 	src: url("./resources/Raleway-Black.ttf")
 }
 
+@font-face {
+	font-family: Raleway-Bold;
+	src: url("./resources/Raleway-Bold.ttf")
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -68,8 +73,12 @@ table th {
 }
 
 /* Change Heading font */
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
 	font-family: Raleway-Black;
+}
+
+h3, h4, h5, h6 {
+	font-family: Raleway-Bold;
 }
 
 /* Change Text font */
