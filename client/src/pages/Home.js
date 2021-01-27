@@ -24,7 +24,7 @@ const Home = () => {
 	const MostFrequentlyUsed = () => {
 		return (
 			<>
-				<h2 class="text-left text-weight-bold">Most Frequently Used</h2>
+				<h2 class="text-left" style={{"font-family": "Raleway-Bold"}}>Most Frequently Used</h2>
 				<br/>
 				<Card border="light">
 					<div class="row no-gutters">
@@ -77,24 +77,33 @@ const Home = () => {
 	const blueSection = () => {
 		return (
 			<>
-				<div class="bg-e2 py-2 px-2">
-					<h2 class="text-left text-weight-bold">Recommended by Staff</h2>
-					<br class="my-5"/>
+				<div class="py-2 px-2">
+					<h2 class="text-left" style={{"font-family": "Raleway-Bold"}}>Recommended by Staff</h2>
+					<hr/>
 					<Card border="border-e2">
 						<embed type="video/webm" height="300" src="https://www.youtube.com/embed/videoseries?list=PLmcn3B80rhSq_jc58knX_XSE4oB08GyDB"/>
 					</Card>
 				</div>
 				<br/>
-				<div class="bg-e2 py-2 px-2">
-					<h2 class="text-left text-weight-bold">Recent News</h2>
-					<br class="my-5"/>
-					<Card border="border-e2">
-						<Card.Title class="h3 pt-2">WCC Results</Card.Title>
-						<Card.Body style={{"padding-top": "0%"}}>
+				<div class="py-2 px-2">
+					<h2 class="text-left" style={{"font-family": "Raleway-Bold"}}>Recent News</h2>
+					<hr/>
+					{/*
+					<Card border="white" class="text-left">
+						<Card.Title class="h3 pt-2 text-left">WCC Results</Card.Title>
+						<Card.Body class="text-left" style={{"padding-top": "0%"}}>
 							<p>All of our testing materials for the Winter Chemistry Competition have been released. This includes detailed statistics, our thoughts, results, etc. Check it out now!</p>
 						</Card.Body>
 						<a href="/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d" class="stretched-link"/>
 					</Card>
+					*/}
+					<li class="text-left">
+						<ui class="h5">
+							All of our testing materials for the Winter Chemistry Competition have been released
+							. This includes detailed statistics, our thoughts, results, etc
+							. Check it out <a href="http://chem.isodn.org/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d">here</a>!
+						</ui>
+					</li>
 				</div>
 			</>
 		)
@@ -135,7 +144,7 @@ const Home = () => {
 
 			<div class="container-fluid bg-e2 my-5 py-5 px-md-5">
 				<h2 class="font-weight-bold">CODS is a global community made for Chemistry Olympiad participants.</h2>
-				<h3 class="font-weight-light">Haven't joined the community yet? You can join <a href="https://tinyurl.com/codsinvite" class="text-link">here</a>.</h3>
+				<h3 style={{"font-family": "Raleway"}}>Haven't joined the community yet? You can join <a href="https://tinyurl.com/codsinvite" class="text-link">here</a>.</h3>
 
 				<p class="my-5 py-2"/>
 
@@ -209,7 +218,7 @@ const Home = () => {
 							<Card.Title class="h3 pt-3 mb-0 font-weight-bold">Competitions</Card.Title>
 							<Card.Body>
 								<p>We provide four annual chemistry competitions for anyone to participate. For more information:</p>
-								<p class="my-0">Q1: <a href="/about/5ff5da9321914a0017536d59/5ff5dce921914a0017536d5a" class="text-link">STC (CODSCT)</a></p>
+								<p class="my-0">Q1: <a href="/about/5ff5da9321914a0017536d59/5ff5dce921914a0017536d5a" class="text-link">SOCC</a></p>
 								<p class="my-0">Q2: <a href="/about/5ff5da9321914a0017536d59/5ff5f5c221914a0017536d5b" class="text-link">SChO (CODSChO)</a></p>
 								<p class="my-0">Q3: <a href="/about/5ff5da9321914a0017536d59/5ff5f5c221914a0017536d5b" class="text-link">ACOT</a></p>
 								<p class="my-0">Q4: <a href="/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d" class="text-link">WCC</a></p>
