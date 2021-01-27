@@ -7,6 +7,7 @@ import NavBar from '../components/NavBar';
 import PageContents from '../components/PageContents';
 import ListFAQs from '../components/ListFAQs';
 import Footer from '../components/Footer';
+import {ArrowLeftIcon} from '@primer/octicons-react';
 
 //FAQ Components
 import CreateFAQ from '../components/CreateFAQ';
@@ -111,7 +112,16 @@ const FAQ = ({match, location}) => {
 							!match.params['question'] ?
 								<></>
 							:
-								<h1><a class="link-primary" href="/FAQ">Back to home</a></h1>
+							<div class="row">
+								<Link to={`/FAQ`} class="col-3">
+									<p class="py-1"/>
+									<button class="row btn px-1 py-1 mx-2">
+										<ArrowLeftIcon size="medium"/>
+										<span class="mx-1 h3">Back</span>
+									</button>
+								</Link>
+								<div class="col-3"/>
+							</div>
 						}
 					</div>
 				</div>
