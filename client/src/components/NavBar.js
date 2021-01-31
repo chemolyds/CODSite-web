@@ -35,6 +35,7 @@ const NavBar = (props) => {
 				{(isAdmin || !hidden["nap"]) ? <li class={setActivePageHighlight("NAP")}><a class="nav-link" href="/notes">Notes</a></li> : <></>}
 				{(isAdmin || !hidden["Guides"]) ? <li class={setActivePageHighlight("Guides")}><a class="nav-link" href="/guides">Guides</a></li> : <></>}
 				{(isAdmin || !hidden["Resources"]) ? <li class={setActivePageHighlight("Resources")}><a class="nav-link" href="/resources">Resources</a></li> : <></>}
+				{(isAdmin || !hidden["competitions"]) ? <li class={setActivePageHighlight("Competitions")}><a class="nav-link" href="/competitions">Competitions</a></li> : <></>}
 				{(isAdmin || !hidden["about"]) ? <li class={setActivePageHighlight("About")}><a class="nav-link" href="/about">About</a></li> : <></>}
 			</>
 		)

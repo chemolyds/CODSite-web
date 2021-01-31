@@ -12,7 +12,7 @@ const Competitions = () => {
 		<div className="App">
 			<NavBar page="Competitions"/>
 
-			<PageContents page="about"/>
+			<PageContents page="Competitions"/>
 			<ListCompetitions/>
 
 			<Footer/>

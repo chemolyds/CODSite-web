@@ -50,10 +50,10 @@ const ListCompetitions = (props) => {
 
 	useEffect(() => {
 			axios.get(`/api/competitions/get_competitions`)
-				.then(res => {setCompetitionss(res.data)});
+				.then(res => {setCompetitions(res.data)});
 	}, []);
 
-	const CompetitionsList = Competitionss.map(competitions => {
+	const CompetitionsList = Competitions.map(competitions => {
 		return (
 			<Card key={competitions._id}>
 				<Card.Img variant="top" src={competitions.thumbnail} />
@@ -83,4 +83,4 @@ const ListCompetitions = (props) => {
 	)
 }
 
-export default ListCompetitionss;
+export default ListCompetitions;
