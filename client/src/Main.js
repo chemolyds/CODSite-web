@@ -16,6 +16,10 @@ import GuidePage from './pages/GuidePage';
 import GuideSubpage from './pages/GuideSubpage';
 import NAP from './pages/NAP';
 import Resources from './pages/Resources';
+//Competitions
+import Competitions from './pages/Competitions';
+import CompetitionsPage from './pages/CompetitionsPage';
+import CompetitionsSubpage from './pages/CompetitionsSubpage';
 
 //the main axios thing will go here lol idk why
 axios.defaults.headers.common['Authorization'] = localStorage.getItem("user_logged");
@@ -36,6 +40,9 @@ const Main = () => {
 					<Route exact path='/about/:aboutID/:subpageID' component={AboutSubpage}/>
 			<Route exact path='/notes' component={NAP}/>
 			<Route exact path='/resources' component={Resources}/>
+			<Route exact path='/competitions' component={Competitions}/>
+				<Route exact path='/competitions/:competitions' component={CompetitionsPage}/>
+					<Route exact path='/competitions/:competitionsID/:subpageID' component={CompetitionsSubpage}/>
 
 			<Route exact path='/404' component={PageNotFound}/>
 			<Route component={PageNotFound}/>

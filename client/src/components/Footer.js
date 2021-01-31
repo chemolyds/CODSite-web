@@ -25,6 +25,7 @@ const Footer = (props) => {
 				{(isAdmin || !hidden["nap"]) ? <li><a class="nav-link" href="/nap">NAP</a></li> : <></>}
 				{(isAdmin || !hidden["Guides"]) ? <li><a class="nav-link" href="/guides">Guides</a></li> : <></>}
 				{(isAdmin || !hidden["Resources"]) ? <li><a class="nav-link" href="/resources">Resources</a></li> : <></>}
+				{(isAdmin || !hidden["competitions"]) ? <li><a class="nav-link" href="/competitions">Competitions</a></li> : <></>}
 				{(isAdmin || !hidden["about"]) ? <li><a class="nav-link" href="/about">About</a></li> : <></>}
 			</>
 		)
