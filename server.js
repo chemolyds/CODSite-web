@@ -15,6 +15,7 @@ import napRouter from './server/routes/napRouter.js';
 import resourceRouter from './server/routes/resourceRouter.js';
 import guideRouter from './server/routes/guideRouter.js';
 import aboutRouter from './server/routes/aboutRouter.js';
+import competitionsRouter from './server/routes/competitionsRouter.js';
 
 const app = express();
 
@@ -53,6 +54,7 @@ app.use('/api/admin/', adminRouter);
 app.use('/api/nap/', napRouter);
 app.use('/api/resources/', resourceRouter);
 app.use('/api/guide', guideRouter);
+app.use('/api/competitions', competitionsRouter);
 app.use('/api/about', aboutRouter);
 
 app.all('/*', (req, res) => {
