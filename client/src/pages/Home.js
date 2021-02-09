@@ -81,7 +81,7 @@ const Home = () => {
 					<h2 class="text-left" style={{"font-family": "Raleway-Bold"}}>Recommended by Staff</h2>
 					<hr/>
 					<Card border="border-e2">
-						<div class="container">
+						<div class="vidcontain">
 							<embed type="video/webm" class="video" src="https://www.youtube.com/embed/videoseries?list=PLmcn3B80rhSq_jc58knX_XSE4oB08GyDB"/>
 						</div>
 					</Card>
