@@ -34,10 +34,10 @@ const Home = () => {
 						<div class="col-10">
 							<div class="card-body text-left">
 								<h3 class="card-title">Introductory Guide</h3>
-								<p class="card-text">Just getting into competitive Chemistry? Read this guide to have a proper start and avoiding common traps!</p>
+								<p class="card-text">Want to get into Competitive Chemistry? Start here.</p>
 							</div>
 						</div>
-						<a href="/guides/5fc28efe7186110017aa4fe0/5fc290677186110017aa500b" class="stretched-link"/>
+						<a href="/guides/6022346ca4789c00179f9522" class="stretched-link"/>
 					</div>
 				</Card>
 				<br/>
@@ -49,10 +49,10 @@ const Home = () => {
 						<div class="col-10">
 							<div class="card-body text-left">
 								<h3 class="card-title">Intermediate Guide</h3>
-								<p class="card-text">Have no idea what IChO Prep problems you should try out? Read llamachemist's (2020 USA Team, IChO Gold) guide!</p>
+								<p class="card-text">Have no idea what IChO Prep problems you should try out? Start here.</p>
 							</div>
 						</div>
-						<a href="/guides/5fc28efe7186110017aa4fe0/5fc296147186110017aa5038" class="stretched-link"/>
+						<a href="/guides/60224e575ea64a0017a1245c" class="stretched-link"/>
 					</div>
 				</Card>
 				<br/>
@@ -81,7 +81,9 @@ const Home = () => {
 					<h2 class="text-left" style={{"font-family": "Raleway-Bold"}}>Recommended by Staff</h2>
 					<hr/>
 					<Card border="border-e2">
-						<embed type="video/webm" height="300" src="https://www.youtube.com/embed/videoseries?list=PLmcn3B80rhSq_jc58knX_XSE4oB08GyDB"/>
+						<div class="container">
+							<embed type="video/webm" class="video" src="https://www.youtube.com/embed/videoseries?list=PLmcn3B80rhSq_jc58knX_XSE4oB08GyDB"/>
+						</div>
 					</Card>
 				</div>
 				<br/>
@@ -99,9 +101,17 @@ const Home = () => {
 					*/}
 					<li class="text-left">
 						<ui class="h5">
-							All of our testing materials for the Winter Chemistry Competition have been released
-							. This includes detailed statistics, our thoughts, results, etc
-							. Check it out <a href="http://chem.isodn.org/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d">here</a>!
+							All of our testing materials for the Winter Chemistry Competition have been released. This includes detailed statistics, our thoughts, results, etc. Check it out <a href="http://chem.isodn.org/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d">here</a>!
+						</ui>
+					</li>
+					<li class="text-left">
+						<ui class="h5">
+							We've recently revamped our introductory guides to make it appliciable for a wider audience. Check it out <a href="https://chemistry.isodn.org/guides/6022346ca4789c00179f9522">here</a>!
+						</ui>
+					</li>
+					<li class="text-left">
+						<ui class="h5">
+							The Spring Open Chemistry Competition (SOCC) sign-ups are open until March 1st.
 						</ui>
 					</li>
 				</div>
@@ -218,10 +228,10 @@ const Home = () => {
 							<Card.Title class="h3 pt-3 mb-0 font-weight-bold">Competitions</Card.Title>
 							<Card.Body>
 								<p>We provide four annual chemistry competitions for anyone to participate. For more information:</p>
-								<p class="my-0">Q1: <a href="/about/5ff5da9321914a0017536d59/5ff5dce921914a0017536d5a" class="text-link">SOCC</a></p>
-								<p class="my-0">Q2: <a href="/about/5ff5da9321914a0017536d59/5ff5f5c221914a0017536d5b" class="text-link">SChO (CODSChO)</a></p>
-								<p class="my-0">Q3: <a href="/about/5ff5da9321914a0017536d59/5ff5f5c221914a0017536d5b" class="text-link">ACOT</a></p>
-								<p class="my-0">Q4: <a href="/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d" class="text-link">WCC</a></p>
+								<p class="my-0">Q1: <a href="/competitions/6019788e0f948d0017a40993" class="text-link">SOCC</a></p>
+								<p class="my-0">Q2: <a href="/competitions/601979c50f948d0017a40995" class="text-link">SChO (CODSChO)</a></p>
+								<p class="my-0">Q3: <a href="/competitions/601979f80f948d0017a40996" class="text-link">ACOT</a></p>
+								<p class="my-0">Q4: <a href="/competitions/60197a320f948d0017a40997" class="text-link">WCC</a></p>
 
 							</Card.Body>
 						</Card>
