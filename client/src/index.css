@@ -24,6 +24,8 @@
 	src: url("./resources/Raleway-Bold.ttf")
 }
 
+/* Extra small devices (portrait phones, less than 576px) */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -73,11 +75,12 @@ table th {
 }
 
 /* Change Heading font */
-h1, h2 {
+h1 {
 	font-family: Raleway-Black;
+
 }
 
-h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
 	font-family: Raleway-Bold;
 }
 
@@ -133,7 +136,7 @@ img {
     height: 0;
     padding-bottom: 56.25%;
 }
-.video {
+.videobox {
     position: absolute;
     top: 0;
     left: 0;

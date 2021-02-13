@@ -48,7 +48,7 @@ const Home = () => {
 						</div>
 						<div class="col-10">
 							<div class="card-body text-left">
-								<h3 class="card-title">Intermediate Guide</h3>
+								<h3 class="card-title">Advanced Guide</h3>
 								<p class="card-text">Have no idea what IChO Prep problems you should try out? Start here.</p>
 							</div>
 						</div>
@@ -82,7 +82,7 @@ const Home = () => {
 					<hr/>
 					<Card border="border-e2">
 						<div class="vidcontain">
-							<embed type="video/webm" class="video" src="https://www.youtube.com/embed/videoseries?list=PLmcn3B80rhSq_jc58knX_XSE4oB08GyDB"/>
+							<embed type="video/webm" class="videobox" src="https://www.youtube.com/embed/videoseries?list=PLmcn3B80rhSq_jc58knX_XSE4oB08GyDB"/>
 						</div>
 					</Card>
 				</div>
