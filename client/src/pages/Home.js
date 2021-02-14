@@ -197,7 +197,7 @@ const Home = () => {
 							<Card.Title class="h3 pt-3 mb-0 font-weight-bold">Lectures</Card.Title>
 							<Card.Body>
 								<p>We provide lectures for everyone, from introductory lectures to problem solving and advanced topic lectures. You can watch our lectures on our YouTube channel.</p>
-								<a href="/guides/5fc28efe7186110017aa4fe0" class="stretched-link"/>
+								<a href="https://www.youtube.com/channel/UCyO5Wn2qKDRYWC-F5EfN2kA" class="stretched-link"/>
 							</Card.Body>
 						</Card>
 						<Card key="CODSNotes">
