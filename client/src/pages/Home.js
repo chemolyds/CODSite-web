@@ -101,17 +101,22 @@ const Home = () => {
 					*/}
 					<li class="text-left">
 						<ui class="h5">
-							All of our testing materials for the Winter Chemistry Competition have been released. This includes detailed statistics, our thoughts, results, etc. Check it out <a href="http://chem.isodn.org/about/5ff5da9321914a0017536d59/5ff6083521914a0017536d5d">here</a>!
+							We are currently working on becoming a non-profit organization!
 						</ui>
 					</li>
 					<li class="text-left">
 						<ui class="h5">
-							We've recently revamped our introductory guides to make it appliciable for a wider audience. Check it out <a href="https://chemistry.isodn.org/guides/6022346ca4789c00179f9522">here</a>!
+							We've recently revamped our introductory guides to make it appliciable for a wider audience. Check it out <a href="https://chemistry.isodn.org/guides/6022346ca4789c00179f9522">here</a>. In addition, CODSNotes Section 6 has been released.
 						</ui>
 					</li>
 					<li class="text-left">
 						<ui class="h5">
 							The Spring Open Chemistry Competition (SOCC) sign-ups are open until March 1st.
+						</ui>
+					</li>
+					<li class="text-left">
+						<ui class="h5">
+							We are working on translating Chinese and Russian Chemistry Olympiads and creating a community solution manual for 2021 IChO Preparatory problems. Join our Discord for more information.
 						</ui>
 					</li>
 				</div>
