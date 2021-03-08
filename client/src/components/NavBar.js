@@ -75,7 +75,7 @@ const NavBar = (props) => {
 				</nav>
 			</div>
 
-			<div class="d-flex d-sm-none container-fluid navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+			<div class="d-flex d-md-none container-fluid navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
 				<button class="navbar-toggler" type="button" onClick={toggleNavbar}>
 					<span class="navbar-toggler-icon"></span>
 				</button>
