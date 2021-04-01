@@ -101,7 +101,7 @@ const Home = () => {
 					*/}
 					<li class="text-left">
 						<ui class="h5">
-							We are currently working on becoming a non-profit organization!
+							Here is our 2021 USNCO Locals Detailed explanations for the most trickiest questions. Check it out <a href="https://tinyurl.com/usncolocals2021sol">here</a>.
 						</ui>
 					</li>
 					<li class="text-left">
