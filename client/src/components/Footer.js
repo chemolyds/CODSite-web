@@ -75,7 +75,7 @@ const Footer = (props) => {
 					CODSite was made by our community and staff members on the CODServer. If you would like to contribute, visit our <a href="https://github.com/ISODN/CODSite-web">Github</a>.
 				</p>
 				<p class="text-white-50 smoller mb-0">
-					For inquiries, click <a href="about">here</a>. For donations, click <a href="https://www.patreon.com/codsite">here</a>.
+					For inquiries, click <a href="about">here</a>. For donations, paypal <b>chemolyds@gmail.com</b>.
 				</p>
 				<p class="text-white smoll mb-0 pb-2 pb-md-5 font-weight-bold">
 					-
