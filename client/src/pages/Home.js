@@ -101,7 +101,7 @@ const Home = () => {
 					*/}
 					<li class="text-left">
 						<ui class="h5">
-							Here is our 2021 USNCO Locals Detailed explanations for the most trickiest questions. Check it out <a href="https://tinyurl.com/usncolocals2021sol">here</a>.
+							SChO sign-ups are open! We are providing three levels of competition this year, from beginner to expert. Check it out <a href="https://chemistry.isodn.org/competitions/601979c50f948d0017a40995">here</a>.
 						</ui>
 					</li>
 					<li class="text-left">
@@ -111,15 +111,18 @@ const Home = () => {
 					</li>
 					<li class="text-left">
 						<ui class="h5">
-							The Spring Open Chemistry Competition (SOCC) sign-ups are open until March 1st.
+						Here is our 2021 USNCO Locals Detailed explanations for the most trickiest questions. Check it out <a href="https://tinyurl.com/usncolocals2021sol">here</a>. We will be releasing our national annotations soon.
 						</ui>
 					</li>
 					<li class="text-left">
 						<ui class="h5">
-							We are working on translating Chinese and Russian Chemistry Olympiads and creating a community solution manual for 2021 IChO Preparatory problems. Join our Discord for more information.
+							Competitions and Guides for CODS will be changing significantly over the summer. Read more about our new competition structure <a href="https://tinyurl.com/CODSCompGuide">here</a>. If you'd like to contribute to our project, please contact fizzest#0001.
 						</ui>
 					</li>
 				</div>
+			</>
+		)
+	}
 			</>
 		)
 	}
